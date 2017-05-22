@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>NewsletterProvider list</h1>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Value</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for newsletterProvider in newsletterProviders %}
+            <tr>
+                <td><a href="{{ path('newsletterprovider_show', { 'id': newsletterProvider.id }) }}">{{ newsletterProvider.name }}</a></td>
+                <td>{{ newsletterProvider.value }}</td>
+                <td>{{ newsletterProvider.id }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('newsletterprovider_show', { 'id': newsletterProvider.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('newsletterprovider_edit', { 'id': newsletterProvider.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('newsletterprovider_new') }}" class="btn btn-info">Ajouter un fournisseur de newsletter</a>
+{% endblock %}

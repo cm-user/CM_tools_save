@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Liste des produits du carrousel</h1>
+
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for carouselProduct in carouselProducts %}
+            <tr>
+                <td>{{ carouselProduct.id }}</td>
+                <td><a href="{{ path('carousel_picture_show', { 'id': carouselProduct.id }) }}">{{ carouselProduct.name }}</a></td>
+                <td>
+                    <a class="btn btn-info" href="{{ path('carousel_product_show', { 'id': carouselProduct.id }) }}">
+                        <span class="glyphicon glyphicon-search"></span>
+                        Voir
+                    </a>
+                    -
+                    <a class="btn btn-warning" href="{{ path('carousel_product_edit', { 'id': carouselProduct.id }) }}">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                        Modifier
+                    </a>
+                    - <a href="{{ path('carousel_product_delete', { 'id': carouselProduct.id }) }}">Supprimer</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-success" href="{{ path('carousel_product_new') }}">
+        <span class="glyphicon glyphicon-plus"></span>
+        Ajouter un produit
+    </a>
+{% endblock %}

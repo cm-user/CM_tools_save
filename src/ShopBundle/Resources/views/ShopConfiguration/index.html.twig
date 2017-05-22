@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Shopconfigurations list</h1>
+
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Width</th>
+                <th>Height</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for shopConfiguration in shopConfigurations %}
+            <tr>
+                <td><a href="{{ path('carousel_shopconfiguration_show', { 'id': shopConfiguration.id }) }}">{{ shopConfiguration.id }}</a></td>
+                <td>{{ shopConfiguration.name }}</td>
+                <td>{{ shopConfiguration.width }}</td>
+                <td>{{ shopConfiguration.height }}</td>
+                <td>                                                        <a class="btn btn-info" href="{{ path('carousel_shopconfiguration_show', { 'id': shopConfiguration.id }) }}">
+                                    <span class="glyphicon glyphicon-search"></span>
+                                    show
+                                </a>
+                                                                                <a class="btn btn-warning" href="{{ path('carousel_shopconfiguration_edit', { 'id': shopConfiguration.id }) }}">
+                                    <span class="glyphicon glyphicon-pencil"></span>
+                                    edit
+                                </a>
+                        
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a class="btn btn-success" href="{{ path('carousel_shopconfiguration_new') }}">
+                <span class="glyphicon glyphicon-plus"></span>
+                Ajouter shopConfiguration</a>
+        </li>
+    </ul>
+{% endblock %}

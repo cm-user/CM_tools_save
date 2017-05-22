@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>NewsletterHeader</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Texttop</th>
+                <td>{{ newsletterHeader.textTop }}</td>
+            </tr>
+            <tr>
+                <th>Textintro</th>
+                <td>{{ newsletterHeader.textIntro }}</td>
+            </tr>
+            <tr>
+                <th>Textdescription</th>
+                <td>{{ newsletterHeader.textDescription }}</td>
+            </tr>
+            <tr>
+                <th>Picture</th>
+                <td>{{ newsletterHeader.picture }}</td>
+            </tr>
+            <tr>
+                <th>Link</th>
+                <td>{{ newsletterHeader.link }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ newsletterHeader.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('newsletterheader_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('newsletterheader_edit', { 'id': newsletterHeader.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

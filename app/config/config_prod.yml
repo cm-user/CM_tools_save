@@ -1,0 +1,48 @@
+imports:
+    - { resource: config.yml }
+
+parameters:
+    url_base: 'http://www.cadeau-maestro.com/'
+    url_base_bo: 'http://bo.cadeau-maestro.com/'
+    url_img: 'http://www.cadeau-maestro.com/img/newsletter/news/'
+    url_upload: 'http://tools.cadeau-maestro.com/upload/'
+    url_upload_image_product: 'http://tools.cadeau-maestro.com/faulty/'
+    banner_directory: '%kernel.root_dir%/../web/upload'
+    product_directory: '%kernel.root_dir%/../web/upload'
+    carousel_directory: '%kernel.root_dir%/../web/carousel'
+    url_upload_image_carousel: 'http://tools.cadeau-maestro.com/carousel/'
+    faulty_image_product_directory: '%kernel.root_dir%/../web/faulty'
+    folder_img: '%kernel.root_dir%/../../www/img/newsletter/news/'
+    folder_upload: '%kernel.root_dir%/../web/upload/'
+    folder_img_base: '%kernel.root_dir%/../../www/img/'
+    folder_cm_base: '%kernel.root_dir%/../../www/'
+
+#framework:
+#    validation:
+#        cache: validator.mapping.cache.doctrine.apc
+#    serializer:
+#        cache: serializer.mapping.cache.doctrine.apc
+
+#doctrine:
+#    orm:
+#        metadata_cache_driver: apc
+#        result_cache_driver: apc
+#        query_cache_driver: apc
+
+monolog:
+    handlers:
+        main:
+            type:         fingers_crossed
+            action_level: error
+            handler:      nested
+        nested:
+            type:  stream
+            path:  "%kernel.logs_dir%/%kernel.environment%.log"
+            level: debug
+        console:
+            type:  console
+
+iq2i_prestashop_web_service:
+    url: http://www.cadeau-maestro.com
+    key: KSWP3L85YX13OIURBU7P1P48FZGX372K
+    debug: false

@@ -1,0 +1,94 @@
+@font-face {
+    font-family: 'miso';
+    src: url('fonts/miso-webfont.eot');
+    src: url('fonts/miso-webfont.eot?#iefix') format('embedded-opentype'),
+    url('fonts/miso-webfont.woff') format('woff'),
+    url('fonts/miso-webfont.svg#misoregular') format('svg'),
+    url('fonts/miso-webfont.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'misobold';
+    src: url('fonts/miso-bold-webfont.eot');
+    src: url('fonts/miso-bold-webfont.eot?#iefix') format('embedded-opentype'),
+    url('fonts/miso-bold-webfont.woff') format('woff'),
+    url('fonts/miso-bold-webfont.svg#misobold') format('svg'),
+    url('fonts/miso-bold-webfont.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'misolight';
+    src: url('fonts/miso-light-webfont.eot');
+    src: url('fonts/miso-light-webfont.eot?#iefix') format('embedded-opentype'),
+    url('fonts/miso-light-webfont.woff') format('woff'),
+    url('fonts/miso-light-webfont.svg#misolight') format('svg'),
+    url('fonts/miso-light-webfont.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'pacifico';
+    src: url('fonts/pacifico-webfont.eot');
+    src: url('fonts/pacifico-webfont.eot?#iefix') format('embedded-opentype'),
+    url('fonts/pacifico-webfont.woff') format('woff'),
+    url('fonts/pacifico-webfont.svg#pacificoregular') format('svg'),
+    url('fonts/pacifico-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.miso{font-family: 'miso', Arial, sans-serif; -webkit-font-smoothing: antialiased;}
+.misobold{font-family: 'misobold', Arial, sans-serif; -webkit-font-smoothing: antialiased;}
+.misolight{font-family: 'misolight', Arial, sans-serif; -webkit-font-smoothing: antialiased;}
+.pacifico{font-family: 'pacifico', Arial, sans-serif; -webkit-font-smoothing: antialiased;}
+
+
+/* EPHEMERIDE */
+#ephemeride #today, #ephemeride #tomorrow, #ephemeride #aftertomorrow{position: absolute;width: 100%;color: white;}
+#ephemeride #today .today, #ephemeride #tomorrow .tomorrow, #ephemeride #aftertomorrow .aftertomorrow, #ephemeride .intro{text-align: center;width: 100%;margin: auto;position: inherit;}
+#ephemeride #today{top: 300px;}
+#ephemeride #today .today{font-size: 200px;}
+#ephemeride #tomorrow{top: 550px;}
+#ephemeride #tomorrow .intro{font-size: 80px;}
+#ephemeride #tomorrow .tomorrow{font-size: 130px;top: 70px;}
+#ephemeride #aftertomorrow{top: 800px;}
+#ephemeride #aftertomorrow .intro{font-size: 60px;}
+#ephemeride #aftertomorrow .aftertomorrow{font-size: 100px;top:50px;}
+
+/* SOCIAL */
+#instaHeader{background-color:#517fa4;width:100%;border-radius:4px;margin-top:10px;height:78px}
+.logo{display:block;margin-left:auto;margin-right:auto}
+#newsHeader{background-color:#756d71;height:78px;width:100%;margin-top:10px;text-align:left;border-radius:4px}
+#newsLogo{border-top-left-radius:4px;background-image:url(../image/blog.png);float:left;background-repeat:no-repeat;width:175px;height:78px;padding-right:10%}
+#newsContent{border-color:#a0a0a0;border-radius:5px;border-style:solid;border-width:1px;width:90%;margin:20px auto 0;height:200px}
+#titreBlog{color:#d71820;text-transform:uppercase;font-size:250%;padding-left:1%;margin-top:2%}
+#lisezPlus{font-size:150%;text-align:right;padding-right:1%;margin-top:5%}
+h2{color:#efebe9;font-size:40px;text-align:center;margin:0;padding-top:17px}
+#u_0_h{overflow:hidden}
+
+.fader {display: inline-block;}
+.fader h1{font-size: 50px;background-color: white;padding: 10px;display: inline-block;border-radius: 10px;}
+.fader > div {position: absolute;top: 0;left: 0;display: none;width:100%;text-align: center;background-size: 100%;height: 670px;}
+
+.fader p{font-size: 60px;margin-top: -140px;left: 50%;transform: translateX(-50%);position: absolute;background-color: white;border-radius: 10px;padding: 10px;border: solid 1px;line-height: 65px;bottom:0;}
+
+.fader .price{color: #d10911;font-size:80px}
+.fader .price_old{position: relative}
+.fader .price_old:after{
+    content: "";
+    position: absolute;
+    border-top: 4px solid red;
+    width: 100%;
+    transform: rotate(-20deg);
+    transform-origin: 0% 0%;
+    bottom: 20px;
+    left: 1px;
+}
+
+.twitter-timeline{height: 670px !important;}

@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Trier les items</h1>
+    <p>Le tri s'effectu en Drag & Drop !</p>
+
+    {% form_theme form '@Shop/Form/field.html.twig' %}
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <p class="text-center"><input class="btn btn-success" type="submit" value="Trier !" /></p>
+    {{ form_end(form) }}
+
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <style>
+        .collection-actions{display:none;}
+    </style>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="{{ asset('bundles/shop/js/jquery.collection.js') }}"></script>
+    <script type="text/javascript">
+        $('.my-selector').collection({
+            drag_drop: true,
+            drag_drop_options: {
+                placeholder: 'ui-state-highlight'
+            }
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,78 @@
+
+services:
+    marketingbundle.admin_configure_menu_listener:
+        class: MarketingBundle\EventListener\ConfigureMenuListener
+        tags:
+            - { name: kernel.event_listener, event: unicorn.user.main_menu_logged, method: onMainMenuLoggedConfigure }
+        arguments: ['@service_container']
+
+    marketingbundle.repository.model.newsletter:
+        class: MarketingBundle\Repository\ModelNewsletterRepository
+        arguments: ['@doctrine.orm.entity_manager']
+
+    marketingbundle.repository.newsletter.block:
+        class: MarketingBundle\Repository\NewsletterBlockRepository
+        arguments: ['@doctrine.orm.entity_manager']
+
+    marketingbundle.repository.newsletter.block.type:
+        class: MarketingBundle\Repository\NewsletterBlockTypeRepository
+        arguments: ['@doctrine.orm.entity_manager']
+
+    marketingbundle.repository.newsletter.header:
+        class: MarketingBundle\Repository\NewsletterHeaderRepository
+        arguments: ['@doctrine.orm.entity_manager']
+
+    marketingbundle.repository.newsletter.menu:
+        class: MarketingBundle\Repository\NewsletterMenuRepository
+        arguments: ['@doctrine.orm.entity_manager']
+
+    marketingbundle.repository.newsletter.product:
+        class: MarketingBundle\Repository\NewsletterProductRepository
+        arguments: ['@doctrine.orm.entity_manager']
+
+    marketingbundle.repository.newsletter.provider:
+        class: MarketingBundle\Repository\NewsletterProviderRepository
+        arguments: ['@doctrine.orm.entity_manager']
+
+    marketingbundle.repository.newsletter:
+        class: MarketingBundle\Repository\NewsletterRepository
+        arguments: ['@doctrine.orm.entity_manager']
+
+    marketingbundle.repository.provider:
+        class: MarketingBundle\Repository\ProviderRepository
+        arguments: ['@doctrine.orm.entity_manager']
+
+    marketingbundle.repository.shop:
+        class: MarketingBundle\Repository\ShopRepository
+        arguments: ['@doctrine.orm.entity_manager']
+
+    marketingbundle.repository.shop.configuration:
+        class: MarketingBundle\Repository\ShopConfigurationRepository
+        arguments: ['@doctrine.orm.entity_manager']
+
+    marketingbundle.banner_uploader:
+        class: MarketingBundle\Uploader\BannerUploader
+        arguments: ['%banner_directory%']
+
+    marketingbundle.doctrine_banner_listener:
+        class: MarketingBundle\EventListener\BannerUploadListener
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
+            - { name: doctrine.event_listener, event: preUpdate }
+        arguments: ['@marketingbundle.banner_uploader', '@service_container']
+
+    marketingbundle.product_uploader:
+        class: MarketingBundle\Uploader\ProductUploader
+        arguments: ['%product_directory%']
+
+    marketingbundle.doctrine_product_listener:
+        class: MarketingBundle\EventListener\ProductUploadListener
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
+            - { name: doctrine.event_listener, event: preUpdate }
+        arguments: ['@marketingbundle.product_uploader', '@service_container']
+
+    marketingbundle.form.type.search_button:
+        class: MarketingBundle\Form\Extension\SearchButtonType
+        tags:
+            - { name: form.type }

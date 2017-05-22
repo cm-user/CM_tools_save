@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Faultymail</h1>
+
+    <table class="table table-bordered table-hover">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ faultyMail.id }}</td>
+            </tr>
+            <tr>
+                <th>Mail</th>
+                <td>{{ faultyMail.mail }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>
+        <a class="btn btn-default" href="{{ path('faultymail_index') }}">
+            Retour à la liste
+        </a>
+        -
+        <a class="btn btn-warning" href="{{ path('faultymail_edit', { 'id': faultyMail.id }) }}">
+            <span class="glyphicon glyphicon-pencil"></span>
+            Modifier
+        </a>
+        {{ form_start(delete_form) }}
+        <input class="btn btn-danger" type="submit" value="Supprimer">
+        {{ form_end(delete_form) }}
+    </p>
+
+{% endblock %}

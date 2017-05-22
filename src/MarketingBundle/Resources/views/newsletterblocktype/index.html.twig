@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>NewsletterBlockType list</h1>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Path</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for newsletterBlockType in newsletterBlockTypes %}
+            <tr>
+                <td><a href="{{ path('newsletterblocktype_show', { 'id': newsletterBlockType.id }) }}">{{ newsletterBlockType.name }}</a></td>
+                <td>{{ newsletterBlockType.path }}</td>
+                <td>{{ newsletterBlockType.id }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('newsletterblocktype_show', { 'id': newsletterBlockType.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('newsletterblocktype_edit', { 'id': newsletterBlockType.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('newsletterblocktype_new') }}" class="btn btn-info">Ajouter un type de block</a>
+{% endblock %}

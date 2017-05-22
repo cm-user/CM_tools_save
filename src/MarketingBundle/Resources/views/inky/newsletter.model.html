@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>{{ header.title }}</title>
+    ##CSS##
+</head>
+<body>
+<!-- <style> -->
+<table class="body">
+    <tr>
+        <td class="center" align="center" valign="top">
+            <center>
+                <container class="grey no-margin">
+                    <row>
+                        <columns small="12" large="12" class="no-padding">
+                            <p class="small-size no-margin grey text-center">##PRENOM## : {{ header.textTop | raw }}</p>
+                        </columns>
+
+                    </row>
+                    <row>
+                        <columns small="12" large="12" class="no-padding">
+                            <p class="small-size no-margin text-center"><a class="grey" href="##NAVIGATEUR##">Voir la version navigateur</a></p>
+                        </columns>
+                    </row>
+                </container>
+                <container>
+                    <row>
+                        <columns small="12" large="6">
+                            <a href="http://www.cadeau-maestro.com/"><img src="http://www.cadeau-maestro.com/img/newsletter/maestro.png" alt="Cadeau Maestro"></a>
+                        </columns>
+                        <columns small="12" large="6" class="middle">
+                            <row>
+                                <columns small="12" large="12">
+                                    <p class="text-center bold">Offrez en connaisseur !</p>
+                                </columns>
+                            </row>
+                            <row class="show-for-large">
+                                <columns small="12" large="12">
+                                    <p class="text-center bold"><img class="inline middle" src="##IMG_TOP_1##" alt="##TXT_TOP_1##"> ##TXT_TOP_1##</p>
+                                </columns>
+                            </row>
+                            <row class="show-for-large">
+                                <columns small="12" large="12">
+                                    <p class="text-center bold"><img class="inline middle" src="##IMG_TOP_2##" alt="##TXT_TOP_2##"> ##TXT_TOP_2##</p>
+                                </columns>
+                            </row>
+                        </columns>
+                    </row>
+                    <row>
+                        <columns small="12" large="12" class="no-padding-bottom">
+                            <p class="bold">##PRENOM## : {{ header.textIntro | raw }}</p>
+                        </columns>
+                    </row>
+                    <row>
+                        <columns small="12" large="12">
+                            {{ header.textDescription | raw }}
+                        </columns>
+                    </row>
+                    {% if header.picture|default %}
+                    <row>
+                        <columns small="12" large="12">
+                            <img src="{{ header.picture }}">
+                        </columns>
+                    </row>
+                    {% endif %}
+                    {% if header.link|default %}
+                    <row>
+                        <columns small="12" large="12">
+                            <a href="{{ header.link }}" >
+                                <img class="text-center" src="http://www.cadeau-maestro.com/img/newsletter/profite.gif" alt="J'en profite">
+                            </a>
+                        </columns>
+                    </row>
+                    {% endif %}
+                    {{ menu | raw }}
+                    {{ products | raw }}
+                </container>
+                <container>
+                    <row>
+                        <columns small="5" large="3" class="padding-top">
+                            <a href="http://www.cadeau-maestro.com/idee/5-paiement-securise"><img class="text-center" src="http://www.cadeau-maestro.com/img/newsletter/cadenas.png" alt="Paiement sécurisé"></a>
+                            <p class="text-center"><a href="http://www.cadeau-maestro.com/idee/5-paiement-securise" class="grey">Paiement sécurisé</a></p>
+                        </columns>
+                        <columns small="6" large="3" class="padding-top">
+                            <a href="http://www.cadeau-maestro.com/idee/1-livraison-rapide-de-vos-cadeaux"><img class="text-center" src="http://www.cadeau-maestro.com/img/newsletter/fusee.png" alt="Livraison rapide 24/48H"></a>
+                            <p class="text-center"><a href="http://www.cadeau-maestro.com/idee/1-livraison-rapide-de-vos-cadeaux" class="grey">Livraison rapide 24/48H</a></p>
+                        </columns>
+                        <columns small="5" large="3" class="padding-top">
+                            <a href="http://www.cadeau-maestro.com/idee/22-paquets-cadeaux"><img class="text-center" src="http://www.cadeau-maestro.com/img/newsletter/ciseau.png" alt="Paquet cadeau : 0,99€">
+                                <p class="text-center"><a href="http://www.cadeau-maestro.com/idee/22-paquets-cadeaux" class="grey">Paquet cadeau : 2,50€</a></p>
+                        </columns>
+                        <columns small="6" large="3" class="padding-top">
+                            <a href="http://www.cadeau-maestro.com/idee/8-engagements"><img class="text-center" src="http://www.cadeau-maestro.com/img/newsletter/smile.png" alt="Satisfait ou remboursé">
+                                <p class="text-center"><a href="http://www.cadeau-maestro.com/idee/8-engagements" class="grey">Satisfait ou remboursé</a></p>
+                        </columns>
+                    </row>
+                    <row>
+                        <columns small="12" large="6">
+                            <h4>Contactez-nous</h4>
+                            <p>Par téléphone au <a class="red" href="tel:{{ shop.phone }}">{{ shop.phone }}</a></p>
+                            <p>Par e-mail à <a class="red" href="mailto:{{ shop.mail }}">{{ shop.mail }}</a></p>
+                        </columns>
+                        <columns small="12" large="6">
+                            <h4>Suivez-nous</h4>
+                            <row>
+                                <columns small="5" large="3">
+                                    <a href="https://www.facebook.com/cadeaumaestro"><img class="text-center" src="http://www.cadeau-maestro.com/img/newsletter/facebook.png" alt="Facebook"></a>
+                                </columns>
+                                <columns small="6" large="3">
+                                    <a href="https://twitter.com/intent/follow?original_referer=http%3A%2F%2Fwww.cadeau-maestro.com%2Fcontent%2F5-paiement-securise&screen_name=cadeaumaestro&tw_p=followbutton&variant=2.0&xd_token=f04c547e5a8da"><img class="text-center" src="http://www.cadeau-maestro.com/img/newsletter/twitter.png" alt="Twitter"></a>
+                                </columns>
+                                <columns small="5" large="3">
+                                    <a href="https://www.youtube.com/user/cadeaumaestro"><img class="text-center" src="http://www.cadeau-maestro.com/img/newsletter/youtube.png" alt="Youtube"></a>
+                                </columns>
+                                <columns small="6" large="3">
+                                    <a href="https://www.instagram.com/cadeaumaestro/"><img class="text-center" src="http://www.cadeau-maestro.com/img/newsletter/instagram.png" alt="Instagram"></a>
+                                </columns>
+                            </row>
+                        </columns>
+                    </row>
+                    <row>
+                        <columns small="12" large="12">
+                            <p class="text-center">Vous recevez cette Newsletter suite à votre demande lors de votre visite sur le site cadeau-maestro.com</p>
+                            <p class="text-center">{{ shop.name }}, {{ shop.address1 }} {%if shop.address2 != '' %}- {{ shop.address2 }}{% endif %} - {{ shop.postalCode }} {{ shop.city }}</p>
+                        </columns>
+                    </row>
+                </container>
+                <container class="grey">
+                    <row>
+                        <columns small="12" large="12">
+                            <p>
+                            <ul>
+                                <li>Des idées cadeaux pour toute la famille choisies par Charline et Sylvain</li>
+                                <li>Entreprise Française fondée en 2008 située dans la Loire ainsi qu'une boutique à Saint-Étienne</li>
+                                <li>Colis expédié le jour même pour les commandes passées avant 16 heures. L'intégralité de nos produits est en stock</li>
+                                <li>Livraison à partir de 1,50€ et emballage de vos cadeaux pour 2,50€</li>
+                                <li>Notre savoir faire boutique apporté au web</li>
+                                <li>En achetant vos présents chez nous, vous avez un mois pour changer d'avis</li>
+                                <li>Retrouvez les avis de nos clients qui ont acheté des cadeaux sur notre site</li>
+                                <li>Tous nos produits sont garantis un an</li>
+                            </ul>
+                            </p>
+                        </columns>
+                    </row>
+                    <row>
+                        <columns small="12" large="12" class="no-padding">
+                            <p class="small-size no-margin text-center"><a class="grey" href="##DESINSCRIPTION##">Me désinscrire</a></p>
+                        </columns>
+                    </row>
+                </container>
+
+            </center>
+        </td>
+    </tr>
+</table>
+<!-- prevent Gmail on iOS font size manipulation -->
+<div style="display:none; white-space:nowrap; font:15px courier; line-height:0;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </div>
+</body>
+</html>

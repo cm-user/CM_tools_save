@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Liste des vidéos du carrousel</h1>
+
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Vidéo ID</th>
+                <th>Date de début</th>
+                <th>Date de fin</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for carouselVideo in carouselVideos %}
+            <tr>
+                <td>{{ carouselVideo.id }}</td>
+                <td><a href="{{ path('carousel_video_show', { 'id': carouselVideo.id }) }}">{{ carouselVideo.name }}</a></td>
+                <td>{{ carouselVideo.videoId }}</td>
+                <td>{{ carouselVideo.dateStart|date("Y-m-d") }}</td>
+                <td>{{ carouselVideo.dateEnd|date("Y-m-d") }}</td>
+                <td>
+                    <a class="btn btn-info" href="{{ path('carousel_video_show', { 'id': carouselVideo.id }) }}">
+                        <span class="glyphicon glyphicon-search"></span>
+                        Voir
+                    </a>
+                    -
+                    <a class="btn btn-warning" href="{{ path('carousel_video_edit', { 'id': carouselVideo.id }) }}">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                        Modifier
+                    </a>
+                    - <a href="{{ path('carousel_video_delete', { 'id': carouselVideo.id }) }}">Supprimer</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="navigation">
+        {{ knp_pagination_render(carouselVideos) }}
+    </div>
+
+    <a class="btn btn-success" href="{{ path('carousel_video_new') }}">
+        <span class="glyphicon glyphicon-plus"></span>
+        Ajouter une vidéo
+    </a>
+{% endblock %}

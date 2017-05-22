@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Affichage TV Boutique</title>
+    <script type="text/javascript" src="{{ asset('bundles/shop/js/app.js') }}"></script>
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/user/css/bootstrap.min.css') }}" />
+    {% block stylesheets %}{% endblock %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+</head>
+<body style="width: {{ shopConfiguration.width }}px; height: {{ shopConfiguration.height }}px;margin: auto;overflow: hidden;">
+    {% block body %}{% endblock %}
+
+    <script type="application/javascript" src="{{ asset('bundles/user/js/bootstrap.min.js') }}"></script>
+    {% block javascripts %}{% endblock %}
+</body>
+</html>
+
+

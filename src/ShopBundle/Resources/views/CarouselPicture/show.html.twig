@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Image du carrousel</h1>
+
+    <table class="table table-bordered table-hover">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ carouselPicture.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ carouselPicture.name }}</td>
+            </tr>
+            <tr>
+                <th>Durée</th>
+                <td>{{ carouselPicture.length }}</td>
+            </tr>
+            <tr>
+                <th>Date de début</th>
+                <td>{{ carouselPicture.dateStart|date("Y-m-d") }}</td>
+            </tr>
+            <tr>
+                <th>Date de fin</th>
+                <td>{{ carouselPicture.dateEnd|date("Y-m-d") }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Image</h2>
+    <img src="{{ carouselPicture.picture }}" class="img-rounded">
+
+    <p>
+        <a class="btn btn-default" href="{{ path('carousel_picture_index') }}">
+            Retour à la liste
+        </a>
+        -
+        <a class="btn btn-warning" href="{{ path('carousel_picture_edit', { 'id': carouselPicture.id }) }}">
+            <span class="glyphicon glyphicon-pencil"></span>
+            Modifier
+        </a>
+        {{ form_start(delete_form) }}
+        <input class="btn btn-danger" type="submit" value="Supprimer">
+        {{ form_end(delete_form) }}
+    </p>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Liste des écrans</h1>
+
+    {% for shopConfiguration in shopConfigurations %}
+        <a class="btn btn-lg btn-default" href="{{ url('showing_index', { 'id': shopConfiguration.id }) }}">{{ shopConfiguration.name }}</a>
+    {% endfor %}
+
+{% endblock %}
+

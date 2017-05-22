@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>NewsletterProvider</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Name</th>
+                <td>{{ newsletterProvider.name }}</td>
+            </tr>
+            <tr>
+                <th>Value</th>
+                <td>{{ newsletterProvider.value }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ newsletterProvider.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('newsletterprovider_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('newsletterprovider_edit', { 'id': newsletterProvider.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,154 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+    - { resource: services.yml }
+    - { resource: "@ShopBundle/Resources/config/services.yml" }
+    - { resource: "@FaultyProductBundle/Resources/config/services.yml" }
+    - { resource: "@MarketingBundle/Resources/config/services.yml" }
+    - { resource: "@ModerateReviewBundle/Resources/config/services.yml" }
+    - { resource: "@UserBundle/Resources/config/services.yml" }
+    - { resource: "@PictureCrawlerBundle/Resources/config/services.yml" }
+    - { resource: "@MailSignatureBundle/Resources/config/services.yml" }
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+parameters:
+    locale: fr
+
+framework:
+    #esi:             ~
+    #translator:      { fallbacks: ["%locale%"] }
+    secret:          "%secret%"
+    router:
+        resource: "%kernel.root_dir%/config/routing.yml"
+        strict_requirements: ~
+    form:            ~
+    csrf_protection: ~
+    validation:      { enable_annotations: true }
+    #serializer:      { enable_annotations: true }
+    templating:
+        engines: ['twig']
+    default_locale:  "%locale%"
+    trusted_hosts:   ~
+    trusted_proxies: ~
+    session:
+        # http://symfony.com/doc/current/reference/configuration/framework.html#handler-id
+        handler_id:  session.handler.native_file
+        save_path:   "%kernel.root_dir%/../var/sessions/%kernel.environment%"
+    fragments:       ~
+    http_method_override: true
+    assets: ~
+
+# Twig Configuration
+twig:
+    form_themes:
+        - MarketingBundle:Form:field.html.twig
+    debug:            "%kernel.debug%"
+    strict_variables: "%kernel.debug%"
+    globals:
+        ga_tracking: %ga_tracking%
+        tag_manager: %tag_manager%
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+        default_connection: marketing
+        connections:
+            marketing:
+                driver:   pdo_mysql
+                host:     "%database_host%"
+                port:     "%database_port%"
+                dbname:   "%database_name%"
+                user:     "%database_user%"
+                password: "%database_password%"
+                charset:  UTF8
+            cm:
+                driver:   pdo_mysql
+                host:     "%database_host2%"
+                port:     "%database_port2%"
+                dbname:   "%database_name2%"
+                user:     "%database_user2%"
+                password: "%database_password2%"
+                charset:  UTF8
+        # if using pdo_sqlite as your database driver:
+        #   1. add the path in parameters.yml
+        #     e.g. database_path: "%kernel.root_dir%/data/data.db3"
+        #   2. Uncomment database_path in parameters.yml.dist
+        #   3. Uncomment next line:
+        #     path:     "%database_path%"
+
+    orm:
+        default_entity_manager: marketing
+        entity_managers:
+            marketing:
+                connection: marketing
+                naming_strategy: doctrine.orm.naming_strategy.underscore
+                mappings:
+                    UserBundle: ~
+                    MarketingBundle: ~
+                    FaultyProductBundle: ~
+                    ShopBundle: ~
+                dql:
+                    datetime_functions:
+                        date:           Oro\ORM\Query\AST\Functions\SimpleFunction
+                        time:           Oro\ORM\Query\AST\Functions\SimpleFunction
+                        timestamp:      Oro\ORM\Query\AST\Functions\SimpleFunction
+                        convert_tz:     Oro\ORM\Query\AST\Functions\DateTime\ConvertTz
+                    numeric_functions:
+                        timestampdiff:  Oro\ORM\Query\AST\Functions\Numeric\TimestampDiff
+                        dayofyear:      Oro\ORM\Query\AST\Functions\SimpleFunction
+                        dayofmonth:     Oro\ORM\Query\AST\Functions\SimpleFunction
+                        dayofweek:      Oro\ORM\Query\AST\Functions\SimpleFunction
+                        week:           Oro\ORM\Query\AST\Functions\SimpleFunction
+                        day:            Oro\ORM\Query\AST\Functions\SimpleFunction
+                        hour:           Oro\ORM\Query\AST\Functions\SimpleFunction
+                        minute:         Oro\ORM\Query\AST\Functions\SimpleFunction
+                        month:          Oro\ORM\Query\AST\Functions\SimpleFunction
+                        quarter:        Oro\ORM\Query\AST\Functions\SimpleFunction
+                        second:         Oro\ORM\Query\AST\Functions\SimpleFunction
+                        year:           Oro\ORM\Query\AST\Functions\SimpleFunction
+                        sign:           Oro\ORM\Query\AST\Functions\Numeric\Sign
+                        pow:            Oro\ORM\Query\AST\Functions\Numeric\Pow
+                    string_functions:
+                        group_concat:   Oro\ORM\Query\AST\Functions\String\GroupConcat
+                        concat_ws:      Oro\ORM\Query\AST\Functions\String\ConcatWs
+                        cast:           Oro\ORM\Query\AST\Functions\Cast
+            cm:
+                connection: cm
+                naming_strategy: doctrine.orm.naming_strategy.underscore
+                mappings:
+                    ModerateReviewBundle: ~
+        auto_generate_proxy_classes: "%kernel.debug%"
+
+# Swiftmailer Configuration
+swiftmailer:
+    transport: "%mailer_transport%"
+    host:      "%mailer_host%"
+    username:  "%mailer_user%"
+    password:  "%mailer_password%"
+    spool:     { type: memory }
+
+knp_paginator:
+    page_range: 5                      # default page range used in pagination control
+    default_options:
+        page_name: page                # page query parameter name
+        sort_field_name: sort          # sort field query parameter name
+        sort_direction_name: direction # sort direction query parameter name
+        distinct: true                 # ensure distinct results, useful when ORM queries are using GROUP BY statements
+    template:
+        pagination: KnpPaginatorBundle:Pagination:twitter_bootstrap_v3_pagination.html.twig     # sliding pagination controls template
+        sortable: KnpPaginatorBundle:Pagination:sortable_link.html.twig # sort link template
+
+
+gregwar_image:
+    throw_exception: true
+
+unicorn_user:
+    user_entity: 'FaultyProductBundle\Entity\User'
+    user_repository: faulty.repository.user
+    user_require_activate: false
+    hard_delete: false
+    can_register: true
+
+tinypng:
+    api_key: G7jQldFODSTiN0mbdlWuvFc5hbu_rSZd

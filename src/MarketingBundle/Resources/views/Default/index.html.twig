@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Module Marketing</h1>
+
+    <p>Cette application regroupe plusieurs modules, à savoir : </p>
+
+    <dl class="dl-horizontal">
+        <dt>MarketingBundle</dt>
+        <dd>Générateur de template de mail</dd>
+        <dt>MailSignatureBundle</dt>
+        <dd>Modification de l'image et du lien de signature du mail</dd>
+        <dt>FaultyProductBundle</dt>
+        <dd>Permet de gérer la déclaration et le stock des produits déféctueux</dd>
+        <dt>ModerateReviewBundle</dt>
+        <dd>Suppression de l'envoi du mail d'avis client</dd>
+        <dt>PictureCrawlerBundle</dt>
+        <dd>Téléchargement des images depuis le site : http://www.lavantgardiste.com/</dd>
+        <dt>ShopBundle</dt>
+        <dd>Gérer les images, vidéos et produits sur l'écran télé</dd>
+    </dl>
+{% endblock %}
+
+{% block stylesheets %}
+<style>
+    @media (min-width: 768px){
+        .dl-horizontal dt{width: 200px;margin-bottom: 5px;}
+        .dl-horizontal dd{margin-left: 220px}
+    }
+</style>
+{% endblock %}

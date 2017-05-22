@@ -1,0 +1,7 @@
+<row>
+    {% for menu in menus %}
+        <columns small="12" large="4">
+            <button class="large expand grey no-margin" href="{{ menu.link }}">{{ menu.title }}</button>
+        </columns>
+    {% endfor %}
+</row>

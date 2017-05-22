@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>NewsletterBlockType</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Name</th>
+                <td>{{ newsletterBlockType.name }}</td>
+            </tr>
+            <tr>
+                <th>Path</th>
+                <td>{{ newsletterBlockType.path }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ newsletterBlockType.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('newsletterblocktype_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('newsletterblocktype_edit', { 'id': newsletterBlockType.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

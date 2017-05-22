@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Shop list</h1>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Address1</th>
+                <th>Address2</th>
+                <th>Postalcode</th>
+                <th>City</th>
+                <th>Country</th>
+                <th>Mail</th>
+                <th>Phone</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for shop in shops %}
+            <tr>
+                <td><a href="{{ path('shop_show', { 'id': shop.id }) }}">{{ shop.name }}</a></td>
+                <td>{{ shop.address1 }}</td>
+                <td>{{ shop.address2 }}</td>
+                <td>{{ shop.postalCode }}</td>
+                <td>{{ shop.city }}</td>
+                <td>{{ shop.country }}</td>
+                <td>{{ shop.mail }}</td>
+                <td>{{ shop.phone }}</td>
+                <td>{{ shop.id }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('shop_show', { 'id': shop.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('shop_edit', { 'id': shop.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('shop_new') }}" class="btn btn-info">Créer une boutique</a>
+{% endblock %}

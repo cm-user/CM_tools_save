@@ -1,0 +1,40 @@
+homepage:
+    path: /
+    defaults: { _controller: MarketingBundle:Default:index }
+
+user_bundle:
+    resource: "@UserBundle/Controller/"
+    type:     annotation
+
+marketing:
+    resource: "@MarketingBundle/Controller/"
+    type:     annotation
+    prefix:   /marketing
+
+moderate_review:
+    resource: "@ModerateReviewBundle/Controller/"
+    type:     annotation
+    prefix:   /moderate_review
+
+picture_crawler:
+    resource: "@PictureCrawlerBundle/Controller/"
+    type:     annotation
+    prefix:   /picture_crawler
+
+faulty_product:
+    resource: "@FaultyProductBundle/Controller/"
+    type:     annotation
+    prefix:   /faulty
+
+shop:
+    resource: "@ShopBundle/Controller/"
+    type:     annotation
+    prefix:   /shop
+
+mail_signature:
+    resource: "@MailSignatureBundle/Controller/"
+    type:     annotation
+    prefix:   /mail_signature
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"

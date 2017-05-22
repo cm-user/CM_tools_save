@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>ModelNewsletter list</h1>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Path</th>
+                <th>Path CSS</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for modelNewsletter in modelNewsletters %}
+            <tr>
+                <td><a href="{{ path('modelnewsletter_show', { 'id': modelNewsletter.id }) }}">{{ modelNewsletter.name }}</a></td>
+                <td>{{ modelNewsletter.path }}</td>
+                <td>{{ modelNewsletter.pathCss }}</td>
+                <td>{{ modelNewsletter.id }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('modelnewsletter_show', { 'id': modelNewsletter.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('modelnewsletter_edit', { 'id': modelNewsletter.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('modelnewsletter_new') }}" class="btn btn-info">Ajouter un modele de newsletter</a>
+{% endblock %}

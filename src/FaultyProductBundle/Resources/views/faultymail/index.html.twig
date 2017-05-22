@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Liste des mails</h1>
+
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Mail</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for faultyMail in faultyMails %}
+            <tr>
+                <td><a href="{{ path('faultymail_show', { 'id': faultyMail.id }) }}">{{ faultyMail.id }}</a></td>
+                <td>{{ faultyMail.mail }}</td>
+                <td>
+                    <a class="btn btn-info" href="{{ path('faultymail_show', { 'id': faultyMail.id }) }}">
+                        <span class="glyphicon glyphicon-search"></span>
+                        Voir
+                    </a>
+                    -
+                    <a class="btn btn-warning" href="{{ path('faultymail_edit', { 'id': faultyMail.id }) }}">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                        Modifier
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-success" href="{{ path('faultymail_new') }}">
+        <span class="glyphicon glyphicon-plus"></span>
+        Ajouter un nouveau mail
+    </a>
+
+{% endblock %}

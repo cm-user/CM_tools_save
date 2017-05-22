@@ -1,0 +1,10 @@
+<h3>Bonjour Sylvain,</h3>
+
+<p>Voici la liste du jour des produits à déclarer :</p>
+
+{% for faulty in faulties %}
+    - <a href="http://tools.cadeau-maestro.com/faulty/faulty/{{ faulty.id }}">{{ faulty.product.name }}</a><br/>
+{% endfor %}
+<br/><br/>
+C'est tout pour aujourd'hui !<br/>
+Merci :)

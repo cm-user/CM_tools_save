@@ -1,0 +1,24 @@
+services:
+    shop.repository.carousel.picture:
+        class: ShopBundle\Repository\CarouselPictureRepository
+        arguments: ['@doctrine.orm.entity_manager']
+    shop.repository.carousel.video:
+        class: ShopBundle\Repository\CarouselVideoRepository
+        arguments: ['@doctrine.orm.entity_manager']
+    shop.repository.carousel.product:
+        class: ShopBundle\Repository\CarouselProductRepository
+        arguments: ['@doctrine.orm.entity_manager']
+    shop.repository.shopconfiguration:
+        class: ShopBundle\Repository\ShopConfigurationRepository
+        arguments: ['@doctrine.orm.entity_manager']
+    shop.admin_configure_menu_listener:
+        class: ShopBundle\EventListener\ConfigureMenuListener
+        tags: [{ name: kernel.event_listener, event: unicorn.user.main_menu_logged, method: onMainMenuLoggedConfigure }]
+        arguments: ['@service_container']
+    shop.product_image_uploader:
+        class: ShopBundle\Uploader\CarouselPictureUploader
+        arguments: ['%carousel_directory%']
+    shop.doctrine_banner_listener:
+        class: ShopBundle\EventListener\CarouselPictureListener
+        tags: [{ name: doctrine.event_listener, event: prePersist }, { name: doctrine.event_listener, event: preUpdate }]
+        arguments: ['@shop.product_image_uploader', '@service_container']

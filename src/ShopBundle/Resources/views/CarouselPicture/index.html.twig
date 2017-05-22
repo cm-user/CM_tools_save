@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Liste des images du carrousel</h1>
+
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Durée</th>
+                <th>Date de début</th>
+                <th>Date de fin</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for carouselPicture in carouselPictures %}
+            <tr>
+                <td>{{ carouselPicture.id }}</td>
+                <td><a href="{{ path('carousel_picture_show', { 'id': carouselPicture.id }) }}">{{ carouselPicture.name }}</a></td>
+                <td>{{ carouselPicture.length }}</td>
+                <td>{{ carouselPicture.dateStart|date("Y-m-d") }}</td>
+                <td>{{ carouselPicture.dateEnd|date("Y-m-d") }}</td>
+                <td>
+                    <a class="btn btn-info" href="{{ path('carousel_picture_show', { 'id': carouselPicture.id }) }}">
+                        <span class="glyphicon glyphicon-search"></span>
+                        Voir
+                    </a>
+                    -
+                    <a class="btn btn-warning" href="{{ path('carousel_picture_edit', { 'id': carouselPicture.id }) }}">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                        Modifier
+                    </a>
+                    - <a href="{{ path('carousel_picture_delete', { 'id': carouselPicture.id }) }}">Supprimer</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="navigation">
+        {{ knp_pagination_render(carouselPictures) }}
+    </div>
+
+    <a class="btn btn-success" href="{{ path('carousel_picture_new') }}">
+        <span class="glyphicon glyphicon-plus"></span>
+        Ajouter une image
+    </a>
+{% endblock %}

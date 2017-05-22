@@ -1,0 +1,122 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Défectueux</h1>
+
+    <table class="table table-bordered table-hover">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ faulty.id }}</td>
+            </tr>
+            <tr>
+                <th>Déclarant</th>
+                <td>{{ faulty.user.name }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ faulty.reason }}</td>
+            </tr>
+            {% if faulty.idOrder %}
+            <tr>
+                <th>Numéro de commande</th>
+                <td>{{ faulty.idOrder }}</td>
+            </tr>
+            {% endif %}
+            <tr>
+                <th>Statut</th>
+                <td>{{ faulty.formattedStatus }}</td>
+            </tr>
+            <tr>
+                <th>Date de création</th>
+                <td>{{ faulty.createdAt|date("Y-m-d H:i:s") }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Produit</h2>
+
+    <table class="table table-bordered table-hover">
+        <tbody>
+            <tr>
+                <th>Nom</th>
+                <td>{{ faulty.product.name }}</td>
+            </tr>
+            <tr>
+                <th>Lieu du produit</th>
+                <td>{{ faulty.product.formattedLocation }}</td>
+            </tr>
+            <tr>
+                <th>Lien</th>
+                <td><a href="{{ faulty.product.link }}" target="_blank">{{ faulty.product.link }}</a></td>
+            </tr>
+            <tr>
+                <th>Quantité</th>
+                <td>{{ faulty.product.quantity }}</td>
+            </tr>
+            <tr>
+                <th>Prix d'achat</th>
+                <td>{{ faulty.product.costPrice }}</td>
+            </tr>
+            <tr>
+                <th>Référence fournisseur</th>
+                <td>{{ faulty.product.supplierReference }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    {% if faulty.product.productImages|length > 0 %}
+        <h2>Images</h2>
+
+        <div class="row">
+        {% for productImages in faulty.product.productImages %}
+            <div class="col-xs-6 col-md-3">
+                <a href="{{ productImages.picture }}" class="thumbnail">
+                    <img src="{{ productImages.picture }}">
+                </a>
+            </div>
+        {% endfor %}
+        </div>
+    {% endif %}
+
+    <h2>Fournisseur</h2>
+
+    <table class="table table-bordered table-hover">
+        <tbody>
+            <tr>
+                <th>Nom</th>
+                <td>{{ faulty.product.supplier.name }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    {% if faulty.faultyActions|length > 0 %}
+        <h2>Les actions</h2>
+
+        <table class="table table-bordered table-hover">
+            <tbody>
+                {% for action in faulty.faultyActions %}
+                    <tr>
+                        <th>Message</th>
+                        <td>{{ action.message }}</td>
+                        <td>{{ action.createdAt|date("Y-m-d H:i:s") }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+    <p>
+        <a class="btn btn-default" href="{{ path('faulty_index') }}">
+            Retour à la liste
+        </a>
+        -
+        <a class="btn btn-warning" href="{{ path('faulty_edit', { 'id': faulty.id }) }}">
+            <span class="glyphicon glyphicon-pencil"></span>
+            Modifier
+        </a>
+        {{ form_start(delete_form) }}
+        <input class="btn btn-danger" type="submit" value="Supprimer">
+        {{ form_end(delete_form) }}
+    </p>
+{% endblock %}

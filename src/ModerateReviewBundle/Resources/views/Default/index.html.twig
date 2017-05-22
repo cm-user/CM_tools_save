@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Suppression avis client</h1>
+
+    {{ form(form) }}
+
+    <div id="info_order" class="alert alert-info" role="alert" style="display: none">
+        <p id="id"></p>
+        <p id="name"></p>
+        <p id="mail"></p>
+        <p id="date"></p>
+        <p id="support"></p>
+        <input type="hidden" id="id_order" name="id_order" value=""/>
+        <button>Confirmer suppression avis</button>
+    </div>
+
+    <div id="error_order" class="alert alert-danger" role="alert" style="display: none">
+        La commande n'existe pas !
+    </div>
+
+    <div id="deleted_order" class="alert alert-success" role="alert" style="display: none">
+        L'avis client à bien été supprimé
+    </div>
+
+    <div id="already_deleted_order" class="alert alert-warning" role="alert" style="display: none">
+        L'avis client à déjà été supprimé
+    </div>
+
+
+{% endblock %}
+
+{%  block javascripts %}
+    <script type="application/javascript">
+        $(document).ready(function () {
+
+            $('#delete_order button').on('click', function (e) {
+                $("#info_order").hide();
+                $("#error_order").hide();
+                $("#deleted_order").hide();
+                $("#already_deleted_order").hide();
+                e.preventDefault();
+                var idOrder = $('#delete_order input').val();
+                $.post({
+                    url: '{{ path("moderate_review_order") }}',
+                    data: {
+                        id: idOrder
+                    },
+                    dataType : 'json'
+                }, function (data) {
+                    if(data.id != 0) {
+                        $("#info_order #id").html(data.id);
+                        $("#info_order #id_order").val(data.id);
+                        $("#info_order #name").html(data.name + " " + data.surname);
+                        $("#info_order #mail").html(data.mail);
+                        $("#info_order #date").html(data.date_add);
+                        if(data.id%2 == 0){
+                            $("#info_order #support").html("Trustpilot");
+                        }else{
+                            $("#info_order #support").html("eKomi");
+                        }
+                        $("#info_order").show();
+                    }else{
+                        $("#error_order").show();
+                    }
+                });
+            });
+            $('#info_order button').on('click', function (e) {
+                $("#info_order").hide();
+                $("#error_order").hide();
+                $("#deleted_order").hide();
+                $("#already_deleted_order").hide();
+                e.preventDefault();
+                var idOrder = $('#delete_order input').val();
+                $.post({
+                    url: '{{ path("moderate_review_delete") }}',
+                    data: {
+                        id: idOrder
+                    },
+                    dataType : 'json'
+                }, function (data) {
+                    if(data.status == 1){
+                        $("#deleted_order").show();
+                    }else if(data.status == 2){
+                        $("#already_deleted_order").show();
+                    }
+                });
+            });
+        });
+    </script>
+{% endblock %}

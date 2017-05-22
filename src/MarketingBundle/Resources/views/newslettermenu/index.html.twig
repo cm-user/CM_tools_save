@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>NewsletterMenu list</h1>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Link</th>
+                <th>Position</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for newsletterMenu in newsletterMenus %}
+            <tr>
+                <td><a href="{{ path('newslettermenu_show', { 'id': newsletterMenu.id }) }}">{{ newsletterMenu.title }}</a></td>
+                <td>{{ newsletterMenu.link }}</td>
+                <td>{{ newsletterMenu.position }}</td>
+                <td>{{ newsletterMenu.id }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('newslettermenu_show', { 'id': newsletterMenu.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('newslettermenu_edit', { 'id': newsletterMenu.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('newslettermenu_new') }}" class="btn btn-info">Ajouter un menu</a>
+{% endblock %}

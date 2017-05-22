@@ -1,0 +1,63 @@
+imports:
+    - { resource: config.yml }
+
+parameters:
+    url_base: 'http://www.cadeau-maestro.local/'
+    url_base_bod: 'http://bo.cadeau-maestro.local/'
+    url_img: 'http://www.cadeau-maestro.local/img/newsletter/news/'
+    url_upload: 'http://marketing.local/upload/'
+    url_upload_image_product: 'http://marketing.local/faulty/'
+    banner_directory: '%kernel.root_dir%/../web/upload'
+    carousel_directory: '%kernel.root_dir%/../web/carousel'
+    url_upload_image_carousel: 'http://tools.cadeau-maestro.com/carousel/'
+    product_directory: '%kernel.root_dir%/../web/upload'
+    faulty_image_product_directory: '%kernel.root_dir%/../web/faulty'
+    folder_img: '%kernel.root_dir%/../../cadeau-maestro/www/img/newsletter/news/'
+    folder_upload: '%kernel.root_dir%/../web/upload/'
+    folder_img_base: '%kernel.root_dir%/../../maestro/img'
+    folder_cm_base: '%kernel.root_dir%/../../maestro/'
+
+framework:
+    router:
+        resource: "%kernel.root_dir%/config/routing_dev.yml"
+        strict_requirements: true
+    profiler: { only_exceptions: false }
+
+web_profiler:
+    toolbar: true
+    intercept_redirects: false
+
+monolog:
+    handlers:
+        main:
+            type: stream
+            path: "%kernel.logs_dir%/%kernel.environment%.log"
+            level: debug
+            channels: [!event]
+        console:
+            type:   console
+            channels: [!event, !doctrine]
+        # uncomment to get logging in your browser
+        # you may have to allow bigger header sizes in your Web server configuration
+        #firephp:
+        #    type:   firephp
+        #    level:  info
+        #chromephp:
+        #    type:   chromephp
+        #    level:  info
+
+#swiftmailer:
+#    delivery_address: me@example.com
+
+rem42_server_load:
+    host: marketing.dev
+
+#iq2i_prestashop_web_service:
+#    url: http://www.cm.dev
+#    key: JQ7A0T3BFL7SYQRDHXC2ECMQNDPGAVUG
+#    debug: false
+
+iq2i_prestashop_web_service:
+    url: http://www.cadeau-maestro.local
+    key: KSWP3L85YX13OIURBU7P1P48FZGX372K
+    debug: false

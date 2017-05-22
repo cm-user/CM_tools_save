@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>NewsletterMenu</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Title</th>
+                <td>{{ newsletterMenu.title }}</td>
+            </tr>
+            <tr>
+                <th>Link</th>
+                <td>{{ newsletterMenu.link }}</td>
+            </tr>
+            <tr>
+                <th>Position</th>
+                <td>{{ newsletterMenu.position }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ newsletterMenu.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('newslettermenu_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('newslettermenu_edit', { 'id': newsletterMenu.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

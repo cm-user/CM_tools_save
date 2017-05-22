@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>ShopConfiguration list</h1>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Value</th>
+                <th>Createdat</th>
+                <th>Updatedat</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for shopConfiguration in shopConfigurations %}
+            <tr>
+                <td><a href="{{ path('shopconfiguration_show', { 'id': shopConfiguration.id }) }}">{{ shopConfiguration.name }}</a></td>
+                <td>{{ shopConfiguration.value }}</td>
+                <td>{% if shopConfiguration.createdAt %}{{ shopConfiguration.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if shopConfiguration.updatedAt %}{{ shopConfiguration.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ shopConfiguration.id }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('shopconfiguration_show', { 'id': shopConfiguration.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('shopconfiguration_edit', { 'id': shopConfiguration.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('shopconfiguration_new') }}" class="btn btn-info">Ajouter une configuration</a>
+{% endblock %}

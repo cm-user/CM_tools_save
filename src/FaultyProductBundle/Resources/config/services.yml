@@ -1,0 +1,43 @@
+services:
+    faulty.repository.user:
+        class: FaultyProductBundle\Repository\UserRepository
+        arguments: ["@doctrine.orm.entity_manager", "@service_container", "%unicorn_user.user_entity%"]
+    faulty.repository.faulty:
+        class: FaultyProductBundle\Repository\FaultyRepository
+        arguments: ['@doctrine.orm.entity_manager']
+    faulty.repository.faulty_action:
+        class: FaultyProductBundle\Repository\FaultyActionRepository
+        arguments: ['@doctrine.orm.entity_manager']
+    faulty.repository.product:
+        class: FaultyProductBundle\Repository\ProductRepository
+        arguments: ['@doctrine.orm.entity_manager']
+    faulty.repository.product_image:
+        class: FaultyProductBundle\Repository\ProductImageRepository
+        arguments: ['@doctrine.orm.entity_manager']
+    faulty.repository.supplier:
+        class: FaultyProductBundle\Repository\SupplierRepository
+        arguments: ['@doctrine.orm.entity_manager']
+    faulty.repository.mail:
+        class: FaultyProductBundle\Repository\FaultyMailRepository
+        arguments: ['@doctrine.orm.entity_manager']
+    faulty.configure_menu_listener:
+        class: FaultyProductBundle\EventListener\ConfigureMenuListener
+        tags:
+            - { name: kernel.event_listener, event: unicorn.user.main_menu_logged, method: onMainMenuLoggedConfigure }
+        arguments: ["@service_container"]
+
+    faulty.product_image_uploader:
+          class: FaultyProductBundle\Uploader\ProductImageUploader
+          arguments: ['%faulty_image_product_directory%']
+
+    faulty.doctrine_banner_listener:
+        class: FaultyProductBundle\EventListener\ProductImageListener
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
+            - { name: doctrine.event_listener, event: preUpdate }
+        arguments: ['@faulty.product_image_uploader', '@service_container']
+
+    faulty.command.reportmail:
+        class: FaultyProductBundle\Command\FaultyReportMail
+        tags:
+            - { name: console.command }

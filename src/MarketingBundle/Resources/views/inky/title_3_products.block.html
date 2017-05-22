@@ -1,0 +1,42 @@
+{% if block.title|default %}
+    <row>
+        <columns small="12" large="12">
+            <h2 class="no-margin {{ block.cssTitle }}">{{ block.title }}</h2>
+        </columns>
+    </row>
+{% endif %}
+<row class="product">
+    {% for product in block.newsletterProduct %}
+        <columns small="12" large="4">
+            <row>
+                <columns small="12" large="12" class="white">
+                    <a href="{{ product.link }}">
+                        <img class="text-center" src="{{ product.picture }}">
+                    </a>
+                </columns>
+            </row>
+            <row>
+                <columns small="12" large="12" class="white">
+                    <p class="text-center title no-margin {{ product.cssTitle }}">{{ product.title }}</p>
+                </columns>
+            </row>
+            {% if product.description %}
+            <row>
+                <columns small="12" large="12" class="white">
+                    <p class="text-center no-margin">{{ product.description }}</p>
+                </columns>
+            </row>
+            {% endif %}
+            <row>
+                <columns small="12" large="12" class="white">
+                    <p class="text-center price no-margin">{%if product.price > product.priceOld %}<span class="{{ block.cssTitle }}">{{ product.priceOld }} €</span> <span class="barre">{{ product.price }} €</span>{% else %}{{ product.price }} €{% endif %}</p>
+                </columns>
+            </row>
+            <row>
+                <columns small="12" large="12" class="white">
+                    <button class="medium btn" href="{{ product.link }}">Voir le produit</button>
+                </columns>
+            </row>
+        </columns>
+    {% endfor %}
+</row>

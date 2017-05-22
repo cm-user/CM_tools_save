@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Vidéo du carrousel</h1>
+
+    <table class="table table-bordered table-hover">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ carouselVideo.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ carouselVideo.name }}</td>
+            </tr>
+            <tr>
+                <th>Vidéo ID</th>
+                <td>{{ carouselVideo.videoId }}</td>
+            </tr>
+            <tr>
+                <th>Date de début</th>
+                <td>{{ carouselVideo.dateStart|date("Y-m-d") }}</td>
+            </tr>
+            <tr>
+                <th>Date de fin</th>
+                <td>{{ carouselVideo.dateEnd|date("Y-m-d") }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>
+        <a class="btn btn-default" href="{{ path('carousel_video_index') }}">
+            Retour à la liste
+        </a>
+        -
+        <a class="btn btn-warning" href="{{ path('carousel_video_edit', { 'id': carouselVideo.id }) }}">
+            <span class="glyphicon glyphicon-pencil"></span>
+            Modifier
+        </a>
+        {{ form_start(delete_form) }}
+        <input class="btn btn-danger" type="submit" value="Supprimer">
+        {{ form_end(delete_form) }}
+    </p>
+{% endblock %}

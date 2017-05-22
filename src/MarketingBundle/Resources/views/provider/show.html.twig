@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Provider</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Name</th>
+                <td>{{ provider.name }}</td>
+            </tr>
+            <tr>
+                <th>Isdefault</th>
+                <td>{% if provider.isDefault %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ provider.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('provider_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('provider_edit', { 'id': provider.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

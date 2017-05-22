@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Liste des défectueux</h1>
+
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom du produit</th>
+                <th>Statut</th>
+                <th>Déclarant</th>
+                <th>Date de création</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for faulty in faulties %}
+            {% if faulty.status == "new" %}
+                {% set class = 'info' %}
+            {% elseif faulty.status == 'mail_send' %}
+                {% set class = 'warning' %}
+            {% elseif faulty.status == 'refunded' %}
+                {% set class = 'success' %}
+            {% elseif faulty.status == 'balance' %}
+                {% set class = 'danger' %}
+            {% else %}
+                {% set class = '' %}
+            {% endif %}
+            <tr class="{{ class }}">
+                <td><a href="{{ path('faulty_show', { 'id': faulty.id }) }}">{{ faulty.id }}</a></td>
+                <td>{{ faulty.product.name }}</td>
+                <td>{{ faulty.formattedStatus }}</td>
+                <td>{{ faulty.user.name }} - {{ faulty.user.surname }}</td>
+                <td>{{ faulty.createdAt|date("Y-m-d H:i:s") }}</td>
+                <td>
+                    <a class="btn btn-info" href="{{ path('faulty_show', { 'id': faulty.id }) }}">
+                        <span class="glyphicon glyphicon-search"></span>
+                        Voir
+                    </a>
+                    -
+                    <a class="btn btn-warning" href="{{ path('faulty_edit', { 'id': faulty.id }) }}">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                        Modifier
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="navigation">
+        {{ knp_pagination_render(faulties) }}
+    </div>
+
+    <a class="btn btn-success" href="{{ path('faulty_new') }}">
+        <span class="glyphicon glyphicon-plus"></span>
+        Ajouter un nouveau défectueux
+    </a>
+
+    <br/>
+    <br/>
+    <br/>
+    <a class="btn btn-danger btn-lg" href="{{ path('faulty_download') }}">
+        <span class="glyphicon glyphicon-ice-lolly-tasted"></span>
+        Export des défectueux de l'entrepôt en CSV
+        <span class="glyphicon glyphicon-sunglasses"></span>
+    </a>
+{% endblock %}

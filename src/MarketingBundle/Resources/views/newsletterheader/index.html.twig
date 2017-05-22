@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>NewsletterHeader list</h1>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Texttop</th>
+                <th>Textintro</th>
+                <th>Textdescription</th>
+                <th>Picture</th>
+                <th>Link</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for newsletterHeader in newsletterHeaders %}
+            <tr>
+                <td><a href="{{ path('newsletterheader_show', { 'id': newsletterHeader.id }) }}">{{ newsletterHeader.textTop }}</a></td>
+                <td>{{ newsletterHeader.textIntro }}</td>
+                <td>{{ newsletterHeader.textDescription }}</td>
+                <td>{{ newsletterHeader.picture }}</td>
+                <td>{{ newsletterHeader.link }}</td>
+                <td>{{ newsletterHeader.id }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('newsletterheader_show', { 'id': newsletterHeader.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('newsletterheader_edit', { 'id': newsletterHeader.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('newsletterheader_new') }}" class="btn btn-info">Ajouter une en-tête</a>
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Shop</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Name</th>
+                <td>{{ shop.name }}</td>
+            </tr>
+            <tr>
+                <th>Address1</th>
+                <td>{{ shop.address1 }}</td>
+            </tr>
+            <tr>
+                <th>Address2</th>
+                <td>{{ shop.address2 }}</td>
+            </tr>
+            <tr>
+                <th>Postalcode</th>
+                <td>{{ shop.postalCode }}</td>
+            </tr>
+            <tr>
+                <th>City</th>
+                <td>{{ shop.city }}</td>
+            </tr>
+            <tr>
+                <th>Country</th>
+                <td>{{ shop.country }}</td>
+            </tr>
+            <tr>
+                <th>Mail</th>
+                <td>{{ shop.mail }}</td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td>{{ shop.phone }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ shop.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('shop_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('shop_edit', { 'id': shop.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

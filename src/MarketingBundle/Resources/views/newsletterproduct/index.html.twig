@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>NewsletterProduct list</h1>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Position</th>
+                <th>Idprestashopproduct</th>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Priceold</th>
+                <th>Link</th>
+                <th>Picture</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for newsletterProduct in newsletterProducts %}
+            <tr>
+                <td><a href="{{ path('newsletterproduct_show', { 'id': newsletterProduct.id }) }}">{{ newsletterProduct.position }}</a></td>
+                <td>{{ newsletterProduct.idPrestashopProduct }}</td>
+                <td>{{ newsletterProduct.title }}</td>
+                <td>{{ newsletterProduct.price }}</td>
+                <td>{{ newsletterProduct.priceOld }}</td>
+                <td>{{ newsletterProduct.link }}</td>
+                <td>{{ newsletterProduct.picture }}</td>
+                <td>{{ newsletterProduct.id }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('newsletterproduct_show', { 'id': newsletterProduct.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('newsletterproduct_edit', { 'id': newsletterProduct.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+   <a href="{{ path('newsletterproduct_new') }}" class="btn btn-info">Créer un produit</a>
+{% endblock %}
