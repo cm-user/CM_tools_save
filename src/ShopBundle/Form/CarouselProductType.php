@@ -35,10 +35,10 @@ class CarouselProductType extends AbstractType
             ->add('picture', TextType::class, [
                 'label' => 'Chemin l\'image',
             ])
-            ->add('price', TextType::class, [
+            ->add('priceOld', TextType::class, [
                 'label' => 'Prix'
             ])
-            ->add('priceOld', TextType::class, [
+            ->add('price', TextType::class, [
                 'label' => 'Prix promo'
             ])
         ;

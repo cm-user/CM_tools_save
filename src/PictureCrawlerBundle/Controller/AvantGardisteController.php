@@ -11,7 +11,7 @@ class AvantGardisteController extends Controller
 {
     public static function indexAction($url){
         $crawlerAvantGardiste = CrawlerAvantGardiste::init($url);
-        
+
         return new JsonResponse(array('data' => $crawlerAvantGardiste));
     }
 }
