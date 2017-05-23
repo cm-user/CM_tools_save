@@ -44,20 +44,17 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="fader">
-                                {% for carouselProduct in carouselProducts %}
-                                    <div style="background: url({{ carouselProduct.picture }}) center center;{% if loop.first %} display: block;{% endif %}">
-                                        <h1 class="misobold">{{ carouselProduct.name }}</h1>
-                                        <p class="misobold">
+                                        <div class="fader">
+                                            {% for carouselProduct in carouselProducts %}
+                                                <div style="background: url({{ carouselProduct.picture }}) center center;{% if loop.first %} display: block;{% endif %}">
+                                                    <h1 class="misobold">{{ carouselProduct.name }}</h1>
+                                                    <p class="misobold">
+                                                        {% if carouselProduct.priceOld > carouselProduct.price %}
+                                                            <span class="price_old">{{ carouselProduct.priceOld }} €</span>
+                                                        {% endif %}
+                                                        <span class="price">{{ carouselProduct.price }} €</span>
 
-                                            {% if carouselProduct.priceOld > carouselProduct.price %}
-                                                <span class="price_old">{{ carouselProduct.priceOld }} €</span>
-                                                <span class="price">{{ carouselProduct.price }} €</span>
-                                            {% else %}
-                                                <span class="price">{{ carouselProduct.priceOld }} €</span>
-                                            {% endif %}
-
-                                        </p>
+                                                    </p>
                                     </div>
                                 {% endfor %}
                             </div>

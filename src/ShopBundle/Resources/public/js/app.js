@@ -56,7 +56,7 @@ var app = {
                     playerList[$number].playVideo();
                 }
             }else{
-                $duration = $item.data("duration") * 1000;
+                $duration = $item.data("duration") * 3000;
                 setTimeout(app.load.carousel_next, $duration);
             }
         },

@@ -159,9 +159,9 @@ var ephemeris = {
             ["Bérenger", "Saint"],
             ["Augustin", "Saint"],
             ["Germain", "Saint"],
-            ["Aymar", "Saint"],
+            ["Ursule", "Saint"],
             ["Ferdinand", "Saint"],
-            ["Ferdinand", "Saint"]
+            ["Lise-Marie", "Saint"]
         ],
         "june"     : [
             ["Justin", "Saint"],
