@@ -27,7 +27,10 @@
                         Modifier
                     </a>
                     -
-                    <a href="{{ path('carousel_product_delete', { 'id': carouselProduct.id }) }}">Supprimer</a>
+                    <a class="btn btn-danger" href="{{ path('carousel_product_delete', { 'id': carouselProduct.id }) }}">
+                        <span class="glyphicon glyphicon-remove"></span>
+                        Supprimer
+                    </a>
                 </td>
             </tr>
         {% endfor %}

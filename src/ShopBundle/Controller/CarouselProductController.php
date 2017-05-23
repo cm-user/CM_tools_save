@@ -104,12 +104,13 @@ class CarouselProductController extends Controller
      */
     public function deleteAction(Request $request, CarouselProduct $carouselProduct)
     {
-        $form = $this->createDeleteForm($carouselProduct);
+        /*$form = $this->createDeleteForm($carouselProduct);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->get('shop.repository.carousel.product')->delete($carouselProduct);
-        }
+        }*/
+        $this->get('shop.repository.carousel.product')->delete($carouselProduct);
 
         return $this->redirectToRoute('carousel_product_index');
     }
