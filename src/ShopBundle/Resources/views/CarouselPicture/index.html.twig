@@ -32,7 +32,10 @@
                         <span class="glyphicon glyphicon-pencil"></span>
                         Modifier
                     </a>
-                    - <a href="{{ path('carousel_picture_delete', { 'id': carouselPicture.id }) }}">Supprimer</a>
+                    - <a class="btn btn-danger" href="{{ path('carousel_picture_delete', { 'id': carouselPicture.id }) }}">
+                        <span class="glyphicon glyphicon-remove"></span>
+                        Supprimer
+                    </a>
                 </td>
             </tr>
         {% endfor %}
