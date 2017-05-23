@@ -12,8 +12,8 @@ security:
 
     #ips: [37.58.179.12, ]
     access_control:
-        - { path: ^/user/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, ips: [176.145.237.59, 37.58.179.194, 127.0.0.1, 192.168.1.7] }
-        - { path: ^/user/register, roles: IS_AUTHENTICATED_ANONYMOUSLY, ips: [176.145.237.59, 37.58.179.194, 127.0.0.1, 192.168.1.7] }
+        - { path: ^/user/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, ips: [176.145.237.59, 37.58.179.194, 127.0.0.1, 192.168.1.7, 31.36.170.230] }
+        - { path: ^/user/register, roles: IS_AUTHENTICATED_ANONYMOUSLY, ips: [176.145.237.59, 37.58.179.194, 127.0.0.1, 192.168.1.7, 31.36.170.230] }
         - { path: ^/user, roles: ROLE_USER }
         - { path: ^/marketing, roles: ROLE_USER }
         - { path: ^/moderate_review, roles: ROLE_USER }
@@ -21,7 +21,7 @@ security:
         - { path: ^/faulty, roles: ROLE_USER }
         - { path: ^/shop, roles: ROLE_USER }
         - { path: ^/mail_signature, roles: ROLE_USER }
-        - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY, ips: [176.145.237.59, 37.58.179.194, 127.0.0.1, 192.168.1.7] }
+        - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY, ips: [176.145.237.59, 37.58.179.194, 127.0.0.1, 192.168.1.7, 31.36.170.230] }
         - { path: ^/, roles: ROLE_NO_ACCESS }
 
     role_hierarchy:
