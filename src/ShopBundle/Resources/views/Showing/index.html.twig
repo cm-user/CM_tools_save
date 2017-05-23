@@ -49,9 +49,12 @@
                                     <div style="background: url({{ carouselProduct.picture }}) center center;{% if loop.first %} display: block;{% endif %}">
                                         <h1 class="misobold">{{ carouselProduct.name }}</h1>
                                         <p class="misobold">
-                                            <span class="price">{{ carouselProduct.priceOld }} €</span>
+
                                             {% if carouselProduct.priceOld > carouselProduct.price %}
-                                                <span class="price_old">{{ carouselProduct.price }} €</span>
+                                                <span class="price_old">{{ carouselProduct.priceOld }} €</span>
+                                                <span class="price">{{ carouselProduct.price }} €</span>
+                                            {% else %}
+                                                <span class="price">{{ carouselProduct.priceOld }} €</span>
                                             {% endif %}
 
                                         </p>
