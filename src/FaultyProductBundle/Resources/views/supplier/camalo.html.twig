@@ -1,13 +1,19 @@
 {% extends 'base.html.twig' %}
 
+{% set compt = 0 %}
+
 {% block body %}
     <h1>Liste des produits défectueux trié par fournisseurs</h1>
 
     {% for supplier in suppliers %}
-        <h1 id="{{ supplier.idPrestashopSupplier }}">{{ supplier.name }}</h1>
+        {% if supplier.products.faulty.status == "new" or "mail_send" or "balance" %}
+            {#{% set compt = compt + 1 %}#}
+        {#{% endif %}#}
+        {#{% if compt == 0 %}#}
+            <h1 id="{{ supplier.idPrestashopSupplier }}">{{ supplier.name }}</h1>
 
-        <table class="table table-bordered table-hover">
-            <thead>
+            <table class="table table-bordered table-hover">
+                <thead>
                 <tr>
                     <th>Quantité</th>
                     <th>Status</th>
@@ -19,26 +25,29 @@
                     <th>Image</th>
                     <th>Date</th>
                 </tr>
-            </thead>
-            <tbody>
+                </thead>
+                <tbody>
                 {% for product in supplier.products %}
-                    <tr>
-                        <td>{{ product.quantity }}</td>
-                        <td>{{ product.faulty.status }}</td>
-                        <td><a href="{{ url('faulty_show', {'id': product.faulty.id}) }}" >{{ product.name }}</a></td>
-                        <td>{{ product.supplierReference }}</td>
-                        <td>{{ product.costPrice|number_format(2) }} €</td>
-                        <td>{{ product.faulty.user.name }}</td>
-                        <td>{{ product.faulty.reason }}</td>
-                        <td>
-                            {% for productImages in product.productImages %}
-                                <a href="{{ productImages.picture }}">image {{ loop.index }}</a><br/>
-                            {% endfor %}
-                        </td>
-                        <td>{{ product.faulty.createdAt|date("Y-m-d H:i:s") }}</td>
-                    </tr>
+                    {% if  product.faulty.status != "refunded" %}
+                        <tr>
+                            <td>{{ product.quantity }}</td>
+                            <td>{{ product.faulty.status }}</td>
+                            <td><a href="{{ url('faulty_show', {'id': product.faulty.id}) }}" >{{ product.name }}</a></td>
+                            <td>{{ product.supplierReference }}</td>
+                            <td>{{ product.costPrice|number_format(2) }} €</td>
+                            <td>{{ product.faulty.user.name }}</td>
+                            <td>{{ product.faulty.reason }}</td>
+                            <td>
+                                {% for productImages in product.productImages %}
+                                    <a href="{{ productImages.picture }}">image {{ loop.index }}</a><br/>
+                                {% endfor %}
+                            </td>
+                            <td>{{ product.faulty.createdAt|date("Y-m-d H:i:s") }}</td>
+                        </tr>
+                    {% endif %}
                 {% endfor %}
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        {% endif %}
     {% endfor %}
 {% endblock %}
