@@ -27,6 +27,7 @@ $(document).ready(function () {
     searchProduct();
 });
 
+//affiche la modal au clic du bouton rechercher
 function searchProduct(){
     $('button.product-search').on("click",(function(e){
         e.preventDefault();
@@ -52,6 +53,7 @@ function searchProduct(){
 }
 
 var list_suppliers;
+//remplit les champs automatiquement après avoir sélectionné un produit dans la modal
 function loadProduct(idProduct){
     var id = $('form > div').attr('id')+'_product_';
     $.ajax({
