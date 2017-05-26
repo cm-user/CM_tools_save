@@ -25,7 +25,7 @@ class SupplierController extends Controller
      * @Method("GET")
      */
     public function newAction($status){
-        $suppliers = $this->get('faulty.repository.supplier')->findLast3Month();
+        $suppliers = $this->get('faulty.repository.supplier')->findAll();
 
         return array(
             'suppliers' => $suppliers,
