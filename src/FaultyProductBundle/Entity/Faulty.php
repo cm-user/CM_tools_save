@@ -46,7 +46,7 @@ class Faulty
     /**
      * @var boolean
      *
-     * @ORM\Column(name="reception", type="boolean", nullable=true)
+     * @ORM\Column(name="reception", type="boolean", nullable=true, options={"default":0})
      */
     protected $reception;
 
