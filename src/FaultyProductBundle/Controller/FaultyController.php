@@ -184,6 +184,32 @@ class FaultyController extends Controller
     /**
      * Deletes a faultyAction entity.
      *
+     * @Route("/{id}/delete", name="faulty_delete_bybutton")
+     * @return RedirectResponse
+     */
+    public function delete_bybuttonAction(Faulty $faulty)
+    {
+
+        $productImages = $faulty->getProduct()->getProductImages();
+        $productImageRepository = $this->get('faulty.repository.product_image');
+
+
+        foreach ($productImages as $productImage) {
+            /* @var $productImage ProductImage */
+            $productImageRepository->delete($productImage);
+        }
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($faulty);
+        $em->flush();
+
+        $this->get('shop.repository.faulty')->delete($faulty);
+
+        return $this->redirectToRoute('faulty_index');
+    }
+
+    /**
+     * Deletes a faultyAction entity.
+     *
      * @Route("/{id}", name="faulty_delete")
      * @Method("DELETE")
      */
@@ -209,29 +235,7 @@ class FaultyController extends Controller
         return $this->redirectToRoute('faulty_index');
     }
 
-    /**
-     * Deletes a faultyAction entity.
-     *
-     * @Route("/{id}", name="faulty_delete_byButton")
-     * @Method("DELETE")
-     */
-//    public function delete_byButtonAction(Request $request, Faulty $faulty)
-//    {
-//
-//            $productImages = $faulty->getProduct()->getProductImages();
-//            $productImageRepository = $this->get('faulty.repository.product_image');
-//
-//
-//            foreach ($productImages as $productImage) {
-//                /* @var $productImage ProductImage */
-//                $productImageRepository->delete($productImage);
-//            }
-//            $em = $this->getDoctrine()->getManager();
-//            $em->remove($faulty);
-//            $em->flush();
-//
-//        $this->get('shop.repository.faulty')->delete($faulty);
-//    }
+    
 
     /**
      * Creates a form to delete a faultyAction entity.
