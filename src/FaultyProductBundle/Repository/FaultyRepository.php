@@ -19,6 +19,7 @@ class FaultyRepository
         return $this->entityManager->getRepository('FaultyProductBundle:Faulty')->findAll();
     }
 
+
     public function findBy(array $criteres, array $order){
         return $this->entityManager->getRepository('FaultyProductBundle:Faulty')->findBy($criteres, $order);
     }

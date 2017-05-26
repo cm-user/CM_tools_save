@@ -22,6 +22,20 @@ class SupplierRepository
         return $this->entityManager->getRepository('FaultyProductBundle:Supplier')->findAll();
     }
 
+    public function findAllbyASC(){
+        $q = $this->entityManager->createQueryBuilder();
+        $q->select('s')
+            ->from('FaultyProductBundle:Supplier', 's')
+            ->leftJoin('s.products', 'p')
+            ->leftJoin('p.faulty', 'f')
+            ->orderBy('s.name')
+        ;
+
+        $faulties = $q->getQuery()->getResult();
+
+        return $faulties;
+    }
+
     public function findLast3Month(){
         $dateEnd = new \DateTime();
         $dateStart = clone $dateEnd;
