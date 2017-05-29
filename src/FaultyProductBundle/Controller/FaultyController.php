@@ -198,11 +198,8 @@ class FaultyController extends Controller
             /* @var $productImage ProductImage */
             $productImageRepository->delete($productImage);
         }
-        $em = $this->getDoctrine()->getManager();
-        $em->remove($faulty);
-        $em->flush();
 
-        $this->get('shop.repository.faulty')->delete($faulty);
+        $this->get('faulty.repository.faulty')->delete($faulty);
 
         return $this->redirectToRoute('faulty_index');
     }

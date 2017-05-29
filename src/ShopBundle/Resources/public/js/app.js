@@ -17,13 +17,13 @@ var app = {
         },
         ephemeride: function(){
             $today = new Date();
-            $tomorrow = app.tools.add_days(new Date(), 1);
-            $afterTomorrow = app.tools.add_days(new Date(), 2);
+            $tomorrow = app.tools.add_days(new Date(), 1); //modifie la date pour le lendemain
+            $afterTomorrow = app.tools.add_days(new Date(), 2); //pour le sur-lendemain
 
             $ephemeride = $("#ephemeride");
             $ephemeride.find('#today .today').html(ephemeris.getTodayEphemeris());
-            $ephemeride.find('#tomorrow .tomorrow').html(ephemeris.getEphemeris($tomorrow.getMonth() + 1, $tomorrow.getDay() + 1));
-            $ephemeride.find('#aftertomorrow .aftertomorrow').html(ephemeris.getEphemeris($afterTomorrow.getMonth() + 1, $afterTomorrow.getDay() + 1));
+            $ephemeride.find('#tomorrow .tomorrow').html(ephemeris.getEphemeris($tomorrow.getDate(), $tomorrow.getMonth() + 1));
+            $ephemeride.find('#aftertomorrow .aftertomorrow').html(ephemeris.getEphemeris($afterTomorrow.getDate(), $afterTomorrow.getMonth() + 1));
         },
         player_yt: function(){
             $('#carousel .item').each(function(){
@@ -86,15 +86,14 @@ var app = {
             return result;
         },
         carousel: function(){
-            /*var $imgs = $(".fader").find("div"),
+            var $imgs = $(".fader").find("div"),
                 i = 0;
-
             function changeImage(){
                 var next = (++i % $imgs.length);
                 $($imgs.get(next - 1)).fadeOut(500);
                 $($imgs.get(next)).fadeIn(500);
             }
-            var interval = setInterval(changeImage, 2000);*/
+            var interval = setInterval(changeImage, 4000); //intervalle des produits
         }
     }
 };
