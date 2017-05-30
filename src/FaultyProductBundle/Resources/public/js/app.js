@@ -59,7 +59,7 @@ function loadProduct(idProduct){
     $.ajax({
         url: Routing.generate('faulty_prestashop_product', {id: idProduct}),
         success: function(result){
-            console.log(result);            
+            console.log(result);         // A SUPPRIMER
             $('#'+id+'name').val(result.product.name.language);
             $('#'+id+'idPrestashopProduct').val(result.product.id);
             $('#'+id+'link').val(result.product.link);

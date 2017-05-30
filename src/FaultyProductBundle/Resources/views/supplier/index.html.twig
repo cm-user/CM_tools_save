@@ -32,6 +32,44 @@
     </tr>
 {% endblock %}
 
+{#Block concernant les renvois fournisseurs#}
+{% block product_balance %}
+    {#Si la date de l'envoi du mail a dépassé 3 mois, la ligne devient rouge#}
+    {% if product.faulty.sendMailAt|date_modify("+3 month")|date("Y-m-d") < now|date("Y-m-d") %}
+        <tr class="danger">
+    {% else %}
+        <tr>
+    {% endif %}
+    <td>{{ product.quantity }}</td>
+    <td><a href="{{ path('faulty_show', {'id': product.faulty.id}) }}">{{ product.name }}</a></td>
+    <td>{{ product.supplierReference }}</td>
+    <td>{{ product.costPrice|number_format(2) }} €</td>
+    <td>{{ product.formattedLocation }}</td>
+    <td>{{ product.faulty.user.name }}</td>
+    <td>{{ product.faulty.reason }}</td>
+    <td>
+        {% for productImages in product.productImages %}
+            <a href="{{ productImages.picture }}">image {{ loop.index }}</a><br/>
+        {% endfor %}
+    </td>
+    <td>{{ product.faulty.createdAt|date("Y-m-d H:i:s") }}</td>
+    <td>{{ product.faulty.sendMailAt|date("Y-m-d H:i:s") }}</td>
+    <td>
+        <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Modifier le statut <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="{{ path('faulty_status_faulty', {'faulty':product.faulty.id, 'to':'new', 'return':status, 'supplier':supplier.id}) }}">A déclarer</a></li>
+                <li><a href="{{ path('faulty_status_faulty', {'faulty':product.faulty.id, 'to':'mail_send', 'return':status, 'supplier':supplier.id}) }}">Mail envoyé</a></li>
+                <li><a href="{{ path('faulty_status_faulty', {'faulty':product.faulty.id, 'to':'balance', 'return':status, 'supplier':supplier.id}) }}">Renvoi du fournisseur</a></li>
+                <li><a href="{{ path('faulty_status_faulty', {'faulty':product.faulty.id, 'to':'refunded', 'return':status, 'supplier':supplier.id}) }}">Terminé / Remboursé</a></li>
+            </ul>
+        </div>
+    </td>
+    </tr>
+{% endblock %}
+
 {% block product %}
     <tr>
         <td>{{ product.quantity }}</td>
@@ -133,7 +171,7 @@
                 {% if product.faulty.status == 'balance' %}
                     {% set balance %}
                         {{ balance }}
-                        {{ block('product_date_send') }}
+                        {{ block('product_balance') }}
                     {% endset %}
                     {% set balance_size = balance_size+1 %}
                 {% endif %}
