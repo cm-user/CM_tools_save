@@ -59,26 +59,27 @@ function loadProduct(idProduct){
     $.ajax({
         url: Routing.generate('faulty_prestashop_product', {id: idProduct}),
         success: function(result){
-            console.log(result);         // A SUPPRIMER
             $('#'+id+'name').val(result.product.name.language);
             $('#'+id+'idPrestashopProduct').val(result.product.id);
             $('#'+id+'link').val(result.product.link);
             $('#'+id+'costPrice').val(result.product.wholesale_price);
 
             list_suppliers = result.product.suppliers;
-            /*$('#'+id+'supplier_name').val(result.product.supplier_name);*/
 
-            $.each(result.product.suppliers, function (i, item) {
+            var tab_suppliers_reverse = result.product.suppliers.reverse(); //tableau qui contiendra tous les objets suppliers
+            // il est inversé afin de proposer le fournisseur le plus récent par défaut
+
+            $.each(tab_suppliers_reverse, function (i, item) {
                 $('#'+id+'supplier_name').append($('<option>', {
-                    value: item.name,
-                    text : item.name
+                        value: item.name,
+                        text : item.name
                 }));
                 if(i==0){
                     $('#'+id+'supplier_idPrestashopSupplier').val(item.id_supplier);
                     $('#'+id+'supplierReference').val(item.product_supplier_reference);
                 }
             });
-
+           
             $('#'+id+'supplier_name').change(function(){
                 var value = $('#'+id+'supplier_name').val();
                 $.each(list_suppliers, function(i, item){
