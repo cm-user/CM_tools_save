@@ -25,5 +25,6 @@ class ConfigureMenuListener
         if($this->container->get('security.authorization_checker')->isGranted(['ROLE_MAIL_SIGNATURE'])) {
             $menu->addChild('Signature Mail', ['route' => 'mail_signature_index']);
         }
+
     }
 }
