@@ -6,7 +6,7 @@
  * Time: 10:56
  */
 
-<?php
+
 
 namespace MailSignatureBundle\Controller;
 
@@ -21,12 +21,12 @@ use Symfony\Component\Finder\SplFileInfo;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
-class MailSignatureController extends Controller
+class ImageCommandeController extends Controller
 {
 
     /**
      * Affichage de l'image de fin de commande en cours + le formulaire pour le changer
-     * @Route("/", name="image_fin_commande_index")
+     * @Route("/image-commande", name="image_fin_commande_index")
      * @Template("MailSignatureBundle:ImageCommande:index.html.twig")
      * @param Request $request
      * @return array
@@ -68,10 +68,10 @@ class MailSignatureController extends Controller
 //        $img = $this->getParameter('url_base_bo').'img/actu-du-moment.gif?r='.rand(0,9999999999);
 
         return array(
-            'mail_signature' => $mailSignature,
-            'url_actuelle' => $url,
-            'img_actuelle' => $img,
-            'form' => $form->createView(),
+//            'mail_signature' => $mailSignature,
+//            'url_actuelle' => $url,
+//            'img_actuelle' => $img,
+//            'form' => $form->createView(),
         );
     }
 }
