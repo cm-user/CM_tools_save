@@ -16,9 +16,6 @@ parameters:
     folder_upload: '%kernel.root_dir%/../web/upload/'
     folder_img_base: '%kernel.root_dir%/../../www/img/'
     folder_cm_base: '%kernel.root_dir%/../../www/'
-    folder_img_mail_signature: '%kernel.root_dir%/../../www/img/mail-signature'
-    folder_img_image_commande: '%kernel.root_dir%/../../www/img/image-commande'
-
 
 
 #framework:

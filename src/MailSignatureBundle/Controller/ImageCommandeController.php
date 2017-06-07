@@ -42,21 +42,27 @@ class ImageCommandeController extends Controller
 
             $fs = new Filesystem();
 
-            $file = $this->getParameter('folder_cm_base').'redirect.php';
+            $file = $this->getParameter('folder_cm_base').'redirect_image_commande.php';
             $content = '<?php header(\'Location: '.$imagecommande->getUrl().'\'); ?>';
 
             if($fs->exists($file)){
+                $fs->dumpFile($file, $content);
+            }
+            else {
+                fopen($file, "w+");
                 $fs->dumpFile($file, $content);
             }
 
             $fileName = 'fin-commande.gif';
 
             $file = $imagecommande->getFilePicture();
-            $file->move($this->getParameter('folder_img_base'), $fileName);
+            if($file){  //si l'utilisateur a selectionné une image, on la met sur le serveur sinon on garde la même par défaut
+                $file->move($this->getParameter('folder_img_base'), $fileName);
+            }            
         }
 
         $finder = new Finder();
-        $finder->files()->name('redirect.php');
+        $finder->files()->name('redirect_image_commande.php');
         $url = '';
         foreach ($finder->files()->in($this->getParameter('folder_cm_base')) as $file) {
             $content = $file->getContents();
