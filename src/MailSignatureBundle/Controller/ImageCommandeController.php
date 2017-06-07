@@ -70,7 +70,7 @@ class ImageCommandeController extends Controller
             $url = $m[1][0];
         }
 
-        $img = $this->getParameter('url_base_bo').'img/fin-commande.gif?r='.rand(0,9999999999);
+        $img = $this->getParameter('url_base').'img/fin-commande.gif?r='.rand(0,9999999999);
 
         return array(
             'image_commande' => $imagecommande,

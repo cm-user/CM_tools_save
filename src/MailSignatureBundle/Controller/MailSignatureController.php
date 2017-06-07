@@ -34,17 +34,19 @@ class MailSignatureController extends Controller
 
             $fs = new Filesystem();
 
-            $file = $this->getParameter('folder_cm_base').'redirect.php';
-            $content = '<?php header(\'Location: '.$mailSignature->getUrl().'\'); ?>';
+            $file = $this->getParameter('folder_cm_base') . 'redirect.php';
+            $content = '<?php header(\'Location: ' . $mailSignature->getUrl() . '\'); ?>';
 
-            if($fs->exists($file)){
+            if ($fs->exists($file)) {
                 $fs->dumpFile($file, $content);
             }
 
             $fileName = 'actu-du-moment.gif';
 
             $file = $mailSignature->getFilePicture();
-            $file->move($this->getParameter('folder_img_base'), $fileName);
+            if ($file) {  //si l'utilisateur a selectionné une image, on la met sur le serveur sinon on garde la même par défaut
+                $file->move($this->getParameter('folder_img_base'), $fileName);
+            }
         }
 
         $finder = new Finder();

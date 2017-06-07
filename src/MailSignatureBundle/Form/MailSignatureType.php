@@ -21,9 +21,10 @@ class MailSignatureType extends AbstractType
             ->add('url', UrlType::class, [
                 'label' => 'Lien de redirection'
             ])
-            ->add('filePicture', FileType::class, [
-                'label' => 'Bannière'
-            ])
+            ->add('filePicture', FileType::class, array(
+                'label' => 'Bannière',
+                'required' => false
+            ))
             ->add('send', SubmitType::class, [
                 'label' => 'Modifier'
             ])
