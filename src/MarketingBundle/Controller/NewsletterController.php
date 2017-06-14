@@ -66,12 +66,12 @@ class NewsletterController extends Controller
 
         $menu = new NewsletterMenu();
         $menu->setTitle('Nos meilleures ventes');
-        $menu->setLink('http://www.cadeau-maestro.com/meilleures-ventes');
+        $menu->setLink('https://www.cadeau-maestro.com/meilleures-ventes');
         $newsletter->getNewsletterMenu()->add($menu);
 
         $menu = new NewsletterMenu();
         $menu->setTitle('Trouver une idée cadeau');
-        $menu->setLink('http://www.cadeau-maestro.com/idees-cadeaux');
+        $menu->setLink('https://www.cadeau-maestro.com/idees-cadeaux');
         $newsletter->getNewsletterMenu()->add($menu);
 
         $block = new NewsletterBlock();
