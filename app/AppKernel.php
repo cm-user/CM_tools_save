@@ -30,6 +30,7 @@ class AppKernel extends Kernel
             new FaultyProductBundle\FaultyProductBundle(),
             new MailSignatureBundle\MailSignatureBundle(),
             new Tinypng\Bundle\TinypngBundle(),
+            new CoreSphere\ConsoleBundle\CoreSphereConsoleBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
