@@ -1,0 +1,13 @@
+services:
+    tinypng.request_listener:
+        class: Tinypng\Bundle\EventListener\RequestListener
+        tags:
+            - { name: kernel.event_listener, event: kernel.request }
+        calls:
+            - [setContainer, ["@service_container"]]
+    tinypng.command_listener:
+            class: Tinypng\Bundle\EventListener\CommandListener
+            tags:
+                - { name: kernel.event_listener, event: console.command }
+            calls:
+                - [setContainer, ["@service_container"]]

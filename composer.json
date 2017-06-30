@@ -4,8 +4,7 @@
     "type": "project",
     "autoload": {
         "psr-4": {
-            "": "src/",
-            "CoreSphere\\ConsoleBundle\\": "vendor/coresphere/console-bundle/"
+            "": "src/"
         },
         "classmap": [
             "app/AppKernel.php",
@@ -33,10 +32,10 @@
                 }
             }
         },
-	    {
-		    "type" : "vcs",
-		    "url" : "https://git.remy.ovh/unicorn/user-bundle.git"
-	    }
+        {
+            "type" : "vcs",
+            "url" : "https://git.remy.ovh/unicorn/user-bundle.git"
+        }
     ],
     "require": {
         "php": ">=5.5.9",
@@ -52,20 +51,20 @@
         "knplabs/knp-menu-bundle": "^2.1",
         "knplabs/knp-paginator-bundle": "^2.5",
         "rem42/server-load-bundle": "dev-master",
-	    "unicorn/user-bundle": "dev-master",
+        "unicorn/user-bundle": "dev-master",
         "symfony/finder": "^3.1",
         "iq2i/prestashop-webservice-bundle": "dev-master",
         "friendsofsymfony/jsrouting-bundle": "^1.6",
         "hampe/zurb-ink-bundle": "^2.1",
         "robertotru/to-inline-style-email-bundle": "dev-master",
         "gregwar/image-bundle": "dev-master",
-	    "sensio/generator-bundle": "^3.0",
-	    "symfony/phpunit-bridge": "^3.0",
-	    "doctrine/doctrine-fixtures-bundle": "^2.3",
-	    "fzaninotto/faker": "^1.5",
-	    "guzzlehttp/guzzle": "^5.3.1",
-	    "symfony/dom-crawler": "3.0.*@dev",
-	    "symfony/css-selector": "3.0.*@dev",
+        "sensio/generator-bundle": "^3.0",
+        "symfony/phpunit-bridge": "^3.0",
+        "doctrine/doctrine-fixtures-bundle": "^2.3",
+        "fzaninotto/faker": "^1.5",
+        "guzzlehttp/guzzle": "^5.3.1",
+        "symfony/dom-crawler": "3.0.*@dev",
+        "symfony/css-selector": "3.0.*@dev",
         "oro/doctrine-extensions": "^1.0",
         "loevgaard/tinypng-bundle": "^0.1.7"
     },

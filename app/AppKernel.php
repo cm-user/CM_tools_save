@@ -15,8 +15,8 @@ class AppKernel extends Kernel
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-	        new Knp\Bundle\MenuBundle\KnpMenuBundle(),
-	        new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new Unicorn\Bundle\UserBundle\UserBundle(),
             new MarketingBundle\MarketingBundle(),
             new \IQ2i\PrestaShopWebServiceBundle\IQ2iPrestaShopWebServiceBundle(),
@@ -30,7 +30,6 @@ class AppKernel extends Kernel
             new FaultyProductBundle\FaultyProductBundle(),
             new MailSignatureBundle\MailSignatureBundle(),
             new Tinypng\Bundle\TinypngBundle(),
-            new CoreSphere\ConsoleBundle\CoreSphereConsoleBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
