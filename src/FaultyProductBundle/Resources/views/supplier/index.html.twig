@@ -35,7 +35,7 @@
 {#Block concernant les renvois fournisseurs#}
 {% block product_balance %}
     {#Si la date de l'envoi du mail a dépassé 3 mois, la ligne devient rouge#}
-    {% if product.faulty.sendMailAt|date_modify("+3 month")|date("Y-m-d") < now|date("Y-m-d") %}
+    {% if product.faulty.sendMailAt|date_modify("+3 month")|date("Y-m-d") < "now"|date("Y-m-d") %}
         <tr class="danger">
     {% else %}
         <tr>

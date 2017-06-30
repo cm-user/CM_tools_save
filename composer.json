@@ -4,7 +4,8 @@
     "type": "project",
     "autoload": {
         "psr-4": {
-            "": "src/"
+            "": "src/",
+            "CoreSphere\\ConsoleBundle\\": "vendor/coresphere/console-bundle/"
         },
         "classmap": [
             "app/AppKernel.php",
@@ -66,8 +67,7 @@
 	    "symfony/dom-crawler": "3.0.*@dev",
 	    "symfony/css-selector": "3.0.*@dev",
         "oro/doctrine-extensions": "^1.0",
-        "loevgaard/tinypng-bundle": "^0.1.7",
-        "coresphere/console-bundle": "~0.4"
+        "loevgaard/tinypng-bundle": "^0.1.7"
     },
     "require-dev": {
 
