@@ -428,7 +428,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getCache_AppService()
     {
-        $this->services['cache.app'] = $instance = new \Symfony\Component\Cache\Adapter\FilesystemAdapter('qb6XyXAiuB', 0, (__DIR__.'/pools'));
+        $this->services['cache.app'] = $instance = new \Symfony\Component\Cache\Adapter\FilesystemAdapter('M4LesrEy1X', 0, (__DIR__.'/pools'));
 
         if ($this->has('monolog.logger.cache')) {
             $instance->setLogger($this->get('monolog.logger.cache', ContainerInterface::NULL_ON_INVALID_REFERENCE));
@@ -466,7 +466,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getCache_SystemService()
     {
-        return $this->services['cache.system'] = \Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('7UTH9g5BiN', 0, 'xyfk8tG-8a7Mx2YBoCtEGe', (__DIR__.'/pools'), $this->get('monolog.logger.cache', ContainerInterface::NULL_ON_INVALID_REFERENCE));
+        return $this->services['cache.system'] = \Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('2mB9Qzamep', 0, 'Pj0AZTsgc1VjuXjTzs303m', (__DIR__.'/pools'), $this->get('monolog.logger.cache', ContainerInterface::NULL_ON_INVALID_REFERENCE));
     }
 
     /**
@@ -497,7 +497,7 @@ class appDevDebugProjectContainer extends Container
 
         $c = new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplateFinder($a, $b, ($this->targetDirs[3].'\\app/Resources'));
 
-        return $this->services['cache_warmer'] = new \Symfony\Component\HttpKernel\CacheWarmer\CacheWarmerAggregate(array(0 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplatePathsCacheWarmer($c, ${($_ = isset($this->services['templating.locator']) ? $this->services['templating.locator'] : $this->getTemplating_LocatorService()) && false ?: '_'}), 1 => $this->get('kernel.class_cache.cache_warmer'), 2 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TranslationsCacheWarmer($this->get('translator')), 3 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\ValidatorCacheWarmer($this->get('validator.builder'), (__DIR__.'/validation.php'), \Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('ODc+XrhqD2', 0, 'xyfk8tG-8a7Mx2YBoCtEGe', (__DIR__.'/pools'), $this->get('monolog.logger.cache', ContainerInterface::NULL_ON_INVALID_REFERENCE))), 4 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\RouterCacheWarmer($this->get('router')), 5 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\AnnotationsCacheWarmer(${($_ = isset($this->services['annotations.reader']) ? $this->services['annotations.reader'] : $this->getAnnotations_ReaderService()) && false ?: '_'}, (__DIR__.'/annotations.php'), ${($_ = isset($this->services['cache.annotations']) ? $this->services['cache.annotations'] : $this->getCache_AnnotationsService()) && false ?: '_'}), 6 => new \Symfony\Bundle\TwigBundle\CacheWarmer\TemplateCacheCacheWarmer($this, $c, array()), 7 => new \Symfony\Bundle\TwigBundle\CacheWarmer\TemplateCacheWarmer($this->get('twig'), new \Symfony\Bundle\TwigBundle\TemplateIterator($a, ($this->targetDirs[3].'\\app'), array())), 8 => new \Symfony\Bridge\Doctrine\CacheWarmer\ProxyCacheWarmer($this->get('doctrine'))));
+        return $this->services['cache_warmer'] = new \Symfony\Component\HttpKernel\CacheWarmer\CacheWarmerAggregate(array(0 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplatePathsCacheWarmer($c, ${($_ = isset($this->services['templating.locator']) ? $this->services['templating.locator'] : $this->getTemplating_LocatorService()) && false ?: '_'}), 1 => $this->get('kernel.class_cache.cache_warmer'), 2 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TranslationsCacheWarmer($this->get('translator')), 3 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\ValidatorCacheWarmer($this->get('validator.builder'), (__DIR__.'/validation.php'), \Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('ILuM6Rsuqr', 0, 'Pj0AZTsgc1VjuXjTzs303m', (__DIR__.'/pools'), $this->get('monolog.logger.cache', ContainerInterface::NULL_ON_INVALID_REFERENCE))), 4 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\RouterCacheWarmer($this->get('router')), 5 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\AnnotationsCacheWarmer(${($_ = isset($this->services['annotations.reader']) ? $this->services['annotations.reader'] : $this->getAnnotations_ReaderService()) && false ?: '_'}, (__DIR__.'/annotations.php'), ${($_ = isset($this->services['cache.annotations']) ? $this->services['cache.annotations'] : $this->getCache_AnnotationsService()) && false ?: '_'}), 6 => new \Symfony\Bundle\TwigBundle\CacheWarmer\TemplateCacheCacheWarmer($this, $c, array()), 7 => new \Symfony\Bundle\TwigBundle\CacheWarmer\TemplateCacheWarmer($this->get('twig'), new \Symfony\Bundle\TwigBundle\TemplateIterator($a, ($this->targetDirs[3].'\\app'), array())), 8 => new \Symfony\Bridge\Doctrine\CacheWarmer\ProxyCacheWarmer($this->get('doctrine'))));
     }
 
     /**
@@ -802,7 +802,7 @@ class appDevDebugProjectContainer extends Container
         $c->addEventListener(array(0 => 'prePersist', 1 => 'preUpdate'), $this->get('marketingbundle.doctrine_banner_listener'));
         $c->addEventListener(array(0 => 'prePersist', 1 => 'preUpdate'), $this->get('shop.doctrine_banner_listener'));
 
-        return $this->services['doctrine.dbal.marketing_connection'] = $this->get('doctrine.dbal.connection_factory')->createConnection(array('driver' => 'pdo_mysql', 'host' => '127.0.0.1', 'port' => NULL, 'dbname' => 'cm_divers', 'user' => 'cm_divers', 'password' => 'FVezV1RvEZA', 'charset' => 'UTF8', 'driverOptions' => array(), 'defaultTableOptions' => array()), $b, $c, array());
+        return $this->services['doctrine.dbal.marketing_connection'] = $this->get('doctrine.dbal.connection_factory')->createConnection(array('driver' => 'pdo_mysql', 'host' => '46.105.107.199', 'port' => NULL, 'dbname' => 'cm_divers', 'user' => 'cm_divers', 'password' => 'FVezV1RvEZA', 'charset' => 'UTF8', 'driverOptions' => array(), 'defaultTableOptions' => array()), $b, $c, array());
     }
 
     /**
@@ -921,7 +921,7 @@ class appDevDebugProjectContainer extends Container
     {
         $a = ${($_ = isset($this->services['annotations.reader']) ? $this->services['annotations.reader'] : $this->getAnnotations_ReaderService()) && false ?: '_'};
 
-        $b = new \Doctrine\ORM\Mapping\Driver\AnnotationDriver($a, array(0 => ($this->targetDirs[3].'\\vendor\\unicorn\\user-bundle\\Unicorn\\Bundle\\UserBundle\\Entity'), 1 => ($this->targetDirs[3].'\\src\\MarketingBundle\\Entity'), 2 => ($this->targetDirs[3].'\\src\\FaultyProductBundle\\Entity'), 3 => ($this->targetDirs[3].'\\src\\ShopBundle\\Entity')));
+        $b = new \Doctrine\ORM\Mapping\Driver\AnnotationDriver($a, array(0 => ($this->targetDirs[3].'\\src\\Unicorn\\Bundle\\UserBundle\\Entity'), 1 => ($this->targetDirs[3].'\\src\\MarketingBundle\\Entity'), 2 => ($this->targetDirs[3].'\\src\\FaultyProductBundle\\Entity'), 3 => ($this->targetDirs[3].'\\src\\ShopBundle\\Entity')));
 
         $c = new \Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain();
         $c->addDriver($b, 'Unicorn\\Bundle\\UserBundle\\Entity');
@@ -1049,7 +1049,7 @@ class appDevDebugProjectContainer extends Container
     {
         $this->services['doctrine_cache.providers.doctrine.orm.cm_metadata_cache'] = $instance = new \Doctrine\Common\Cache\ArrayCache();
 
-        $instance->setNamespace('sf2orm_cm_cc9f66d2868606d581974fd04aeade7e2fcfc712a9c644ee3c96dc20f29c7a36');
+        $instance->setNamespace('sf2orm_cm_33b9de161c3f86d58dfc3f364f71695959ff1df785f91d3c28778a1fd6df348e');
 
         return $instance;
     }
@@ -1066,7 +1066,7 @@ class appDevDebugProjectContainer extends Container
     {
         $this->services['doctrine_cache.providers.doctrine.orm.cm_query_cache'] = $instance = new \Doctrine\Common\Cache\ArrayCache();
 
-        $instance->setNamespace('sf2orm_cm_cc9f66d2868606d581974fd04aeade7e2fcfc712a9c644ee3c96dc20f29c7a36');
+        $instance->setNamespace('sf2orm_cm_33b9de161c3f86d58dfc3f364f71695959ff1df785f91d3c28778a1fd6df348e');
 
         return $instance;
     }
@@ -1083,7 +1083,7 @@ class appDevDebugProjectContainer extends Container
     {
         $this->services['doctrine_cache.providers.doctrine.orm.cm_result_cache'] = $instance = new \Doctrine\Common\Cache\ArrayCache();
 
-        $instance->setNamespace('sf2orm_cm_cc9f66d2868606d581974fd04aeade7e2fcfc712a9c644ee3c96dc20f29c7a36');
+        $instance->setNamespace('sf2orm_cm_33b9de161c3f86d58dfc3f364f71695959ff1df785f91d3c28778a1fd6df348e');
 
         return $instance;
     }
@@ -1100,7 +1100,7 @@ class appDevDebugProjectContainer extends Container
     {
         $this->services['doctrine_cache.providers.doctrine.orm.marketing_metadata_cache'] = $instance = new \Doctrine\Common\Cache\ArrayCache();
 
-        $instance->setNamespace('sf2orm_marketing_cc9f66d2868606d581974fd04aeade7e2fcfc712a9c644ee3c96dc20f29c7a36');
+        $instance->setNamespace('sf2orm_marketing_33b9de161c3f86d58dfc3f364f71695959ff1df785f91d3c28778a1fd6df348e');
 
         return $instance;
     }
@@ -1117,7 +1117,7 @@ class appDevDebugProjectContainer extends Container
     {
         $this->services['doctrine_cache.providers.doctrine.orm.marketing_query_cache'] = $instance = new \Doctrine\Common\Cache\ArrayCache();
 
-        $instance->setNamespace('sf2orm_marketing_cc9f66d2868606d581974fd04aeade7e2fcfc712a9c644ee3c96dc20f29c7a36');
+        $instance->setNamespace('sf2orm_marketing_33b9de161c3f86d58dfc3f364f71695959ff1df785f91d3c28778a1fd6df348e');
 
         return $instance;
     }
@@ -1134,7 +1134,7 @@ class appDevDebugProjectContainer extends Container
     {
         $this->services['doctrine_cache.providers.doctrine.orm.marketing_result_cache'] = $instance = new \Doctrine\Common\Cache\ArrayCache();
 
-        $instance->setNamespace('sf2orm_marketing_cc9f66d2868606d581974fd04aeade7e2fcfc712a9c644ee3c96dc20f29c7a36');
+        $instance->setNamespace('sf2orm_marketing_33b9de161c3f86d58dfc3f364f71695959ff1df785f91d3c28778a1fd6df348e');
 
         return $instance;
     }
@@ -3020,7 +3020,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getPropertyAccessorService()
     {
-        return $this->services['property_accessor'] = new \Symfony\Component\PropertyAccess\PropertyAccessor(false, false, \Symfony\Component\PropertyAccess\PropertyAccessor::createCache('ZT++qgv6AP', NULL, 'xyfk8tG-8a7Mx2YBoCtEGe', $this->get('monolog.logger.cache', ContainerInterface::NULL_ON_INVALID_REFERENCE)));
+        return $this->services['property_accessor'] = new \Symfony\Component\PropertyAccess\PropertyAccessor(false, false, \Symfony\Component\PropertyAccess\PropertyAccessor::createCache('6qzX1AOipY', NULL, 'Pj0AZTsgc1VjuXjTzs303m', $this->get('monolog.logger.cache', ContainerInterface::NULL_ON_INVALID_REFERENCE)));
     }
 
     /**
@@ -3251,7 +3251,7 @@ class appDevDebugProjectContainer extends Container
         $x = new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationFailureHandler($g, $u, array(), $a);
         $x->setOptions(array('login_path' => '/user/login', 'failure_path' => NULL, 'failure_forward' => false, 'failure_path_parameter' => '_failure_path'));
 
-        return $this->services['security.firewall.map.context.user_secured_area'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($t, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($c, array(0 => new \Symfony\Component\Security\Core\User\ChainUserProvider(array(0 => $b)), 1 => $b), 'user', $a, $d, $e), 2 => $v, 3 => new \Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener($c, $h, new \Symfony\Component\Security\Http\Session\SessionAuthenticationStrategy('migrate'), $u, 'user_secured_area', $w, $x, array('check_path' => '/user/login', 'use_forward' => false, 'require_previous_session' => true, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'csrf_token_id' => 'authenticate', 'post_only' => true), $a, $d, NULL), 4 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($c, '595637a0286089.32075617', $a, $h), 5 => new \Symfony\Component\Security\Http\Firewall\AccessListener($c, ${($_ = isset($this->services['debug.security.access.decision_manager']) ? $this->services['debug.security.access.decision_manager'] : $this->getDebug_Security_Access_DecisionManagerService()) && false ?: '_'}, $t, $h)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($c, $e, $u, 'user_secured_area', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($g, $u, '/user/login', false), NULL, NULL, $a, false), new \Symfony\Bundle\SecurityBundle\Security\FirewallConfig('user_secured_area', 'security.user_checker', 'security.request_matcher.a64d671f18e5575531d76c1d1154fdc4476cb8a79c02ed7a3469178c6d7b96b5ed4e60db', true, false, 'security.user.provider.concrete.chain_provider', 'user', 'security.authentication.form_entry_point.user_secured_area', NULL, NULL, array(0 => 'logout', 1 => 'form_login', 2 => 'anonymous')));
+        return $this->services['security.firewall.map.context.user_secured_area'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($t, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($c, array(0 => new \Symfony\Component\Security\Core\User\ChainUserProvider(array(0 => $b)), 1 => $b), 'user', $a, $d, $e), 2 => $v, 3 => new \Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener($c, $h, new \Symfony\Component\Security\Http\Session\SessionAuthenticationStrategy('migrate'), $u, 'user_secured_area', $w, $x, array('check_path' => '/user/login', 'use_forward' => false, 'require_previous_session' => true, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'csrf_token_id' => 'authenticate', 'post_only' => true), $a, $d, NULL), 4 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($c, '595a3e42e27184.57047683', $a, $h), 5 => new \Symfony\Component\Security\Http\Firewall\AccessListener($c, ${($_ = isset($this->services['debug.security.access.decision_manager']) ? $this->services['debug.security.access.decision_manager'] : $this->getDebug_Security_Access_DecisionManagerService()) && false ?: '_'}, $t, $h)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($c, $e, $u, 'user_secured_area', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($g, $u, '/user/login', false), NULL, NULL, $a, false), new \Symfony\Bundle\SecurityBundle\Security\FirewallConfig('user_secured_area', 'security.user_checker', 'security.request_matcher.a64d671f18e5575531d76c1d1154fdc4476cb8a79c02ed7a3469178c6d7b96b5ed4e60db', true, false, 'security.user.provider.concrete.chain_provider', 'user', 'security.authentication.form_entry_point.user_secured_area', NULL, NULL, array(0 => 'logout', 1 => 'form_login', 2 => 'anonymous')));
     }
 
     /**
@@ -4437,7 +4437,7 @@ class appDevDebugProjectContainer extends Container
         $instance->addPath(($this->targetDirs[3].'\\vendor\\doctrine\\doctrine-bundle/Resources/views'), 'Doctrine');
         $instance->addPath(($this->targetDirs[3].'\\vendor\\knplabs\\knp-menu-bundle/Resources/views'), 'KnpMenu');
         $instance->addPath(($this->targetDirs[3].'\\vendor\\knplabs\\knp-paginator-bundle/Resources/views'), 'KnpPaginator');
-        $instance->addPath(($this->targetDirs[3].'\\vendor\\unicorn\\user-bundle\\Unicorn\\Bundle\\UserBundle/Resources/views'), 'User');
+        $instance->addPath(($this->targetDirs[3].'\\src\\Unicorn\\Bundle\\UserBundle/Resources/views'), 'User');
         $instance->addPath(($this->targetDirs[3].'\\src\\MarketingBundle/Resources/views'), 'Marketing');
         $instance->addPath(($this->targetDirs[3].'\\vendor\\hampe\\zurb-ink-bundle\\Hampe\\Bundle\\ZurbInkBundle/Resources/views'), 'HampeZurbInk');
         $instance->addPath(($this->targetDirs[3].'\\src\\ModerateReviewBundle/Resources/views'), 'ModerateReview');
@@ -4773,7 +4773,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getCache_AnnotationsService()
     {
-        return $this->services['cache.annotations'] = \Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('wobt4qcNT2', 0, 'xyfk8tG-8a7Mx2YBoCtEGe', (__DIR__.'/pools'), $this->get('monolog.logger.cache', ContainerInterface::NULL_ON_INVALID_REFERENCE));
+        return $this->services['cache.annotations'] = \Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('ckYGtdei9U', 0, 'Pj0AZTsgc1VjuXjTzs303m', (__DIR__.'/pools'), $this->get('monolog.logger.cache', ContainerInterface::NULL_ON_INVALID_REFERENCE));
     }
 
     /**
@@ -5001,7 +5001,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSecurity_Authentication_ManagerService()
     {
-        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('faulty.repository.user'), new \Symfony\Component\Security\Core\User\UserChecker(), 'user_secured_area', $this->get('security.encoder_factory'), true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('595637a0286089.32075617')), true);
+        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('faulty.repository.user'), new \Symfony\Component\Security\Core\User\UserChecker(), 'user_secured_area', $this->get('security.encoder_factory'), true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('595a3e42e27184.57047683')), true);
 
         $instance->setEventDispatcher($this->get('debug.event_dispatcher'));
 
@@ -5296,7 +5296,7 @@ class appDevDebugProjectContainer extends Container
                 ),
                 'UserBundle' => array(
                     'parent' => NULL,
-                    'path' => ($this->targetDirs[3].'\\vendor\\unicorn\\user-bundle\\Unicorn\\Bundle\\UserBundle'),
+                    'path' => ($this->targetDirs[3].'\\src\\Unicorn\\Bundle\\UserBundle'),
                     'namespace' => 'Unicorn\\Bundle\\UserBundle',
                 ),
                 'MarketingBundle' => array(
@@ -5453,7 +5453,7 @@ class appDevDebugProjectContainer extends Container
             'kernel.charset' => 'UTF-8',
             'kernel.container_class' => 'appDevDebugProjectContainer',
             'url_host' => 'http://tools.cadeau-maestro.com/',
-            'database_host' => '127.0.0.1',
+            'database_host' => '46.105.107.199',
             'database_port' => NULL,
             'database_name' => 'cm_divers',
             'database_user' => 'cm_divers',

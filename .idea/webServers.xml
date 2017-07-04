@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="6679346a-1dfd-4498-9e33-380386e78976" name="FTP_Serveur_tools" url="http://46.105.107.199">
+        <fileTransfer host="46.105.107.199" port="21" password="dfc9dffbdff9df92dfc4dfdcdff3dfffdff0dffedfeddfce" username="toolscmftp">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

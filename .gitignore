@@ -13,8 +13,8 @@
 !var/sessions/.gitkeep
 !var/SymfonyRequirements.php
 /vendor/
-/web/bundles/
-.idea/
-/web/carousel/*
-/web/faulty/*
-
+/web/bundles/
+/web/bundles/*
+.idea/
+.ftpconfig
+.ftpignore

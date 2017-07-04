@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block body%}
+<div class="row">
+    <div class="col-sm-3">
+        <h1>Service Client</h1>
+    </div>
+    <div class="col-sm-3">
+        <br><button onclick="rafraichissement();" type="button" class="btn btn-danger">Retour au début</button>
+    </div>
+    <div class="col-sm-5">
+        <br><input type="text" id="recherche" />
+
+           <button onclick="recherche();" type="button" class="btn btn-warning">Rechercher</button>
+        <div id="container"></div>
+    </div>
+</div>
+
+    {#div dans laquelle se situe les boutons/branches#}
+    <div id="arbre"></div>
+
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('bundles/serviceclient/js/arbre.js') }}"></script>
+{% endblock %}

@@ -72,7 +72,7 @@ class RequestBodyParamConverterTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException Symfony\Component\HttpKernel\Exception\UnsupportedMediaTypeHttpException
+     * @expectedException \Symfony\Component\HttpKernel\Exception\UnsupportedMediaTypeHttpException
      */
     public function testExecutionInterceptsUnsupportedFormatException()
     {
@@ -85,7 +85,7 @@ class RequestBodyParamConverterTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException Symfony\Component\HttpKernel\Exception\BadRequestHttpException
+     * @expectedException \Symfony\Component\HttpKernel\Exception\BadRequestHttpException
      */
     public function testExecutionInterceptsJMSException()
     {
@@ -98,7 +98,7 @@ class RequestBodyParamConverterTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException Symfony\Component\HttpKernel\Exception\BadRequestHttpException
+     * @expectedException \Symfony\Component\HttpKernel\Exception\BadRequestHttpException
      */
     public function testExecutionInterceptsSymfonySerializerException()
     {
@@ -142,6 +142,26 @@ class RequestBodyParamConverterTest extends \PHPUnit_Framework_TestCase
         $configuration = $this->createConfiguration(null, null, ['validator' => ['groups' => ['foo']]]);
         $this->launchExecution($converter, $request, $configuration);
         $this->assertEquals('fooError', $request->attributes->get('errors'));
+    }
+
+    public function testValidatorSkipping()
+    {
+        $this->serializer
+            ->expects($this->once())
+            ->method('deserialize')
+            ->willReturn('Object');
+
+        $validator = $this->getMockBuilder('Symfony\Component\Validator\Validator\ValidatorInterface')->getMock();
+        $validator
+            ->expects($this->never())
+            ->method('validate');
+
+        $converter = new RequestBodyParamConverter($this->serializer, null, null, $validator, 'errors');
+
+        $request = $this->createRequest();
+        $configuration = $this->createConfiguration(null, null, ['validate' => false]);
+        $this->launchExecution($converter, $request, $configuration);
+        $this->assertEquals(null, $request->attributes->get('errors'));
     }
 
     public function testReturn()
