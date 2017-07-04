@@ -32,7 +32,7 @@ class TwigExtensionTest extends TestCase
         $container->loadFromExtension('twig', array());
         $this->compileContainer($container);
 
-        $this->assertEquals('Twig_Environment', $container->getDefinition('twig')->getClass(), '->load() loads the twig.xml file');
+        $this->assertEquals('Twig\Environment', $container->getDefinition('twig')->getClass(), '->load() loads the twig.xml file');
 
         $this->assertContains('form_div_layout.html.twig', $container->getParameter('twig.form.resources'), '->load() includes default template for form resources');
 
@@ -53,7 +53,7 @@ class TwigExtensionTest extends TestCase
         $this->loadFromFile($container, 'full', $format);
         $this->compileContainer($container);
 
-        $this->assertEquals('Twig_Environment', $container->getDefinition('twig')->getClass(), '->load() loads the twig.xml file');
+        $this->assertEquals('Twig\Environment', $container->getDefinition('twig')->getClass(), '->load() loads the twig.xml file');
 
         // Form resources
         $resources = $container->getParameter('twig.form.resources');
@@ -136,9 +136,10 @@ class TwigExtensionTest extends TestCase
 
         $calls = $container->getDefinition('twig')->getMethodCalls();
         foreach (array_slice($calls, 2) as $call) {
-            list($name, $value) = each($globals);
-            $this->assertEquals($name, $call[1][0]);
-            $this->assertSame($value, $call[1][1]);
+            $this->assertEquals(key($globals), $call[1][0]);
+            $this->assertSame(current($globals), $call[1][1]);
+
+            next($globals);
         }
     }
 
@@ -244,11 +245,11 @@ class TwigExtensionTest extends TestCase
         $container->compile();
 
         $loader = $container->getDefinition('twig.runtime_loader');
-        $args = $loader->getArgument(1);
+        $args = $container->getDefinition((string) $loader->getArgument(0))->getArgument(0);
         $this->assertArrayHasKey('Symfony\Bridge\Twig\Form\TwigRenderer', $args);
         $this->assertArrayHasKey('FooClass', $args);
-        $this->assertContains('twig.form.renderer', $args);
-        $this->assertContains('foo', $args);
+        $this->assertEquals('twig.form.renderer', $args['Symfony\Bridge\Twig\Form\TwigRenderer']->getValues()[0]);
+        $this->assertEquals('foo', $args['FooClass']->getValues()[0]);
     }
 
     private function createContainer()
@@ -256,6 +257,7 @@ class TwigExtensionTest extends TestCase
         $container = new ContainerBuilder(new ParameterBag(array(
             'kernel.cache_dir' => __DIR__,
             'kernel.root_dir' => __DIR__.'/Fixtures',
+            'kernel.project_dir' => __DIR__,
             'kernel.charset' => 'UTF-8',
             'kernel.debug' => false,
             'kernel.bundles' => array(

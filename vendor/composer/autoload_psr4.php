@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Twig\\' => array($vendorDir . '/twig/twig/src'),
     'Tinypng\\Bundle\\' => array($vendorDir . '/loevgaard/tinypng-bundle'),
     'Tinify\\' => array($vendorDir . '/tinify/tinify/lib/Tinify'),
     'TijsVerkoyen\\CssToInlineStyles\\' => array($vendorDir . '/tijsverkoyen/css-to-inline-styles/src'),
@@ -21,7 +22,6 @@ return array(
     'Symfony\\Bundle\\MonologBundle\\' => array($vendorDir . '/symfony/monolog-bundle'),
     'Symfony\\Bundle\\' => array($vendorDir . '/symfony/symfony/src/Symfony/Bundle'),
     'Symfony\\Bridge\\Twig\\' => array($vendorDir . '/symfony/symfony/src/Symfony/Bridge/Twig'),
-    'Symfony\\Bridge\\Swiftmailer\\' => array($vendorDir . '/symfony/symfony/src/Symfony/Bridge/Swiftmailer'),
     'Symfony\\Bridge\\ProxyManager\\' => array($vendorDir . '/symfony/symfony/src/Symfony/Bridge/ProxyManager'),
     'Symfony\\Bridge\\PhpUnit\\' => array($vendorDir . '/symfony/phpunit-bridge'),
     'Symfony\\Bridge\\Monolog\\' => array($vendorDir . '/symfony/symfony/src/Symfony/Bridge/Monolog'),
@@ -32,7 +32,10 @@ return array(
     'RobertoTru\\ToInlineStyleEmailBundle\\' => array($vendorDir . '/robertotru/to-inline-style-email-bundle'),
     'Rem42\\Bundle\\ServerLoadBundle\\' => array($vendorDir . '/rem42/server-load-bundle'),
     'React\\Promise\\' => array($vendorDir . '/react/promise/src'),
+    'Psr\\SimpleCache\\' => array($vendorDir . '/psr/simple-cache/src'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
+    'Psr\\Link\\' => array($vendorDir . '/psr/link/src'),
+    'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),
     'Psr\\Cache\\' => array($vendorDir . '/psr/cache/src'),
     'Negotiation\\' => array($vendorDir . '/willdurand/negotiation/src/Negotiation'),
     'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
@@ -44,6 +47,7 @@ return array(
     'GuzzleHttp\\Stream\\' => array($vendorDir . '/guzzlehttp/streams/src'),
     'GuzzleHttp\\Ring\\' => array($vendorDir . '/guzzlehttp/ringphp/src'),
     'GuzzleHttp\\' => array($vendorDir . '/guzzlehttp/guzzle/src'),
+    'Fig\\Link\\' => array($vendorDir . '/fig/link-util/src'),
     'Faker\\' => array($vendorDir . '/fzaninotto/faker/src/Faker'),
     'FOS\\RestBundle\\' => array($vendorDir . '/friendsofsymfony/rest-bundle'),
     'FOS\\JsRoutingBundle\\' => array($vendorDir . '/friendsofsymfony/jsrouting-bundle'),
@@ -53,5 +57,6 @@ return array(
     'Doctrine\\Bundle\\FixturesBundle\\' => array($vendorDir . '/doctrine/doctrine-fixtures-bundle'),
     'Doctrine\\Bundle\\DoctrineCacheBundle\\' => array($vendorDir . '/doctrine/doctrine-cache-bundle'),
     'Doctrine\\Bundle\\DoctrineBundle\\' => array($vendorDir . '/doctrine/doctrine-bundle'),
+    'Composer\\CaBundle\\' => array($vendorDir . '/composer/ca-bundle/src'),
     '' => array($baseDir . '/src'),
 );
