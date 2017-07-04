@@ -18,7 +18,6 @@ class BranchType extends AbstractType
     {
         $builder
             ->add('nom',TextType::class)
-            ->add('rank')
             ->add('parent', EntityType::class, array(
                 'class'        => 'CM\ServiceClientBundle\Entity\Branch',
                 'choice_label' => 'nom',

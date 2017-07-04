@@ -24,7 +24,6 @@ class SolutionType extends AbstractType
                 'cols' => '200'
                 ),
             ))
-            ->add('mailBool')
             ->add('branche', EntityType::class, array(
                 'class'        => 'CM\ServiceClientBundle\Entity\Branch',
                 'choice_label' => 'nom',

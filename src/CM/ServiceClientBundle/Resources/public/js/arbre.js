@@ -1,14 +1,16 @@
 
 
 // $( document ).ready(function() {
-    var url="http://localhost.com/";
+    var url="http://tools.cadeau-maestro.com/";
     var compt=1; //compteur sur le nombre de click qui va permettre de savoir la profondeur des branches
 
-    $.getJSON( url+"branche_parent", displayBranche); //va chercher les branch sans parents et les passe en parametre de la fonction display
+//va chercher les branch sans parents et les passe en parametre de la fonction display
+$.getJSON( url+"branche_parent",function(data){
+    displayBranche(data); 
+});
 
     //recupere les enfants de la branche passé en parametre par son id
     function callBranch(id) {
-        // $.getJSON(url + "branche/" + id, function (data) {
 
             $.ajax({
                 url: url + "branche/" + id,
@@ -160,17 +162,6 @@
             });
 
     }
-
-
-
-    // function toggle_div(id) { // On déclare la fonction toggle_div qui prend en param le bouton et un id
-    //     var div = document.getElementById(id); // On récupère le div ciblé grâce à l'id
-    //     if(div.style.display=="none") { // Si le div est masqué...
-    //         div.style.display = "block"; // ... on l'affiche...
-    //     } else { // S'il est visible...
-    //         div.style.display = "none"; // ... on le masque...
-    //     }
-    // }
 
     //donne un nombre aleatoire
     function getRandomArbitrary(min, max) {
