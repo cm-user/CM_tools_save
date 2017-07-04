@@ -9,6 +9,8 @@ imports:
     - { resource: "@UserBundle/Resources/config/services.yml" }
     - { resource: "@PictureCrawlerBundle/Resources/config/services.yml" }
     - { resource: "@MailSignatureBundle/Resources/config/services.yml" }
+    - { resource: "@ServiceClientBundle/Resources/config/services.yml" }
+
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -25,7 +27,7 @@ framework:
     form:            ~
     csrf_protection: ~
     validation:      { enable_annotations: true }
-    #serializer:      { enable_annotations: true }
+    serializer:      { enable_annotations: true }
     templating:
         engines: ['twig']
     default_locale:  "%locale%"
@@ -88,6 +90,7 @@ doctrine:
                     MarketingBundle: ~
                     FaultyProductBundle: ~
                     ShopBundle: ~
+                    ServiceClientBundle: ~
                 dql:
                     datetime_functions:
                         date:           Oro\ORM\Query\AST\Functions\SimpleFunction

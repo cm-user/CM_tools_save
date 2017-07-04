@@ -1,7 +1,7 @@
 # This file is auto-generated during the composer install
 parameters:
     url_host: 'http://tools.cadeau-maestro.com/'
-    database_host: 46.105.107.199
+    database_host: 127.0.0.1
     database_port: null
     database_name: cm_divers
     database_user: cm_divers

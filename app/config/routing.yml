@@ -38,3 +38,12 @@ mail_signature:
 
 fos_js_routing:
     resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+
+cm_service_client:
+    resource: "@ServiceClientBundle/Controller/"
+    type:     annotation
+    prefix:   /service_client
+
+api_service_client:
+    type : rest
+    resource: "@ServiceClientBundle/Controller/ApiController.php"

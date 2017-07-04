@@ -1,7 +1,7 @@
 
 
 // $( document ).ready(function() {
-    var url="http://localhost/";
+    var url="http://localhost.com/";
     var compt=1; //compteur sur le nombre de click qui va permettre de savoir la profondeur des branches
 
     $.getJSON( url+"branche_parent", displayBranche); //va chercher les branch sans parents et les passe en parametre de la fonction display
