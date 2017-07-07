@@ -24,7 +24,7 @@ class ConfigureMenuListener
         if($this->container->get('security.authorization_checker')->isGranted(['ROLE_SHOP'])) {
             $menu = $event->getMenu();
 
-            $menu->addChild('shopdashboard', ['label' => 'Écran boutique'])
+            $menu->addChild('shopdashboard', ['label' => 'Écran'])
                 ->setAttribute('dropdown', true);
 
             /*$menu['shopdashboard']->addChild('Produits', ['route' => 'faulty_index']);*/

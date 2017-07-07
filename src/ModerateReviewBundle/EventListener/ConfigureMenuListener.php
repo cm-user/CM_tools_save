@@ -23,7 +23,7 @@ class ConfigureMenuListener
         $menu = $event->getMenu();
 
         if($this->container->get('security.authorization_checker')->isGranted(['ROLE_MODERATE_REVIEW'])) {
-            $menu->addChild('Suppression avis client', ['route' => 'moderate_review_index']);
+            $menu->addChild('Avis client', ['route' => 'moderate_review_index']);
         }
     }
 }

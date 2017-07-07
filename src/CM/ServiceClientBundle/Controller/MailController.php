@@ -25,7 +25,7 @@ class MailController extends Controller
     public function indexAction()
     {
     
-        $ListeMail = $this->get('sc.repository.mail')->findAll();
+        $ListeMail = $this->get('sc.repository.mail')->findByAsc();
 
 //        if(!$ListeMail){
 //            throw new NotFoundHttpException($this->get('translator')->trans('Liste Mail nul !'));

@@ -21,6 +21,19 @@ class MailRepository
     public function findAll(){
         return $this->entityManager->getRepository('ServiceClientBundle:Mail')->findAll();
     }
+
+    public function findByAsc(){
+        $q = $this->entityManager->createQueryBuilder();
+
+        $q->select('m')
+            ->from('ServiceClientBundle:Mail', 'm')
+            ->orderBy('m.nom')
+        ;
+
+        $mail = $q->getQuery()->getResult();
+
+        return $mail;
+    }
     
     public function save(Mail $mail){
         $this->entityManager->persist($mail);

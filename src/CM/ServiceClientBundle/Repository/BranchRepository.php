@@ -27,6 +27,19 @@ class BranchRepository extends \Doctrine\ORM\EntityRepository
         return $this->entityManager->getRepository('ServiceClientBundle:Branch')->findAll();
     }
 
+    public function findByAsc(){
+        $q = $this->entityManager->createQueryBuilder();
+
+        $q->select('b')
+            ->from('ServiceClientBundle:Branch', 'b')
+            ->orderBy('b.nom')
+        ;
+
+        $branches = $q->getQuery()->getResult();
+
+        return $branches;
+    }
+
     public function findAllWithParent(){
         $q = $this->entityManager->createQueryBuilder();
         $q->select('b')

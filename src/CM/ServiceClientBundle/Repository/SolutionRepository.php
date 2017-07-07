@@ -21,6 +21,19 @@ class SolutionRepository
         return $this->entityManager->getRepository('ServiceClientBundle:Solution')->findAll();
     }
 
+    public function findByAsc(){
+        $q = $this->entityManager->createQueryBuilder();
+
+        $q->select('s')
+            ->from('ServiceClientBundle:Solution', 's')
+            ->orderBy('s.nom')
+        ;
+
+        $solution = $q->getQuery()->getResult();
+
+        return $solution;
+    }
+
     public function save(Solution $solution){
         $this->entityManager->persist($solution);
         $this->entityManager->flush();

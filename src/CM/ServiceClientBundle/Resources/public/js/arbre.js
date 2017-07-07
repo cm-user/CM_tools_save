@@ -61,14 +61,12 @@ function displaySolution(data){
         //Ajoute le mail s'il existe
         if(val['mails'][0] != undefined)
         {
-            // new Clipboard("#copy_"+ val['mails'][0]['id'] + nb);
-
             $elem += "<div class=\"panel-group\" id=\"accordion_mail" + val['mails'][0]['id'] + nb + "\" role=\"tablist\" aria-multiselectable=\"true\">";
             $elem += "<div class=\"panel panel-default\">";
             $elem += "<div class=\"panel-heading\" role=\"tab\" id=\"headingMail" + val['mails'][0]['id'] + nb + "\" >";
             $elem += "<h4 class=\"panel-title\">";
             $elem += "<a class=\"collapsed\" role=\"button\" data-toggle=\"collapse\" data-parent=\"#accordion_mail\" href=\"#collapseMail" + val['mails'][0]['id'] + nb + "\" aria-expanded=\"false\" aria-controls=\"collapseMail" + val['mails'][0]['id'] + nb + "\">";
-            $elem +=  "<div class=\"col-sm-3\">" + val['mails'][0]['nom'] + "</div>";
+            $elem +=  "<div class=\"col-sm-6\">" + val['mails'][0]['nom'] + "</div>";
             $elem += "</a>";
             $elem += "<div id=\"copy_"+ val['mails'][0]['id'] + nb + "\" type=\"button\" class=\"btn btn-warning\"  >Copier </button> </div>";
             $elem += "</h4> </div>";
@@ -119,8 +117,8 @@ function displayBranche(data){
     $elem += "<div class=\"row\" id=\"row" + nb + "\" > ";
     $.each(data, function (key, val) {
         $elem += "<div class=\"col-sm-3\">";
-        $elem += "<button type=\"button\" class=\"btn btn-success\" id=\"" + val['id'] + "branche" + nb + "t" + compt + "\" <span class=\"glyphicon glyphicon-tags\"></span> " + val['nom'];
-        $elem += "</button>";
+        $elem += "<p><button type=\"button\" class=\"btn btn-success\" id=\"" + val['id'] + "branche" + nb + "t" + compt + "\" <span class=\"glyphicon glyphicon-tags\"></span> " + val['nom'];
+        $elem += "</button></p>";
         $elem += "</div>";
 
         arrayId.push(val['id']+"branche"+nb.toString()+"t"+compt.toString()); //on ajoute les id dans un tableau

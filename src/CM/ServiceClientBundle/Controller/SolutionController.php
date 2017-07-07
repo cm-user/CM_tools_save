@@ -25,7 +25,7 @@ class SolutionController extends Controller
     public function indexAction()
     {
 
-        $ListeSolution = $this->get('sc.repository.solution')->findAll();
+        $ListeSolution = $this->get('sc.repository.solution')->findByAsc();
 
 
         return $this->render('ServiceClientBundle:solution:index.html.twig', array(

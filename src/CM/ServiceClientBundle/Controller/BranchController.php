@@ -26,7 +26,7 @@ class BranchController extends Controller
     public function indexAction()
     {
 
-        $ListeBranch = $this->get('sc.repository.branch')->findAll();
+        $ListeBranch = $this->get('sc.repository.branch')->findByAsc();
 
         return $this->render('ServiceClientBundle:branch:index.html.twig', array(
             'branches' =>$ListeBranch,
