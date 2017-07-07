@@ -51,7 +51,7 @@ class PhpArrayAdapterTest extends AdapterTestCase
         'testDefaultLifeTime' => 'PhpArrayAdapter does not allow configuring a default lifetime.',
     );
 
-    protected static $file;
+    private static $file;
 
     public static function setupBeforeClass()
     {

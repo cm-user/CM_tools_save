@@ -11,7 +11,6 @@
 
 namespace Symfony\Component\ClassLoader\Tests;
 
-use PHPUnit\Framework\TestCase;
 use Symfony\Component\ClassLoader\ClassCollectionLoader;
 use Symfony\Component\ClassLoader\Tests\Fixtures\DeclaredClass;
 use Symfony\Component\ClassLoader\Tests\Fixtures\WarmedClass;
@@ -21,10 +20,7 @@ require_once __DIR__.'/Fixtures/ClassesWithParents/CInterface.php';
 require_once __DIR__.'/Fixtures/ClassesWithParents/B.php';
 require_once __DIR__.'/Fixtures/ClassesWithParents/A.php';
 
-/**
- * @group legacy
- */
-class ClassCollectionLoaderTest extends TestCase
+class ClassCollectionLoaderTest extends \PHPUnit_Framework_TestCase
 {
     public function testTraitDependencies()
     {

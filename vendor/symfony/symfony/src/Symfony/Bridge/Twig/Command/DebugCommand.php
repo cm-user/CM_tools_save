@@ -17,7 +17,6 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
-use Twig\Environment;
 
 /**
  * Lists twig functions, filters, globals and tests present in the current project.
@@ -36,13 +35,18 @@ class DebugCommand extends Command
         parent::__construct($name);
     }
 
-    public function setTwigEnvironment(Environment $twig)
+    /**
+     * Sets the twig environment.
+     *
+     * @param \Twig_Environment $twig
+     */
+    public function setTwigEnvironment(\Twig_Environment $twig)
     {
         $this->twig = $twig;
     }
 
     /**
-     * @return Environment $twig
+     * @return \Twig_Environment $twig
      */
     protected function getTwigEnvironment()
     {
@@ -83,7 +87,9 @@ EOF
         $twig = $this->getTwigEnvironment();
 
         if (null === $twig) {
-            throw new \RuntimeException('The Twig environment needs to be set.');
+            $io->error('The Twig environment needs to be set.');
+
+            return 1;
         }
 
         $types = array('functions', 'filters', 'tests', 'globals');
@@ -152,20 +158,14 @@ EOF
                 throw new \UnexpectedValueException('Unsupported callback type');
             }
 
-            $args = $refl->getParameters();
-
             // filter out context/environment args
-            if ($entity->needsEnvironment()) {
-                array_shift($args);
-            }
-            if ($entity->needsContext()) {
-                array_shift($args);
-            }
+            $args = array_filter($refl->getParameters(), function ($param) use ($entity) {
+                if ($entity->needsContext() && $param->getName() === 'context') {
+                    return false;
+                }
 
-            if ($type === 'filters') {
-                // remove the value the filter is applied on
-                array_shift($args);
-            }
+                return !$param->getClass() || $param->getClass()->getName() !== 'Twig_Environment';
+            });
 
             // format args
             $args = array_map(function ($param) {
@@ -175,6 +175,11 @@ EOF
 
                 return $param->getName();
             }, $args);
+
+            if ($type === 'filters') {
+                // remove the value the filter is applied on
+                array_shift($args);
+            }
 
             return $args;
         }

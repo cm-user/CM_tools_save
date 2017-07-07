@@ -195,7 +195,7 @@ class PropertyAccessor implements PropertyAccessorInterface
         $overwrite = true;
 
         try {
-            if (\PHP_VERSION_ID < 70000 && false === self::$previousErrorHandler) {
+            if (PHP_VERSION_ID < 70000 && false === self::$previousErrorHandler) {
                 self::$previousErrorHandler = set_error_handler(self::$errorHandler);
             }
 
@@ -244,11 +244,8 @@ class PropertyAccessor implements PropertyAccessorInterface
             }
         } catch (\TypeError $e) {
             self::throwInvalidArgumentException($e->getMessage(), $e->getTrace(), 0);
-
-            // It wasn't thrown in this class so rethrow it
-            throw $e;
         } finally {
-            if (\PHP_VERSION_ID < 70000 && false !== self::$previousErrorHandler) {
+            if (PHP_VERSION_ID < 70000 && false !== self::$previousErrorHandler) {
                 restore_error_handler();
                 self::$previousErrorHandler = false;
             }
@@ -269,7 +266,7 @@ class PropertyAccessor implements PropertyAccessorInterface
 
     private static function throwInvalidArgumentException($message, $trace, $i)
     {
-        if (isset($trace[$i]['file']) && __FILE__ === $trace[$i]['file'] && isset($trace[$i]['args'][0])) {
+        if (isset($trace[$i]['file']) && __FILE__ === $trace[$i]['file']) {
             $pos = strpos($message, $delim = 'must be of the type ') ?: (strpos($message, $delim = 'must be an instance of ') ?: strpos($message, $delim = 'must implement interface '));
             $pos += strlen($delim);
             $type = $trace[$i]['args'][0];
@@ -526,7 +523,7 @@ class PropertyAccessor implements PropertyAccessorInterface
      */
     private function getReadAccessInfo($class, $property)
     {
-        $key = (false !== strpos($class, '@') ? rawurlencode($class) : $class).'..'.$property;
+        $key = $class.'..'.$property;
 
         if (isset($this->readPropertyCache[$key])) {
             return $this->readPropertyCache[$key];
@@ -705,7 +702,7 @@ class PropertyAccessor implements PropertyAccessorInterface
      */
     private function getWriteAccessInfo($class, $property, $value)
     {
-        $key = (false !== strpos($class, '@') ? rawurlencode($class) : $class).'..'.$property;
+        $key = $class.'..'.$property;
 
         if (isset($this->writePropertyCache[$key])) {
             return $this->writePropertyCache[$key];

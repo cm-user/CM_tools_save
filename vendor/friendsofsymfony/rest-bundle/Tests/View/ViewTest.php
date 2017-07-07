@@ -106,8 +106,7 @@ class ViewTest extends \PHPUnit_Framework_TestCase
         return [
             'null as data' => [null],
             'array as data' => [['foo' => 'bar']],
-            'function as data' => [function () {
-            }],
+            'function as data' => [function () {}],
         ];
     }
 
@@ -127,25 +126,21 @@ class ViewTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($format, $view->getFormat());
     }
 
-    /**
-     * @dataProvider viewWithHeadersProvider
-     */
     public function testSetHeaders()
     {
         $view = new View();
-        $view->setHeaders(['foo' => 'bar']);
-
-        $headers = $view->getResponse()->headers;
-        $this->assertTrue($headers->has('foo'));
-        $this->assertEquals('bar', $headers->get('foo'));
+        $headers = ['foo' => 'bar'];
+        $expected = ['foo' => ['bar'], 'cache-control' => ['no-cache']];
+        $view->setHeaders($headers);
+        $this->assertEquals($expected, $view->getHeaders());
     }
 
-    public function viewWithHeadersProvider()
+    public function testHeadersInConstructorAreAssignedToResponseObject()
     {
-        return [
-            [(new View())->setHeaders(['foo' => 'bar'])],
-            [new View(null, null, ['foo' => 'bar'])],
-        ];
+        $headers = ['foo' => 'bar'];
+        $expected = ['foo' => ['bar'], 'cache-control' => ['no-cache']];
+        $view = new View(null, null, $headers);
+        $this->assertEquals($expected, $view->getHeaders());
     }
 
     public function testSetStatusCode()

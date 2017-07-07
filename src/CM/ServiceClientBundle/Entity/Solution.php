@@ -44,8 +44,9 @@ class Solution
     protected $branche;
 
     /**
-     * @var ArrayCollection
-     * @ORM\OneToMany(targetEntity="CM\ServiceClientBundle\Entity\Mail", mappedBy="solution")
+     * @var Mail
+     * @ORM\ManyToMany(targetEntity="CM\ServiceClientBundle\Entity\Mail", mappedBy="solutions")
+     * @ORM\JoinColumn(name="mail_id", referencedColumnName="id", nullable=true)
      */
     protected $mails;
 
@@ -82,7 +83,7 @@ class Solution
     public function getTextSolution()
     {
         return $this->textSolution;
-    }        
+    }
 
     /**
      * Set solutionBranch
@@ -242,6 +243,30 @@ class Solution
     public function setBranches(\CM\ServiceClientBundle\Entity\Branch $branches = null)
     {
         $this->branches = $branches;
+
+        return $this;
+    }
+
+    /**
+     * Get mail
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getMail()
+    {
+        return $this->mail;
+    }
+
+    /**
+     * Set mail
+     *
+     * @param \CM\ServiceClientBundle\Entity\Mail $mail
+     *
+     * @return Solution
+     */
+    public function setMail(\CM\ServiceClientBundle\Entity\Mail $mail = null)
+    {
+        $this->mail = $mail;
 
         return $this;
     }

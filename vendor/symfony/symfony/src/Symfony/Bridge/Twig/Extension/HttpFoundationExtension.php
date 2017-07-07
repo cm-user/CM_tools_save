@@ -14,15 +14,13 @@ namespace Symfony\Bridge\Twig\Extension;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\RequestContext;
-use Twig\Extension\AbstractExtension;
-use Twig\TwigFunction;
 
 /**
  * Twig extension for the Symfony HttpFoundation component.
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class HttpFoundationExtension extends AbstractExtension
+class HttpFoundationExtension extends \Twig_Extension
 {
     private $requestStack;
     private $requestContext;
@@ -39,8 +37,8 @@ class HttpFoundationExtension extends AbstractExtension
     public function getFunctions()
     {
         return array(
-            new TwigFunction('absolute_url', array($this, 'generateAbsoluteUrl')),
-            new TwigFunction('relative_path', array($this, 'generateRelativePath')),
+            new \Twig_SimpleFunction('absolute_url', array($this, 'generateAbsoluteUrl')),
+            new \Twig_SimpleFunction('relative_path', array($this, 'generateRelativePath')),
         );
     }
 

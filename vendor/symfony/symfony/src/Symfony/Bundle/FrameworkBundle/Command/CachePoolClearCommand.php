@@ -33,7 +33,7 @@ final class CachePoolClearCommand extends ContainerAwareCommand
         $this
             ->setName('cache:pool:clear')
             ->setDefinition(array(
-                new InputArgument('pools', InputArgument::IS_ARRAY | InputArgument::REQUIRED, 'A list of cache pools or cache pool clearers'),
+                new InputArgument('pools', InputArgument::IS_ARRAY, 'A list of cache pools or cache pool clearers'),
             ))
             ->setDescription('Clears cache pools')
             ->setHelp(<<<'EOF'
@@ -55,21 +55,16 @@ EOF
         $clearers = array();
         $container = $this->getContainer();
         $cacheDir = $container->getParameter('kernel.cache_dir');
-        $globalClearer = $container->get('cache.global_clearer');
 
         foreach ($input->getArgument('pools') as $id) {
-            if ($globalClearer->hasPool($id)) {
-                $pools[$id] = $id;
-            } else {
-                $pool = $container->get($id);
+            $pool = $container->get($id);
 
-                if ($pool instanceof CacheItemPoolInterface) {
-                    $pools[$id] = $pool;
-                } elseif ($pool instanceof Psr6CacheClearer) {
-                    $clearers[$id] = $pool;
-                } else {
-                    throw new \InvalidArgumentException(sprintf('"%s" is not a cache pool nor a cache clearer.', $id));
-                }
+            if ($pool instanceof CacheItemPoolInterface) {
+                $pools[$id] = $pool;
+            } elseif ($pool instanceof Psr6CacheClearer) {
+                $clearers[$id] = $pool;
+            } else {
+                throw new \InvalidArgumentException(sprintf('"%s" is not a cache pool nor a cache clearer.', $id));
             }
         }
 
@@ -80,12 +75,7 @@ EOF
 
         foreach ($pools as $id => $pool) {
             $io->comment(sprintf('Clearing cache pool: <info>%s</info>', $id));
-
-            if ($pool instanceof CacheItemPoolInterface) {
-                $pool->clear();
-            } else {
-                $globalClearer->clearPool($id);
-            }
+            $pool->clear();
         }
 
         $io->success('Cache was successfully cleared.');

@@ -335,7 +335,7 @@ class ParamFetcherTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \InvalidArgumentException
+     * @expectedException InvalidArgumentException
      * @expectedExceptionMessage Controller and method needs to be set via setController
      */
     public function testEmptyControllerExceptionWhenInitParams()
@@ -380,8 +380,7 @@ class ParamFetcherTest extends \PHPUnit_Framework_TestCase
             ->method('getParams')
             ->willReturn(array('foo' => $this->createMockedParam('foo')));
 
-        // Incompatible with foobar & fos when bar value not null
-        $param = $this->createMockedParam('bar', null, array('foobar', 'fos'), false, 'value');
+        $param = $this->createMockedParam('bar', null, array('foobar', 'fos')); // Incompatible with foobar & fos
 
         $reflection = new \ReflectionClass($fetcher);
         $method = $reflection->getMethod('checkNotIncompatibleParams');
@@ -391,7 +390,7 @@ class ParamFetcherTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Symfony\Component\HttpKernel\Exception\BadRequestHttpException
+     * @expectedException Symfony\Component\HttpKernel\Exception\BadRequestHttpException
      * @expectedExceptionMessage 'bar' param is incompatible with fos param.
      */
     public function testIncompatibleParam()
@@ -407,8 +406,7 @@ class ParamFetcherTest extends \PHPUnit_Framework_TestCase
                 'fos' => $this->createMockedParam('fos', null, array(), false, 'value'),
             ));
 
-        // Incompatible with foobar & fos when bar value not null
-        $param = $this->createMockedParam('bar', null, array('foobar', 'fos'), false, 'value');
+        $param = $this->createMockedParam('bar', null, array('foobar', 'fos')); // Incompatible with foobar & fos
 
         $reflection = new \ReflectionClass($fetcher);
         $method = $reflection->getMethod('checkNotIncompatibleParams');

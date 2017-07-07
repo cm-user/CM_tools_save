@@ -11,11 +11,10 @@
 
 namespace Symfony\Component\Routing\Tests;
 
-use PHPUnit\Framework\TestCase;
 use Symfony\Component\Routing\Route;
 use Symfony\Component\Routing\RouteCompiler;
 
-class RouteCompilerTest extends TestCase
+class RouteCompilerTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @dataProvider provideCompileData
@@ -127,7 +126,7 @@ class RouteCompilerTest extends TestCase
             array(
                 'Route with a variable in last position',
                 array('/foo-{bar}'),
-                '/foo-', '#^/foo\-(?P<bar>[^/]++)$#s', array('bar'), array(
+                '/foo', '#^/foo\-(?P<bar>[^/]++)$#s', array('bar'), array(
                     array('variable', '-', '[^/]++', 'bar'),
                     array('text', '/foo'),
                 ),

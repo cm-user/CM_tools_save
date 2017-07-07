@@ -75,10 +75,10 @@ class FormatNegotiator extends BaseNegotiator
                 if (!empty($extension)) {
                     // $extensionHeader will now be either a non empty string or an empty string
                     $extensionHeader = $request->getMimeType($extension);
-
-                    if ($extensionHeader) {
-                        $header = $extensionHeader.'; q='.$options['prefer_extension'].($header ? ','.$header : '');
+                    if ($header && $extensionHeader) {
+                        $header .= ',';
                     }
+                    $header .= $extensionHeader.'; q='.$options['prefer_extension'];
                 }
             }
 

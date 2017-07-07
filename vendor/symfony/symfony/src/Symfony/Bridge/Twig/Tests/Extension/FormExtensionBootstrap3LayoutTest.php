@@ -19,7 +19,6 @@ use Symfony\Bridge\Twig\Tests\Extension\Fixtures\StubTranslator;
 use Symfony\Bridge\Twig\Tests\Extension\Fixtures\StubFilesystemLoader;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\Form\Tests\AbstractBootstrap3LayoutTest;
-use Twig\Environment;
 
 class FormExtensionBootstrap3LayoutTest extends AbstractBootstrap3LayoutTest
 {
@@ -36,7 +35,7 @@ class FormExtensionBootstrap3LayoutTest extends AbstractBootstrap3LayoutTest
             __DIR__.'/Fixtures/templates/form',
         ));
 
-        $environment = new Environment($loader, array('strict_variables' => true));
+        $environment = new \Twig_Environment($loader, array('strict_variables' => true));
         $environment->addExtension(new TranslationExtension(new StubTranslator()));
         $environment->addExtension(new FormExtension());
 

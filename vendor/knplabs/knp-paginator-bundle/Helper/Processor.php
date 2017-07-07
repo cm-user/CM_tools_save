@@ -65,7 +65,7 @@ class Processor
      *
      * @param SlidingPagination $pagination
      * @param string            $title
-     * @param string|array      $key
+     * @param string            $key
      * @param array             $options
      * @param array             $params
      *
@@ -73,10 +73,6 @@ class Processor
      */
     public function sortable(SlidingPagination $pagination, $title, $key, $options = array(), $params = array())
     {
-        if (is_array($key)) {
-            $key = implode('+', $key);
-        }
-
         $options = array_merge(array(
             'absolute' => defined('Symfony\Component\Routing\Generator\UrlGeneratorInterface::ABSOLUTE_PATH') ? UrlGeneratorInterface::ABSOLUTE_PATH : false,
             'translationParameters' => array(),

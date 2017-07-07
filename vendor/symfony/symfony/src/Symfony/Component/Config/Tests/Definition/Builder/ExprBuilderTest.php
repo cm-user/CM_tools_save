@@ -11,10 +11,9 @@
 
 namespace Symfony\Component\Config\Tests\Definition\Builder;
 
-use PHPUnit\Framework\TestCase;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 
-class ExprBuilderTest extends TestCase
+class ExprBuilderTest extends \PHPUnit_Framework_TestCase
 {
     public function testAlwaysExpression()
     {
@@ -143,25 +142,6 @@ class ExprBuilderTest extends TestCase
             ->thenEmptyArray()
         ->end();
         $this->assertFinalizedValueIs(array(), $test);
-    }
-
-    /**
-     * @dataProvider castToArrayValues
-     */
-    public function testcastToArrayExpression($configValue, $expectedValue)
-    {
-        $test = $this->getTestBuilder()
-            ->castToArray()
-        ->end();
-        $this->assertFinalizedValueIs($expectedValue, $test, array('key' => $configValue));
-    }
-
-    public function castToArrayValues()
-    {
-        yield array('value', array('value'));
-        yield array(-3.14, array(-3.14));
-        yield array(null, array(null));
-        yield array(array('value'), array('value'));
     }
 
     /**

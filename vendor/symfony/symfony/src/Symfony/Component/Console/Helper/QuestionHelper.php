@@ -39,7 +39,7 @@ class QuestionHelper extends Helper
      * @param OutputInterface $output   An OutputInterface instance
      * @param Question        $question The question to ask
      *
-     * @return mixed The user answer
+     * @return string The user answer
      *
      * @throws RuntimeException If there is no data to read in the input stream
      */
@@ -117,14 +117,6 @@ class QuestionHelper extends Helper
     }
 
     /**
-     * Prevents usage of stty.
-     */
-    public static function disableStty()
-    {
-        self::$stty = false;
-    }
-
-    /**
      * Asks the question to the user.
      *
      * @param OutputInterface $output
@@ -132,7 +124,8 @@ class QuestionHelper extends Helper
      *
      * @return bool|mixed|null|string
      *
-     * @throws RuntimeException In case the fallback is deactivated and the response cannot be hidden
+     * @throws \Exception
+     * @throws \RuntimeException
      */
     private function doAsk(OutputInterface $output, Question $question)
     {
@@ -146,7 +139,7 @@ class QuestionHelper extends Helper
             if ($question->isHidden()) {
                 try {
                     $ret = trim($this->getHiddenResponse($output, $inputStream));
-                } catch (RuntimeException $e) {
+                } catch (\RuntimeException $e) {
                     if (!$question->isHiddenFallback()) {
                         throw $e;
                     }
@@ -404,7 +397,7 @@ class QuestionHelper extends Helper
      * @param OutputInterface $output      An Output instance
      * @param Question        $question    A Question instance
      *
-     * @return mixed The validated response
+     * @return string The validated response
      *
      * @throws \Exception In case the max number of attempts has been reached and no valid response has been given
      */

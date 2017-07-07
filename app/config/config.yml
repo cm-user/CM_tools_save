@@ -90,7 +90,6 @@ doctrine:
                     MarketingBundle: ~
                     FaultyProductBundle: ~
                     ShopBundle: ~
-                    ServiceClientBundle: ~
                 dql:
                     datetime_functions:
                         date:           Oro\ORM\Query\AST\Functions\SimpleFunction

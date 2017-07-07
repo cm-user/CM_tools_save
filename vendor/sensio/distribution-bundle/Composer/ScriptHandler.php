@@ -75,11 +75,6 @@ class ScriptHandler
                 return;
             }
         }
-
-        if (!static::useSymfonyAutoloader($options)) {
-            $autoloadDir = $options['vendor-dir'];
-        }
-
         if (!static::hasDirectory($event, 'symfony-app-dir', $autoloadDir, 'build bootstrap file')) {
             return;
         }
@@ -112,11 +107,11 @@ class ScriptHandler
     protected static function prepareDeploymentTargetHeroku(Event $event)
     {
         $options = static::getOptions($event);
-        if (($stack = getenv('STACK')) && ($stack == 'cedar-14' || $stack == 'heroku-16')) {
+        if (($stack = getenv('STACK')) && ($stack == 'cedar' || $stack == 'cedar-14')) {
             $fs = new Filesystem();
             if (!$fs->exists('Procfile')) {
                 $event->getIO()->write('Heroku deploy detected; creating default Procfile for "web" dyno');
-                $fs->dumpFile('Procfile', sprintf('web: heroku-php-apache2 %s/', $options['symfony-web-dir']));
+                $fs->dumpFile('Procfile', sprintf('web: $(composer config bin-dir)/heroku-php-apache2 %s/', $options['symfony-web-dir']));
             }
         }
     }
@@ -290,7 +285,7 @@ EOF
         $process = new Process($php.($phpArgs ? ' '.$phpArgs : '').' '.$console.' '.$cmd, null, null, null, $timeout);
         $process->run(function ($type, $buffer) use ($event) { $event->getIO()->write($buffer, false); });
         if (!$process->isSuccessful()) {
-            throw new \RuntimeException(sprintf("An error occurred when executing the \"%s\" command:\n\n%s\n\n%s", escapeshellarg($cmd), self::removeDecoration($process->getOutput()), self::removeDecoration($process->getErrorOutput())));
+            throw new \RuntimeException(sprintf("An error occurred when executing the \"%s\" command:\n\n%s\n\n%s.", escapeshellarg($cmd), $process->getOutput(), $process->getErrorOutput()));
         }
     }
 
@@ -382,7 +377,6 @@ EOF;
         $options['symfony-cache-warmup'] = getenv('SYMFONY_CACHE_WARMUP') ?: $options['symfony-cache-warmup'];
 
         $options['process-timeout'] = $event->getComposer()->getConfig()->get('process-timeout');
-        $options['vendor-dir'] = $event->getComposer()->getConfig()->get('vendor-dir');
 
         return $options;
     }
@@ -407,7 +401,7 @@ EOF;
             $arguments = $phpFinder->findArguments();
         }
 
-        if ($env = getenv('COMPOSER_ORIGINAL_INIS')) {
+        if ($env = strval(getenv('COMPOSER_ORIGINAL_INIS'))) {
             $paths = explode(PATH_SEPARATOR, $env);
             $ini = array_shift($paths);
         } else {
@@ -427,7 +421,7 @@ EOF;
      * @param Event  $event      The command event
      * @param string $actionName The name of the action
      *
-     * @return string|null The path to the console directory, null if not found
+     * @return string|null The path to the console directory, null if not found.
      */
     protected static function getConsoleDir(Event $event, $actionName)
     {
@@ -458,22 +452,5 @@ EOF;
     protected static function useNewDirectoryStructure(array $options)
     {
         return isset($options['symfony-var-dir']) && is_dir($options['symfony-var-dir']);
-    }
-
-    /**
-     * Returns true if the application bespoke autoloader is used.
-     *
-     * @param array $options Composer options
-     *
-     * @return bool
-     */
-    protected static function useSymfonyAutoloader(array $options)
-    {
-        return isset($options['symfony-app-dir']) && is_file($options['symfony-app-dir'].'/autoload.php');
-    }
-
-    private static function removeDecoration($string)
-    {
-        return preg_replace("/\033\[[^m]*m/", '', $string);
     }
 }

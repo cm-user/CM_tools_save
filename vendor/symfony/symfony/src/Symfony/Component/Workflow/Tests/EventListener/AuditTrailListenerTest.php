@@ -2,15 +2,16 @@
 
 namespace Symfony\Component\Workflow\Tests\EventListener;
 
-use PHPUnit\Framework\TestCase;
 use Psr\Log\AbstractLogger;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\Workflow\EventListener\AuditTrailListener;
 use Symfony\Component\Workflow\MarkingStore\MultipleStateMarkingStore;
 use Symfony\Component\Workflow\Tests\WorkflowBuilderTrait;
+use Symfony\Component\Workflow\Tests\createSimpleWorkflowDefinition;
+use Symfony\Component\Workflow\Transition;
 use Symfony\Component\Workflow\Workflow;
 
-class AuditTrailListenerTest extends TestCase
+class AuditTrailListenerTest extends \PHPUnit_Framework_TestCase
 {
     use WorkflowBuilderTrait;
 
@@ -31,9 +32,9 @@ class AuditTrailListenerTest extends TestCase
         $workflow->apply($object, 't1');
 
         $expected = array(
-            'Leaving "a" for subject of class "stdClass" in workflow "unnamed".',
-            'Transition "t1" for subject of class "stdClass" in workflow "unnamed".',
-            'Entering "b" for subject of class "stdClass" in workflow "unnamed".',
+            'Leaving "a" for subject of class "stdClass".',
+            'Transition "t1" for subject of class "stdClass".',
+            'Entering "b" for subject of class "stdClass".',
         );
 
         $this->assertSame($expected, $logger->logs);

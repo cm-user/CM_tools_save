@@ -11,7 +11,6 @@
 
 namespace Symfony\Bundle\FrameworkBundle\Tests\DependencyInjection\Compiler;
 
-use PHPUnit\Framework\TestCase;
 use Symfony\Bundle\FrameworkBundle\DependencyInjection\Compiler\CachePoolClearerPass;
 use Symfony\Bundle\FrameworkBundle\DependencyInjection\Compiler\CachePoolPass;
 use Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass;
@@ -19,9 +18,8 @@ use Symfony\Component\DependencyInjection\Compiler\RepeatedPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\Reference;
-use Symfony\Component\HttpKernel\CacheClearer\Psr6CacheClearer;
 
-class CachePoolClearerPassTest extends TestCase
+class CachePoolClearerPassTest extends \PHPUnit_Framework_TestCase
 {
     public function testPoolRefsAreWeak()
     {
@@ -30,9 +28,6 @@ class CachePoolClearerPassTest extends TestCase
         $container->setParameter('kernel.name', 'app');
         $container->setParameter('kernel.environment', 'prod');
         $container->setParameter('kernel.root_dir', 'foo');
-
-        $globalClearer = new Definition(Psr6CacheClearer::class);
-        $container->setDefinition('cache.global_clearer', $globalClearer);
 
         $publicPool = new Definition();
         $publicPool->addArgument('namespace');
@@ -55,7 +50,6 @@ class CachePoolClearerPassTest extends TestCase
             $pass->process($container);
         }
 
-        $this->assertEquals(array(array('public.pool' => new Reference('public.pool'))), $clearer->getArguments());
-        $this->assertEquals(array(array('public.pool' => new Reference('public.pool'))), $globalClearer->getArguments());
+        $this->assertEquals(array(array('addPool', array(new Reference('public.pool')))), $clearer->getMethodCalls());
     }
 }

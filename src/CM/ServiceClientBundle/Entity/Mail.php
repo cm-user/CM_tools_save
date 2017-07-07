@@ -37,11 +37,17 @@ class Mail
     private $textMail;
 
     /**
-     * @var Solution
-     * @ORM\ManyToOne(targetEntity="CM\ServiceClientBundle\Entity\Solution", inversedBy="mails", cascade={"persist"})
-     * @ORM\JoinColumn(name="solution_id", referencedColumnName="id", nullable=true)
+     * @var ArrayCollection
+     * @ORM\ManyToMany(targetEntity="CM\ServiceClientBundle\Entity\Solution", inversedBy="mails")
+     * @ORM\JoinTable(name="sc_mail_solution")
      */
-    protected $solution;
+    protected $solutions;
+
+    public function __construct()
+    {
+        $this->solutions = new \Doctrine\Common\Collections\ArrayCollection();
+
+    }
 
     /**
      * Get id
@@ -101,29 +107,54 @@ class Mail
         return $this->nom;
     }
 
-
-    
     /**
-     * Set solution
+     * Set solutions
      *
-     * @param \CM\ServiceClientBundle\Entity\Solution $solution
+     * @param \CM\ServiceClientBundle\Entity\Solution $solutions
      *
      * @return Mail
      */
-    public function setSolution(\CM\ServiceClientBundle\Entity\Solution $solution = null)
+    public function setSolutions(\CM\ServiceClientBundle\Entity\Solution $solutions = null)
     {
-        $this->solution = $solution;
+        $this->solutions = $solutions;
 
         return $this;
     }
 
     /**
-     * Get solution
+     * Get solutions
      *
      * @return \CM\ServiceClientBundle\Entity\Solution
      */
-    public function getSolution()
+    public function getSolutions()
     {
-        return $this->solution;
+        return $this->solutions;
     }
+
+
+    /**
+     * Add solution
+     *
+     * @param \CM\ServiceClientBundle\Entity\Solution $solution
+     *
+     * @return Mail
+     */
+    public function addSolution(\CM\ServiceClientBundle\Entity\Solution $solution)
+    {
+        $this->solutions[] = $solution;
+
+        return $this;
+    }
+
+    /**
+     * Remove solution
+     *
+     * @param \CM\ServiceClientBundle\Entity\Solution $solution
+     */
+    public function removeSolution(\CM\ServiceClientBundle\Entity\Solution $solution)
+    {
+        $this->solutions->removeElement($solution);
+    }
+
+
 }

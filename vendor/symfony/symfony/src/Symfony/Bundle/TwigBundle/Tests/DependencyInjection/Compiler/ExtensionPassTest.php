@@ -11,12 +11,11 @@
 
 namespace Symfony\Bundle\TwigBundle\Tests\DependencyInjection\Compiler;
 
-use PHPUnit\Framework\TestCase;
 use Symfony\Bundle\TwigBundle\DependencyInjection\Compiler\ExtensionPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
 
-class ExtensionPassTest extends TestCase
+class ExtensionPassTest extends \PHPUnit_Framework_TestCase
 {
     public function testProcessDoesNotDropExistingFileLoaderMethodCalls()
     {
@@ -30,7 +29,7 @@ class ExtensionPassTest extends TestCase
         $container->register('twig.extension.debug.stopwatch');
         $container->register('twig.extension.expression');
 
-        $nativeTwigLoader = new Definition('\Twig\Loader\FilesystemLoader');
+        $nativeTwigLoader = new Definition('\Twig_Loader_Filesystem');
         $nativeTwigLoader->addMethodCall('addPath', array());
         $container->setDefinition('twig.loader.native_filesystem', $nativeTwigLoader);
 

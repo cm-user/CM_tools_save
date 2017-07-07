@@ -14,17 +14,13 @@ namespace Symfony\Bridge\Twig\Extension;
 use Symfony\Bridge\Twig\TokenParser\DumpTokenParser;
 use Symfony\Component\VarDumper\Cloner\ClonerInterface;
 use Symfony\Component\VarDumper\Dumper\HtmlDumper;
-use Twig\Environment;
-use Twig\Extension\AbstractExtension;
-use Twig\Template;
-use Twig\TwigFunction;
 
 /**
  * Provides integration of the dump() function with Twig.
  *
  * @author Nicolas Grekas <p@tchwork.com>
  */
-class DumpExtension extends AbstractExtension
+class DumpExtension extends \Twig_Extension
 {
     private $cloner;
     private $dumper;
@@ -38,7 +34,7 @@ class DumpExtension extends AbstractExtension
     public function getFunctions()
     {
         return array(
-            new TwigFunction('dump', array($this, 'dump'), array('is_safe' => array('html'), 'needs_context' => true, 'needs_environment' => true)),
+            new \Twig_SimpleFunction('dump', array($this, 'dump'), array('is_safe' => array('html'), 'needs_context' => true, 'needs_environment' => true)),
         );
     }
 
@@ -52,7 +48,7 @@ class DumpExtension extends AbstractExtension
         return 'dump';
     }
 
-    public function dump(Environment $env, $context)
+    public function dump(\Twig_Environment $env, $context)
     {
         if (!$env->isDebug()) {
             return;
@@ -61,7 +57,7 @@ class DumpExtension extends AbstractExtension
         if (2 === func_num_args()) {
             $vars = array();
             foreach ($context as $key => $value) {
-                if (!$value instanceof Template) {
+                if (!$value instanceof \Twig_Template) {
                     $vars[$key] = $value;
                 }
             }

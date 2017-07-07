@@ -164,14 +164,7 @@ class ConsoleHandler extends AbstractProcessingHandler implements EventSubscribe
      */
     protected function getDefaultFormatter()
     {
-        if (!$this->output) {
-            return new ConsoleFormatter();
-        }
-
-        return new ConsoleFormatter(array(
-            'colors' => $this->output->isDecorated(),
-            'multiline' => OutputInterface::VERBOSITY_DEBUG <= $this->output->getVerbosity(),
-        ));
+        return new ConsoleFormatter();
     }
 
     /**

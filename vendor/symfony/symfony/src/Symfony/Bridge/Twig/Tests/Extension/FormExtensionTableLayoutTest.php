@@ -19,7 +19,6 @@ use Symfony\Bridge\Twig\Extension\TranslationExtension;
 use Symfony\Component\Form\Tests\AbstractTableLayoutTest;
 use Symfony\Bridge\Twig\Tests\Extension\Fixtures\StubTranslator;
 use Symfony\Bridge\Twig\Tests\Extension\Fixtures\StubFilesystemLoader;
-use Twig\Environment;
 
 class FormExtensionTableLayoutTest extends AbstractTableLayoutTest
 {
@@ -36,7 +35,7 @@ class FormExtensionTableLayoutTest extends AbstractTableLayoutTest
             __DIR__.'/Fixtures/templates/form',
         ));
 
-        $environment = new Environment($loader, array('strict_variables' => true));
+        $environment = new \Twig_Environment($loader, array('strict_variables' => true));
         $environment->addExtension(new TranslationExtension(new StubTranslator()));
         $environment->addGlobal('global', '');
         $environment->addExtension(new FormExtension());

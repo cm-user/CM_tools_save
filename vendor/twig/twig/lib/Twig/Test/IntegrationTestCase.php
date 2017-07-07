@@ -9,15 +9,13 @@
  * file that was distributed with this source code.
  */
 
-use PHPUnit\Framework\TestCase;
-
 /**
  * Integration test helper.
  *
  * @author Fabien Potencier <fabien@symfony.com>
  * @author Karma Dordrak <drak@zikula.org>
  */
-abstract class Twig_Test_IntegrationTestCase extends TestCase
+abstract class Twig_Test_IntegrationTestCase extends PHPUnit_Framework_TestCase
 {
     /**
      * @return string
@@ -123,10 +121,6 @@ abstract class Twig_Test_IntegrationTestCase extends TestCase
 
     protected function doIntegrationTest($file, $message, $condition, $templates, $exception, $outputs)
     {
-        if (!$outputs) {
-            $this->markTestSkipped('no legacy tests to run');
-        }
-
         if ($condition) {
             eval('$ret = '.$condition.';');
             if (!$ret) {
@@ -198,8 +192,7 @@ abstract class Twig_Test_IntegrationTestCase extends TestCase
 
             if (false !== $exception) {
                 list($class) = explode(':', $exception);
-                $constraintClass = class_exists('PHPUnit\Framework\Constraint\Exception') ? 'PHPUnit\Framework\Constraint\Exception' : 'PHPUnit_Framework_Constraint_Exception';
-                $this->assertThat(null, new $constraintClass($class));
+                $this->assertThat(null, new PHPUnit_Framework_Constraint_Exception($class));
             }
 
             $expected = trim($match[3], "\n ");
@@ -233,5 +226,3 @@ abstract class Twig_Test_IntegrationTestCase extends TestCase
         return $templates;
     }
 }
-
-class_alias('Twig_Test_IntegrationTestCase', 'Twig\Test\IntegrationTestCase', false);

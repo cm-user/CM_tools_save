@@ -26,11 +26,9 @@ class Definition
     private $factory;
     private $shared = true;
     private $deprecated = false;
-    private $deprecationTemplate;
+    private $deprecationTemplate = 'The "%service_id%" service is deprecated. You should stop using it, as it will soon be removed.';
     private $properties = array();
     private $calls = array();
-    private $instanceof = array();
-    private $autoconfigured = false;
     private $configurator;
     private $tags = array();
     private $public = true;
@@ -40,11 +38,8 @@ class Definition
     private $decoratedService;
     private $autowired = false;
     private $autowiringTypes = array();
-    private $changes = array();
 
-    protected $arguments = array();
-
-    private static $defaultDeprecationTemplate = 'The "%service_id%" service is deprecated. You should stop using it, as it will soon be removed.';
+    protected $arguments;
 
     /**
      * @param string|null $class     The service class
@@ -52,32 +47,8 @@ class Definition
      */
     public function __construct($class = null, array $arguments = array())
     {
-        if (null !== $class) {
-            $this->setClass($class);
-        }
+        $this->class = $class;
         $this->arguments = $arguments;
-    }
-
-    /**
-     * Returns all changes tracked for the Definition object.
-     *
-     * @return array An array of changes for this Definition
-     */
-    public function getChanges()
-    {
-        return $this->changes;
-    }
-
-    /**
-     * Sets the tracked changes for the Definition object.
-     *
-     * @return $this
-     */
-    public function setChanges(array $changes)
-    {
-        $this->changes = $changes;
-
-        return $this;
     }
 
     /**
@@ -89,8 +60,6 @@ class Definition
      */
     public function setFactory($factory)
     {
-        $this->changes['factory'] = true;
-
         if (is_string($factory) && strpos($factory, '::') !== false) {
             $factory = explode('::', $factory, 2);
         }
@@ -127,8 +96,6 @@ class Definition
             throw new InvalidArgumentException(sprintf('The decorated service inner name for "%s" must be different than the service name itself.', $id));
         }
 
-        $this->changes['decorated_service'] = true;
-
         if (null === $id) {
             $this->decoratedService = null;
         } else {
@@ -157,8 +124,6 @@ class Definition
      */
     public function setClass($class)
     {
-        $this->changes['class'] = true;
-
         $this->class = $class;
 
         return $this;
@@ -224,8 +189,8 @@ class Definition
     /**
      * Sets a specific argument.
      *
-     * @param int|string $index
-     * @param mixed      $argument
+     * @param int   $index
+     * @param mixed $argument
      *
      * @return $this
      *
@@ -237,22 +202,11 @@ class Definition
             throw new OutOfBoundsException('Cannot replace arguments if none have been configured yet.');
         }
 
-        if (is_int($index) && ($index < 0 || $index > count($this->arguments) - 1)) {
+        if ($index < 0 || $index > count($this->arguments) - 1) {
             throw new OutOfBoundsException(sprintf('The index "%d" is not in the range [0, %d].', $index, count($this->arguments) - 1));
         }
 
-        if (!array_key_exists($index, $this->arguments)) {
-            throw new OutOfBoundsException(sprintf('The argument "%s" doesn\'t exist.', $index));
-        }
-
         $this->arguments[$index] = $argument;
-
-        return $this;
-    }
-
-    public function setArgument($key, $value)
-    {
-        $this->arguments[$key] = $value;
 
         return $this;
     }
@@ -270,7 +224,7 @@ class Definition
     /**
      * Gets an argument to pass to the service constructor/factory method.
      *
-     * @param int|string $index
+     * @param int $index
      *
      * @return mixed The argument value
      *
@@ -278,8 +232,8 @@ class Definition
      */
     public function getArgument($index)
     {
-        if (!array_key_exists($index, $this->arguments)) {
-            throw new OutOfBoundsException(sprintf('The argument "%s" doesn\'t exist.', $index));
+        if ($index < 0 || $index > count($this->arguments) - 1) {
+            throw new OutOfBoundsException(sprintf('The index "%d" is not in the range [0, %d].', $index, count($this->arguments) - 1));
         }
 
         return $this->arguments[$index];
@@ -315,7 +269,7 @@ class Definition
     public function addMethodCall($method, array $arguments = array())
     {
         if (empty($method)) {
-            throw new InvalidArgumentException('Method name cannot be empty.');
+            throw new InvalidArgumentException(sprintf('Method name cannot be empty.'));
         }
         $this->calls[] = array($method, $arguments);
 
@@ -367,52 +321,6 @@ class Definition
     public function getMethodCalls()
     {
         return $this->calls;
-    }
-
-    /**
-     * Sets the definition templates to conditionally apply on the current definition, keyed by parent interface/class.
-     *
-     * @param $instanceof ChildDefinition[]
-     */
-    public function setInstanceofConditionals(array $instanceof)
-    {
-        $this->instanceof = $instanceof;
-
-        return $this;
-    }
-
-    /**
-     * Gets the definition templates to conditionally apply on the current definition, keyed by parent interface/class.
-     *
-     * @return ChildDefinition[]
-     */
-    public function getInstanceofConditionals()
-    {
-        return $this->instanceof;
-    }
-
-    /**
-     * Sets whether or not instanceof conditionals should be prepended with a global set.
-     *
-     * @param bool $autoconfigured
-     *
-     * @return $this
-     */
-    public function setAutoconfigured($autoconfigured)
-    {
-        $this->changes['autoconfigured'] = true;
-
-        $this->autoconfigured = $autoconfigured;
-
-        return $this;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isAutoconfigured()
-    {
-        return $this->autoconfigured;
     }
 
     /**
@@ -513,8 +421,6 @@ class Definition
      */
     public function setFile($file)
     {
-        $this->changes['file'] = true;
-
         $this->file = $file;
 
         return $this;
@@ -539,8 +445,6 @@ class Definition
      */
     public function setShared($shared)
     {
-        $this->changes['shared'] = true;
-
         $this->shared = (bool) $shared;
 
         return $this;
@@ -565,8 +469,6 @@ class Definition
      */
     public function setPublic($boolean)
     {
-        $this->changes['public'] = true;
-
         $this->public = (bool) $boolean;
 
         return $this;
@@ -591,8 +493,6 @@ class Definition
      */
     public function setLazy($lazy)
     {
-        $this->changes['lazy'] = true;
-
         $this->lazy = (bool) $lazy;
 
         return $this;
@@ -685,8 +585,6 @@ class Definition
             $this->deprecationTemplate = $template;
         }
 
-        $this->changes['deprecated'] = true;
-
         $this->deprecated = (bool) $status;
 
         return $this;
@@ -712,7 +610,7 @@ class Definition
      */
     public function getDeprecationMessage($id)
     {
-        return str_replace('%service_id%', $id, $this->deprecationTemplate ?: self::$defaultDeprecationTemplate);
+        return str_replace('%service_id%', $id, $this->deprecationTemplate);
     }
 
     /**
@@ -724,8 +622,6 @@ class Definition
      */
     public function setConfigurator($configurator)
     {
-        $this->changes['configurator'] = true;
-
         if (is_string($configurator) && strpos($configurator, '::') !== false) {
             $configurator = explode('::', $configurator, 2);
         }
@@ -751,13 +647,9 @@ class Definition
      * @param string[] $types
      *
      * @return $this
-     *
-     * @deprecated since version 3.3, to be removed in 4.0.
      */
     public function setAutowiringTypes(array $types)
     {
-        @trigger_error('Autowiring-types are deprecated since Symfony 3.3 and will be removed in 4.0. Use aliases instead.', E_USER_DEPRECATED);
-
         $this->autowiringTypes = array();
 
         foreach ($types as $type) {
@@ -786,9 +678,7 @@ class Definition
      */
     public function setAutowired($autowired)
     {
-        $this->changes['autowired'] = true;
-
-        $this->autowired = (bool) $autowired;
+        $this->autowired = $autowired;
 
         return $this;
     }
@@ -797,15 +687,9 @@ class Definition
      * Gets autowiring types that will default to this definition.
      *
      * @return string[]
-     *
-     * @deprecated since version 3.3, to be removed in 4.0.
      */
-    public function getAutowiringTypes(/*$triggerDeprecation = true*/)
+    public function getAutowiringTypes()
     {
-        if (1 > func_num_args() || func_get_arg(0)) {
-            @trigger_error('Autowiring-types are deprecated since Symfony 3.3 and will be removed in 4.0. Use aliases instead.', E_USER_DEPRECATED);
-        }
-
         return array_keys($this->autowiringTypes);
     }
 
@@ -815,13 +699,9 @@ class Definition
      * @param string $type
      *
      * @return $this
-     *
-     * @deprecated since version 3.3, to be removed in 4.0.
      */
     public function addAutowiringType($type)
     {
-        @trigger_error(sprintf('Autowiring-types are deprecated since Symfony 3.3 and will be removed in 4.0. Use aliases instead for "%s".', $type), E_USER_DEPRECATED);
-
         $this->autowiringTypes[$type] = true;
 
         return $this;
@@ -833,13 +713,9 @@ class Definition
      * @param string $type
      *
      * @return $this
-     *
-     * @deprecated since version 3.3, to be removed in 4.0.
      */
     public function removeAutowiringType($type)
     {
-        @trigger_error(sprintf('Autowiring-types are deprecated since Symfony 3.3 and will be removed in 4.0. Use aliases instead for "%s".', $type), E_USER_DEPRECATED);
-
         unset($this->autowiringTypes[$type]);
 
         return $this;
@@ -851,13 +727,9 @@ class Definition
      * @param string $type
      *
      * @return bool
-     *
-     * @deprecated since version 3.3, to be removed in 4.0.
      */
     public function hasAutowiringType($type)
     {
-        @trigger_error(sprintf('Autowiring-types are deprecated since Symfony 3.3 and will be removed in 4.0. Use aliases instead for "%s".', $type), E_USER_DEPRECATED);
-
         return isset($this->autowiringTypes[$type]);
     }
 }

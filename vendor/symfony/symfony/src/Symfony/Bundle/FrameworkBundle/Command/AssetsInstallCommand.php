@@ -82,11 +82,7 @@ EOT
         $targetArg = rtrim($input->getArgument('target'), '/');
 
         if (!is_dir($targetArg)) {
-            $targetArg = $this->getContainer()->getParameter('kernel.project_dir').'/'.$targetArg;
-
-            if (!is_dir($targetArg)) {
-                throw new \InvalidArgumentException(sprintf('The target directory "%s" does not exist.', $input->getArgument('target')));
-            }
+            throw new \InvalidArgumentException(sprintf('The target directory "%s" does not exist.', $input->getArgument('target')));
         }
 
         $this->filesystem = $this->getContainer()->get('filesystem');
@@ -114,7 +110,6 @@ EOT
         $rows = array();
         $copyUsed = false;
         $exitCode = 0;
-        $validAssetDirs = array();
         /** @var BundleInterface $bundle */
         foreach ($this->getContainer()->get('kernel')->getBundles() as $bundle) {
             if (!is_dir($originDir = $bundle->getPath().'/Resources/public')) {
@@ -152,13 +147,6 @@ EOT
             } catch (\Exception $e) {
                 $exitCode = 1;
                 $rows[] = array(sprintf('<fg=red;options=bold>%s</>', '\\' === DIRECTORY_SEPARATOR ? 'ERROR' : "\xE2\x9C\x98" /* HEAVY BALLOT X (U+2718) */), $message, $e->getMessage());
-            }
-            $validAssetDirs[] = $targetDir;
-        }
-        // remove the assets of the bundles that no longer exist
-        foreach (new \FilesystemIterator($bundlesDir) as $dir) {
-            if (!in_array($dir, $validAssetDirs)) {
-                $this->filesystem->remove($dir);
             }
         }
 

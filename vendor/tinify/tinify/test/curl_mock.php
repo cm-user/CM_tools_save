@@ -18,17 +18,11 @@ class CurlMock {
             $response = $request;
             $request = NULL;
         }
-
-        if (!isset(self::$urls[$url])) {
-            self::$urls[$url] = array();
-        }
-
-        array_push(self::$urls[$url], array($request, $response));
+        self::$urls[$url] = array($request, $response);
     }
 
     public static function reset() {
         self::$requests = array();
-        self::$urls = array();
     }
 
     public static function last_has($key) {
@@ -55,12 +49,7 @@ class CurlMock {
         }
         array_push(self::$requests, $this);
 
-        $queue = &self::$urls[$this->options[CURLOPT_URL]];
-        list($this->request, $this->response) = $queue[0];
-
-        /* Keep last request as fallback. */
-        if (count($queue) > 1) array_shift($queue);
-
+        list($this->request, $this->response) = self::$urls[$this->options[CURLOPT_URL]];
         if ($this->request) {
             if ($this->request["body"]) {
                 if ($this->options[CURLOPT_POSTFIELDS] != $this->request["body"]) {

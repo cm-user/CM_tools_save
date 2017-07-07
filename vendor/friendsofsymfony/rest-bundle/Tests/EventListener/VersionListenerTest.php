@@ -31,7 +31,7 @@ class VersionListenerTest extends \PHPUnit_Framework_TestCase
      */
     private $resolver;
     /**
-     * @var VersionListener
+     * @var \FOS\RestBundle\EventListener\VersionListener
      */
     private $listener;
 
@@ -41,6 +41,11 @@ class VersionListenerTest extends \PHPUnit_Framework_TestCase
         $this->resolver = $this->getMockBuilder('FOS\RestBundle\Version\VersionResolverInterface')->getMock();
 
         $this->listener = new VersionListener($this->viewHandler, $this->resolver);
+    }
+
+    public function testDefaultVersion()
+    {
+        $this->assertEquals(false, $this->listener->getVersion());
     }
 
     public function testMatchNoZone()
@@ -58,6 +63,6 @@ class VersionListenerTest extends \PHPUnit_Framework_TestCase
 
         $this->listener->onKernelRequest($event);
 
-        $this->assertFalse($request->attributes->has('version'));
+        $this->assertFalse($this->listener->getVersion());
     }
 }

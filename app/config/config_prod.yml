@@ -4,7 +4,7 @@ imports:
 parameters:
     url_base: 'https://www.cadeau-maestro.com/'
     url_base_bo: 'https://bo.cadeau-maestro.com/'
-    url_img: 'https://www.cadeau-maestro.com/img/newsletter/news/'
+    url_img: 'http://www.cadeau-maestro.com/img/newsletter/news/'
     url_upload: 'http://tools.cadeau-maestro.com/upload/'
     url_upload_image_product: 'http://tools.cadeau-maestro.com/faulty/'
     banner_directory: '%kernel.root_dir%/../web/upload'

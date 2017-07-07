@@ -73,132 +73,66 @@ class TinifyClientTest extends TestCase {
         $this->assertSame("user:pass", CurlMock::last(CURLOPT_PROXYUSERPWD));
     }
 
-    public function testRequestWithUnexpectedErrorOnceShouldReturnResponse() {
+    public function testRequestWithUnexpectedErrorShouldThrowConnectionException() {
         CurlMock::register("https://api.tinify.com/", array(
             "error" => "Failed!", "errno" => 2
         ));
-
-        CurlMock::register("https://api.tinify.com/", array("status" => 201));
-
-        $client = new Tinify\Client("key");
-        $response = $client->request("get", "/");
-        $this->assertEquals("", $response->body);
-    }
-
-    public function testRequestWithUnexpectedErrorRepeatedlyShouldThrowConnectionException() {
-        CurlMock::register("https://api.tinify.com/", array(
-            "error" => "Failed!", "errno" => 2
-        ));
-
         $this->setExpectedException("Tinify\ConnectionException");
         $client = new Tinify\Client("key");
         $client->request("get", "/");
     }
 
-    public function testRequestWithUnexpectedErrorRepeatedlyShouldThrowExceptionWithMessage() {
+    public function testRequestWithUnexpectedErrorShouldThrowExceptionWithMessage() {
         CurlMock::register("https://api.tinify.com/", array(
             "error" => "Failed!", "errno" => 2
         ));
-
         $this->setExpectedExceptionRegExp("Tinify\ConnectionException",
             "/Error while connecting: Failed! \(#2\)/");
         $client = new Tinify\Client("key");
         $client->request("get", "/");
     }
 
-    public function testRequestWithCurlErrorOnceShouldReturnResponse() {
+    public function testRequestWithCurlErrorShouldThrowConnectionError() {
         CurlMock::register("https://api.tinify.com/", array(
-            "errno" => 7, "error" => "Something failed", "return" => null
+            "errno" => 0, "error" => "", "return" => null
         ));
-
-        CurlMock::register("https://api.tinify.com/", array("status" => 201));
-
-        $client = new Tinify\Client("key");
-        $response = $client->request("get", "/");
-        $this->assertEquals("", $response->body);
-    }
-
-    public function testRequestWithCurlErrorRepeatedlyShouldThrowConnectionExeption() {
-        CurlMock::register("https://api.tinify.com/", array(
-            "errno" => 7, "error" => "Something failed", "return" => null
-        ));
-
         $this->setExpectedException("Tinify\ConnectionException");
         $client = new Tinify\Client("key");
         $client->request("get", "/");
     }
 
-    public function testRequestWithCurlErrorRepeatedlyShouldThrowExceptionWithMessage() {
-        CurlMock::register("https://api.tinify.com/", array(
-            "errno" => 7, "error" => "Something failed", "return" => null
-        ));
-
-        $this->setExpectedExceptionRegExp("Tinify\ConnectionException",
-            "/Error while connecting/");
-        $client = new Tinify\Client("key");
-        $client->request("get", "/");
-    }
-
-    public function testRequestWithServerErrorOnceShouldReturnResponse() {
+    public function testRequestWithServerErrorShouldThrowServerException() {
         CurlMock::register("https://api.tinify.com/", array(
             "status" => 584, "body" => '{"error":"InternalServerError","message":"Oops!"}'
         ));
-
-        CurlMock::register("https://api.tinify.com/", array("status" => 201));
-
-        $client = new Tinify\Client("key");
-        $response = $client->request("get", "/");
-        $this->assertEquals("", $response->body);
-    }
-
-    public function testRequestWithServerErrorRepeatedlyShouldThrowServerException() {
-        CurlMock::register("https://api.tinify.com/", array(
-            "status" => 584, "body" => '{"error":"InternalServerError","message":"Oops!"}'
-        ));
-
         $this->setExpectedException("Tinify\ServerException");
         $client = new Tinify\Client("key");
         $client->request("get", "/");
     }
 
-    public function testRequestWithServerErrorRepeatedlyShouldThrowExceptionWithMessage() {
+    public function testRequestWithServerErrorShouldThrowExceptionWithMessage() {
         CurlMock::register("https://api.tinify.com/", array(
             "status" => 584, "body" => '{"error":"InternalServerError","message":"Oops!"}'
         ));
-
         $this->setExpectedExceptionRegExp("Tinify\ServerException",
             "/Oops! \(HTTP 584\/InternalServerError\)/");
         $client = new Tinify\Client("key");
         $client->request("get", "/");
     }
 
-    public function testRequestWithBadServerResponseOnceShouldReturnResponse() {
+    public function testRequestWithBadServerResponseShouldThrowServerException() {
         CurlMock::register("https://api.tinify.com/", array(
             "status" => 543, "body" => '<!-- this is not json -->'
         ));
-
-        CurlMock::register("https://api.tinify.com/", array("status" => 201));
-
-        $client = new Tinify\Client("key");
-        $response = $client->request("get", "/");
-        $this->assertEquals("", $response->body);
-    }
-
-    public function testRequestWithBadServerResponseRepeatedlyShouldThrowServerException() {
-        CurlMock::register("https://api.tinify.com/", array(
-            "status" => 543, "body" => '<!-- this is not json -->'
-        ));
-
         $this->setExpectedException("Tinify\ServerException");
         $client = new Tinify\Client("key");
         $client->request("get", "/");
     }
 
-    public function testRequestWithBadServerResponseRepeatedlyShouldThrowExceptionWithMessage() {
+    public function testRequestWithBadServerResponseShouldThrowExceptionWithMessage() {
         CurlMock::register("https://api.tinify.com/", array(
             "status" => 543, "body" => '<!-- this is not json -->'
         ));
-
         if (PHP_VERSION_ID >= 50500) {
             $this->setExpectedExceptionRegExp("Tinify\ServerException",
                 "/Error while parsing response: Syntax error \(#4\) \(HTTP 543\/ParseError\)/");
@@ -206,7 +140,6 @@ class TinifyClientTest extends TestCase {
             $this->setExpectedExceptionRegExp("Tinify\ServerException",
                 "/Error while parsing response: Error \(#4\) \(HTTP 543\/ParseError\)/");
         }
-
         $client = new Tinify\Client("key");
         $client->request("get", "/");
     }
@@ -215,9 +148,6 @@ class TinifyClientTest extends TestCase {
         CurlMock::register("https://api.tinify.com/", array(
             "status" => 492, "body" => '{"error":"BadRequest","message":"Oops!"}')
         );
-
-        CurlMock::register("https://api.tinify.com/", array("status" => 201));
-
         $this->setExpectedException("Tinify\ClientException");
         $client = new Tinify\Client("key");
         $client->request("get", "/");
@@ -227,9 +157,6 @@ class TinifyClientTest extends TestCase {
         CurlMock::register("https://api.tinify.com/", array(
             "status" => 492, "body" => '{"error":"BadRequest","message":"Oops!"}'
         ));
-
-        CurlMock::register("https://api.tinify.com/", array("status" => 201));
-
         $this->setExpectedExceptionRegExp("Tinify\ClientException",
             "/Oops! \(HTTP 492\/BadRequest\)/");
         $client = new Tinify\Client("key");
@@ -240,9 +167,6 @@ class TinifyClientTest extends TestCase {
         CurlMock::register("https://api.tinify.com/", array(
             "status" => 401, "body" => '{"error":"Unauthorized","message":"Oops!"}'
         ));
-
-        CurlMock::register("https://api.tinify.com/", array("status" => 201));
-
         $this->setExpectedException("Tinify\AccountException");
         $client = new Tinify\Client("key");
         $client->request("get", "/");
@@ -252,9 +176,6 @@ class TinifyClientTest extends TestCase {
         CurlMock::register("https://api.tinify.com/", array(
             "status" => 401, "body" => '{"error":"Unauthorized","message":"Oops!"}'
         ));
-
-        CurlMock::register("https://api.tinify.com/", array("status" => 201));
-
         $this->setExpectedExceptionRegExp("Tinify\AccountException",
             "/Oops! \(HTTP 401\/Unauthorized\)/");
         $client = new Tinify\Client("key");

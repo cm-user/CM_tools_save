@@ -11,7 +11,6 @@
 
 namespace Symfony\Bundle\FrameworkBundle\Tests\DependencyInjection\Compiler;
 
-use PHPUnit\Framework\TestCase;
 use Symfony\Bundle\FrameworkBundle\DependencyInjection\Compiler\FormPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
@@ -19,11 +18,9 @@ use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\Form\AbstractType;
 
 /**
- * @group legacy
- *
  * @author Bernhard Schussek <bschussek@gmail.com>
  */
-class FormPassTest extends TestCase
+class FormPassTest extends \PHPUnit_Framework_TestCase
 {
     public function testDoNothingIfFormExtensionNotLoaded()
     {
@@ -181,7 +178,7 @@ class FormPassTest extends TestCase
     /**
      * @dataProvider privateTaggedServicesProvider
      */
-    public function testPrivateTaggedServices($id, $tagName)
+    public function testPrivateTaggedServices($id, $tagName, $expectedExceptionMessage)
     {
         $container = new ContainerBuilder();
         $container->addCompilerPass(new FormPass());
@@ -195,18 +192,19 @@ class FormPassTest extends TestCase
         ));
 
         $container->setDefinition('form.extension', $extDefinition);
-        $container->register($id, 'stdClass')->setPublic(false)->addTag($tagName, array('extended_type' => 'Foo'));
+        $container->register($id, 'stdClass')->setPublic(false)->addTag($tagName);
+
+        $this->setExpectedException('\InvalidArgumentException', $expectedExceptionMessage);
 
         $container->compile();
-        $this->assertTrue($container->getDefinition($id)->isPublic());
     }
 
     public function privateTaggedServicesProvider()
     {
         return array(
-            array('my.type', 'form.type'),
-            array('my.type_extension', 'form.type_extension'),
-            array('my.guesser', 'form.type_guesser'),
+            array('my.type', 'form.type', 'The service "my.type" must be public as form types are lazy-loaded'),
+            array('my.type_extension', 'form.type_extension', 'The service "my.type_extension" must be public as form type extensions are lazy-loaded'),
+            array('my.guesser', 'form.type_guesser', 'The service "my.guesser" must be public as form type guessers are lazy-loaded'),
         );
     }
 }

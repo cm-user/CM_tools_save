@@ -25,10 +25,11 @@ class MailType extends AbstractType
                     'cols' => '200'
                 ),
             ))
-            ->add('solution', EntityType::class, array(
+            ->add('solutions', EntityType::class, array(
                 'class'        => 'CM\ServiceClientBundle\Entity\Solution',
                 'choice_label' => 'nom',
-                'multiple' => false,
+                'multiple' => true,
+                'by_reference' => false,
                 'required' => false,
             ));
     }

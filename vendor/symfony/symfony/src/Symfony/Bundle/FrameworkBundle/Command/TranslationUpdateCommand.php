@@ -85,11 +85,10 @@ EOF
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $io = new SymfonyStyle($input, $output);
-        $errorIo = $io->getErrorStyle();
 
         // check presence of force or dump-message
         if ($input->getOption('force') !== true && $input->getOption('dump-messages') !== true) {
-            $errorIo->error('You must choose one of --force or --dump-messages');
+            $io->error('You must choose one of --force or --dump-messages');
 
             return 1;
         }
@@ -98,7 +97,7 @@ EOF
         $writer = $this->getContainer()->get('translation.writer');
         $supportedFormats = $writer->getFormats();
         if (!in_array($input->getOption('output-format'), $supportedFormats)) {
-            $errorIo->error(array('Wrong output format', 'Supported formats are: '.implode(', ', $supportedFormats).'.'));
+            $io->error(array('Wrong output format', 'Supported formats are: '.implode(', ', $supportedFormats).'.'));
 
             return 1;
         }
@@ -128,12 +127,12 @@ EOF
             }
         }
 
-        $errorIo->title('Translation Messages Extractor and Dumper');
-        $errorIo->comment(sprintf('Generating "<info>%s</info>" translation files for "<info>%s</info>"', $input->getArgument('locale'), $currentName));
+        $io->title('Translation Messages Extractor and Dumper');
+        $io->comment(sprintf('Generating "<info>%s</info>" translation files for "<info>%s</info>"', $input->getArgument('locale'), $currentName));
 
         // load any messages from templates
         $extractedCatalogue = new MessageCatalogue($input->getArgument('locale'));
-        $errorIo->comment('Parsing templates...');
+        $io->comment('Parsing templates...');
         $extractor = $this->getContainer()->get('translation.extractor');
         $extractor->setPrefix($input->getOption('no-prefix') ? '' : $input->getOption('prefix'));
         foreach ($transPaths as $path) {
@@ -145,7 +144,7 @@ EOF
 
         // load any existing messages from the translation files
         $currentCatalogue = new MessageCatalogue($input->getArgument('locale'));
-        $errorIo->comment('Loading translation files...');
+        $io->comment('Loading translation files...');
         $loader = $this->getContainer()->get('translation.loader');
         foreach ($transPaths as $path) {
             $path .= 'translations';
@@ -166,7 +165,7 @@ EOF
 
         // Exit if no messages found.
         if (!count($operation->getDomains())) {
-            $errorIo->warning('No translation messages were found.');
+            $io->warning('No translation messages were found.');
 
             return;
         }
@@ -200,7 +199,7 @@ EOF
             }
 
             if ($input->getOption('output-format') == 'xlf') {
-                $errorIo->comment('Xliff output version is <info>1.2</info>');
+                $io->comment('Xliff output version is <info>1.2</info>');
             }
 
             $resultMessage = sprintf('%d message%s successfully extracted', $extractedMessagesCount, $extractedMessagesCount > 1 ? 's were' : ' was');
@@ -212,7 +211,7 @@ EOF
 
         // save the files
         if ($input->getOption('force') === true) {
-            $errorIo->comment('Writing files...');
+            $io->comment('Writing files...');
 
             $bundleTransPath = false;
             foreach ($transPaths as $path) {
@@ -233,7 +232,7 @@ EOF
             }
         }
 
-        $errorIo->success($resultMessage.'.');
+        $io->success($resultMessage.'.');
     }
 
     private function filterCatalogue(MessageCatalogue $catalogue, $domain)

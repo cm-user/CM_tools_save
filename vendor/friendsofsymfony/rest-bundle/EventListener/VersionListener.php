@@ -25,12 +25,23 @@ class VersionListener
     private $viewHandler;
     private $versionResolver;
     private $defaultVersion;
+    private $version = false;
 
     public function __construct(ViewHandlerInterface $viewHandler, VersionResolverInterface $versionResolver, $defaultVersion = null)
     {
         $this->viewHandler = $viewHandler;
         $this->versionResolver = $versionResolver;
         $this->defaultVersion = $defaultVersion;
+    }
+
+    /**
+     * Gets the version.
+     *
+     * @return mixed
+     */
+    public function getVersion()
+    {
+        return $this->version;
     }
 
     public function onKernelRequest(GetResponseEvent $event)
@@ -41,23 +52,17 @@ class VersionListener
             return;
         }
 
-        $version = $this->versionResolver->resolve($request);
-        if (false === $version && $request->attributes->has('version')) {
-            $version = $request->attributes->get('version');
-        } elseif (false === $version && null !== $this->defaultVersion) {
-            $version = $this->defaultVersion;
+        $this->version = $this->versionResolver->resolve($request);
+        if (false === $this->version && null !== $this->defaultVersion) {
+            $this->version = $this->defaultVersion;
         }
 
-        // Return if nothing to do
-        if (false === $version) {
-            return;
-        }
+        if (false !== $this->version) {
+            $request->attributes->set('version', $this->version);
 
-        $request->attributes->set('version', $version);
-
-        // Use the resolved version when rendering the response
-        if ($this->viewHandler instanceof ConfigurableViewHandlerInterface) {
-            $this->viewHandler->setExclusionStrategyVersion($version);
+            if ($this->viewHandler instanceof ConfigurableViewHandlerInterface) {
+                $this->viewHandler->setExclusionStrategyVersion($this->version);
+            }
         }
     }
 }

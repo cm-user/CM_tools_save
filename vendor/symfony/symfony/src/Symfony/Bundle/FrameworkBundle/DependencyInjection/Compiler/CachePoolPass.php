@@ -11,11 +11,11 @@
 
 namespace Symfony\Bundle\FrameworkBundle\DependencyInjection\Compiler;
 
-use Symfony\Component\Cache\Adapter\AbstractAdapter;
-use Symfony\Component\DependencyInjection\ChildDefinition;
+use Symfony\Component\Cache\Adapter\RedisAdapter;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
+use Symfony\Component\DependencyInjection\DefinitionDecorator;
 use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\DependencyInjection\Exception\InvalidArgumentException;
 
@@ -46,10 +46,8 @@ class CachePoolPass implements CompilerPassInterface
             if ($pool->isAbstract()) {
                 continue;
             }
-            $isLazy = $pool->isLazy();
-            while ($adapter instanceof ChildDefinition) {
+            while ($adapter instanceof DefinitionDecorator) {
                 $adapter = $container->findDefinition($adapter->getParent());
-                $isLazy = $isLazy || $adapter->isLazy();
                 if ($t = $adapter->getTag('cache.pool')) {
                     $tags[0] += $t[0];
                 }
@@ -81,16 +79,8 @@ class CachePoolPass implements CompilerPassInterface
                 throw new InvalidArgumentException(sprintf('Invalid "cache.pool" tag for service "%s": accepted attributes are "clearer", "provider", "namespace" and "default_lifetime", found "%s".', $id, implode('", "', array_keys($tags[0]))));
             }
 
-            $attr = array();
             if (null !== $clearer) {
-                $attr['clearer'] = $clearer;
-            }
-            if (!$isLazy) {
-                $pool->setLazy(true);
-                $attr['unlazy'] = true;
-            }
-            if ($attr) {
-                $pool->addTag('cache.pool', $attr);
+                $pool->addTag('cache.pool', array('clearer' => $clearer));
             }
         }
     }
@@ -107,13 +97,13 @@ class CachePoolPass implements CompilerPassInterface
     {
         $container->resolveEnvPlaceholders($name, null, $usedEnvs);
 
-        if ($usedEnvs || preg_match('#^[a-z]++://#', $name)) {
+        if (0 === strpos($name, 'redis://') || $usedEnvs) {
             $dsn = $name;
 
             if (!$container->hasDefinition($name = md5($dsn))) {
-                $definition = new Definition(AbstractAdapter::class);
+                $definition = new Definition(\Redis::class);
                 $definition->setPublic(false);
-                $definition->setFactory(array(AbstractAdapter::class, 'createConnection'));
+                $definition->setFactory(array(RedisAdapter::class, 'createConnection'));
                 $definition->setArguments(array($dsn));
                 $container->setDefinition($name, $definition);
             }
