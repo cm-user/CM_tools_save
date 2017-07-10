@@ -2,79 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0613f4fc-9ffa-402d-9ce0-ab5c77af2e35" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/doctrine/orm/Proxies/__CG__FaultyProductBundleEntityUser.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/doctrine/orm/Proxies/__CG__FaultyProductBundleEntityProductImage.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/twig/24/24ea5e5724000af7f07ef1517a5b0e8b828042a8f8ba3f298dc5ccad0cd93162.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/doctrine/orm/Proxies/__CG__MarketingBundleEntityNewsletterMenu.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/twig/db/db4a7d5df3157f87e4ff28145683b435bd8f91d50825fc3b50f9c552181c4117.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/twig/2a/2ad7eab77554708d2f4bb1030d2b502651637e7b13633b0e792087ad47a17a0d.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/doctrine/orm/Proxies/__CG__MarketingBundleEntityShopConfiguration.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/classes.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/twig/e0/e01ba68f2493c5ed04acf8226e88915e1692478a02e48943fdc44e3566ea2b81.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/fosJsRouting/data.json.meta" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/appProdProjectContainerUrlGenerator.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/pools/y5+kmJmflI/U/J/yhSwtljUZCH2-vdFV7Qh" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/doctrine/orm/Proxies/__CG__MarketingBundleEntityNewsletterProduct.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/pools/y5+kmJmflI/V/M/I4YHK9JMxDcK9X3ajugA" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/doctrine/orm/Proxies/__CG__FaultyProductBundleEntityFaulty.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/doctrine/orm/Proxies/__CG__ShopBundleEntityShopConfiguration.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/appProdProjectContainerUrlMatcher.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/twig/8e/8e74989994024613a70481e324327d5766674b32f02830e4e8a2279ba1beb45b.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/classes.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/appProdProjectContainerUrlGenerator.php.meta" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/doctrine/orm/Proxies/__CG__MarketingBundleEntityNewsletter.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/fosJsRouting/data.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/pools/y5+kmJmflI/2/K/Z6u6OmsvgJwc7ebtEOgh" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/doctrine/orm/Proxies/__CG__FaultyProductBundleEntityProduct.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/twig/de/de20a799bfd6249b038123832194d87322ef398d8e7016c3cf98834ca84aa8d7.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/doctrine/orm/Proxies/__CG__MarketingBundleEntityNewsletterHeader.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/twig/96/96482e15c45c294ed0df318f0b591069d8f3318f129e9c1a756b9c57d2f296a3.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/doctrine/orm/Proxies/__CG__MarketingBundleEntityModelNewsletter.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/twig/6b/6b0404409f422045e0a45138e809b43517084d5bb422c6b8d4ae0e043b942502.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/doctrine/orm/Proxies/__CG__FaultyProductBundleEntityFaultyMail.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/pools/y5+kmJmflI/S/U/6o6dzHtlv4XY2uRmc8-E" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/doctrine/orm/Proxies/__CG__MarketingBundleEntityProvider.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/twig/58/584b690363f494d43d67946c713330341f3fc2ced872cc382d1a28ffde1ac742.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/twig/7e/7efd335c2f3b79a6d90f55cb540f5ebced089ba4610cf4b21bf2509e257d41ad.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/twig/2a/2adda38d3bfe0b07ed4971e23fe2c6e8030b7f56846017a58b6aef372d3615b3.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/pools/y5+kmJmflI/F/R/FmCIAErG5AvIccVhs6ps" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/twig/b1/b18ac2ad81aba171467124be532727eb77f1fb714879e58c8c7eb8dfebcd852a.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/twig/b5/b55ecae3ec372d8af06a0e2216a009ce85e3acec6a4bae18634f894c99026822.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/doctrine/orm/Proxies/__CG__ShopBundleEntityCarouselPicture.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/twig/88/885a3117d443bf7774a79675ebe94b91e2d6f4b5c42fed3a6b05f29604466270.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/pools/y5+kmJmflI/G/X/yZNbBRIFFz8iml0QPV-9" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/twig/39/398072c41d0ebb5673a2fc2507c707810366b8803eddb61db3270fc05b5b8a53.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/pools/y5+kmJmflI/Z/A/99emlbQjC0ng+R6SqgrU" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/doctrine/orm/Proxies/__CG__MarketingBundleEntityNewsletterProvider.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/doctrine/orm/Proxies/__CG__FaultyProductBundleEntitySupplier.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/doctrine/orm/Proxies/__CG__ShopBundleEntityCarouselVideo.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/twig/13/13e89847d9e077d217b696576a43ed26d7c23db19f2635a125886effeef36dfe.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/twig/17/1739206eef5260ba92c0ab728384a40264d6e2dd81b2c9eaedeee69526f2bf22.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/appProdProjectContainerUrlMatcher.php.meta" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/pools/y5+kmJmflI/J/2/kS0KKoNDGN-JrVNBsv6r" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/twig/22/22812c8e45b1ff8e7dd2338c1850cb6635d949e8934a010b9409e5b76b1cb8c2.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/twig/5c/5c699e9635bd328b13517199563960872b7878aed5e7c1297b948ad4f3552e11.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/twig/1e/1ec5a60428007504636766adb8d36a1c3bdfb81cbd026d4aae214c2452acb657.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/twig/c9/c94c62fc399f6beb02684ed1a57fc36ff4ad62ca30d9b447bd3be3e2f271e5b9.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/twig/2a/2a068d4dc34663d45e6e18d9a427352d7b1b655eaf42c5348e6e13d7320c6334.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/twig/61/61d72f15505b2ad11608158bd664eab40379583f3d92bed27a91cadc68c9dc07.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/twig/08/08e7202bc4a91cefc7cf8590351f1c2b8cab710fd0a0f09b06fa5852832daca1.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/twig/2b/2ba8cf327766e264944d4fcc36999d25d724a3592919a65464556df73039213f.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/doctrine/orm/Proxies/__CG__MarketingBundleEntityNewsletterBlock.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/twig/51/51378d0969698ef898d5efdbeb140a07123e2d168aa48555965fff226d1c1f1f.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/twig/f4/f4f5d40e870f2194ba72e0c25dfc8a7499a6fe8b897ec07162bb159adcab051a.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/doctrine/orm/Proxies/__CG__FaultyProductBundleEntityFaultyAction.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/twig/56/5654821620f978601306b4c966a0e65659db499c5c9c53d847a0d895c561b4e5.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/twig/35/35b01cf8bb3f041bcc93979a0ce4ce52160da97cc3c26e9f1c16d0ae1724b0fb.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/doctrine/orm/Proxies/__CG__MarketingBundleEntityNewsletterBlockType.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/doctrine/orm/Proxies/__CG__MarketingBundleEntityShop.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/doctrine/orm/Proxies/__CG__ShopBundleEntityCarouselProduct.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/prod/pools/y5+kmJmflI/X/K/rEJ4r9WOezFcAoiYdRLC" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/logs/prod.log" afterPath="$PROJECT_DIR$/var/logs/prod.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/prod/appProdProjectContainer.php.meta" afterPath="$PROJECT_DIR$/var/cache/prod/appProdProjectContainer.php.meta" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/logs/dev.log" afterPath="$PROJECT_DIR$/var/logs/dev.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/prod/appProdProjectContainer.php" afterPath="$PROJECT_DIR$/var/cache/prod/appProdProjectContainer.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CM/ServiceClientBundle/Controller/BranchController.php" afterPath="$PROJECT_DIR$/src/CM/ServiceClientBundle/Controller/BranchController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CM/ServiceClientBundle/Resources/public/js/arbre.js" afterPath="$PROJECT_DIR$/src/CM/ServiceClientBundle/Resources/public/js/arbre.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CM/ServiceClientBundle/Resources/views/service/index.html.twig" afterPath="$PROJECT_DIR$/src/CM/ServiceClientBundle/Resources/views/service/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/logs/dev.log" afterPath="$PROJECT_DIR$/var/logs/dev.log" />
     </list>
     <ignored path="CM_tools_save.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -96,21 +28,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="BranchController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="BranchController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/CM/ServiceClientBundle/Controller/BranchController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="31" column="38" selection-start-line="31" selection-start-column="38" selection-end-line="31" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SolutionController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/CM/ServiceClientBundle/Controller/SolutionController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="27" column="75" selection-start-line="27" selection-start-column="75" selection-end-line="27" selection-end-column="75" />
+            <state relative-caret-position="442">
+              <caret line="87" column="62" selection-start-line="87" selection-start-column="62" selection-end-line="87" selection-end-column="62" />
               <folding />
             </state>
           </provider>
@@ -119,8 +41,8 @@
       <file leaf-file-name="arbre.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/CM/ServiceClientBundle/Resources/public/js/arbre.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="359">
-              <caret line="120" column="31" selection-start-line="120" selection-start-column="31" selection-end-line="120" selection-end-column="31" />
+            <state relative-caret-position="483">
+              <caret line="209" column="40" selection-start-line="209" selection-start-column="40" selection-end-line="209" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -129,7 +51,7 @@
       <file leaf-file-name="ConfigureMenuListener.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/FaultyProductBundle/EventListener/ConfigureMenuListener.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
+            <state relative-caret-position="578">
               <caret line="35" column="9" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="9" />
               <folding />
             </state>
@@ -139,7 +61,7 @@
       <file leaf-file-name="CarouselPictureListener.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ShopBundle/EventListener/CarouselPictureListener.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-105">
+            <state relative-caret-position="0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
@@ -149,7 +71,7 @@
       <file leaf-file-name="ConfigureMenuListener.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ShopBundle/EventListener/ConfigureMenuListener.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="469">
+            <state relative-caret-position="425">
               <caret line="26" column="63" selection-start-line="26" selection-start-column="63" selection-end-line="26" selection-end-column="63" />
               <folding />
             </state>
@@ -159,7 +81,7 @@
       <file leaf-file-name="ProductUploadListener.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MarketingBundle/EventListener/ProductUploadListener.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-122">
+            <state relative-caret-position="0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
@@ -179,18 +101,28 @@
       <file leaf-file-name="ConfigureMenuListener.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ModerateReviewBundle/EventListener/ConfigureMenuListener.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="520">
+            <state relative-caret-position="442">
               <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ConfigureMenuListener.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ConfigureMenuListener.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/CM/ServiceClientBundle/EventListener/ConfigureMenuListener.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="337">
+            <state relative-caret-position="360">
               <caret line="52" column="63" selection-start-line="52" selection-start-column="63" selection-end-line="52" selection-end-column="63" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/CM/ServiceClientBundle/Resources/views/service/index.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="432">
+              <caret line="18" column="10" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -218,13 +150,14 @@
         <option value="$PROJECT_DIR$/src/CM/ServiceClientBundle/Repository/MailRepository.php" />
         <option value="$PROJECT_DIR$/src/CM/ServiceClientBundle/Controller/MailController.php" />
         <option value="$PROJECT_DIR$/src/CM/ServiceClientBundle/Repository/BranchRepository.php" />
-        <option value="$PROJECT_DIR$/src/CM/ServiceClientBundle/Controller/BranchController.php" />
         <option value="$PROJECT_DIR$/src/CM/ServiceClientBundle/Repository/SolutionRepository.php" />
         <option value="$PROJECT_DIR$/src/CM/ServiceClientBundle/Controller/SolutionController.php" />
-        <option value="$PROJECT_DIR$/src/CM/ServiceClientBundle/Resources/public/js/arbre.js" />
         <option value="$PROJECT_DIR$/src/ShopBundle/EventListener/ConfigureMenuListener.php" />
         <option value="$PROJECT_DIR$/src/ModerateReviewBundle/EventListener/ConfigureMenuListener.php" />
         <option value="$PROJECT_DIR$/src/CM/ServiceClientBundle/EventListener/ConfigureMenuListener.php" />
+        <option value="$PROJECT_DIR$/src/CM/ServiceClientBundle/Resources/views/service/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/CM/ServiceClientBundle/Resources/public/js/arbre.js" />
+        <option value="$PROJECT_DIR$/src/CM/ServiceClientBundle/Controller/BranchController.php" />
       </list>
     </option>
   </component>
@@ -268,7 +201,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -316,6 +248,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="bundles" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CM_tools_save" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CM_tools_save" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bundles" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="serviceclient" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -498,6 +452,10 @@
               <option name="myItemId" value="views" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -530,6 +488,36 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="mail" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CM_tools_save" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CM_tools_save" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CM" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ServiceClientBundle" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -787,6 +775,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -857,21 +846,22 @@
       <workItem from="1499260241503" duration="3631000" />
       <workItem from="1499334763221" duration="3002000" />
       <workItem from="1499411679920" duration="5707000" />
+      <workItem from="1499672544143" duration="3733000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15240000" />
+    <option name="totallyTimeSpent" value="18973000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20575693" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20788912" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.02383532" sideWeight="0.510661" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.02383532" sideWeight="0.48933902" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.023809524" sideWeight="0.48933902" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1002,7 +992,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ShopBundle/parameters.yml" />
-    <entry file="file://$PROJECT_DIR$/src/CM/ServiceClientBundle/Resources/views/service/index.html.twig" />
     <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
@@ -1058,7 +1047,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="16" column="76" selection-start-line="16" selection-start-column="76" selection-end-line="16" selection-end-column="76" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1074,7 +1062,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1445">
           <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1082,7 +1069,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1090,7 +1076,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1098,7 +1083,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="680">
           <caret line="40" column="37" selection-start-line="40" selection-start-column="37" selection-end-line="40" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1106,7 +1090,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1114,7 +1097,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="734">
           <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1122,7 +1104,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1130,7 +1111,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1138,7 +1118,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1312">
           <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1146,7 +1125,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="612">
           <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1154,7 +1132,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
           <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1162,7 +1139,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1170,7 +1146,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="327">
           <caret line="27" column="67" selection-start-line="27" selection-start-column="67" selection-end-line="27" selection-end-column="67" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1178,7 +1153,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="434">
           <caret line="34" column="30" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1186,7 +1160,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="284">
           <caret line="24" column="4" selection-start-line="24" selection-start-column="4" selection-end-line="35" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1194,37 +1167,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="265">
           <caret line="23" column="29" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/CM/ServiceClientBundle/Controller/SolutionController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
+        <state relative-caret-position="357">
           <caret line="27" column="75" selection-start-line="27" selection-start-column="75" selection-end-line="27" selection-end-column="75" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CM/ServiceClientBundle/Controller/BranchController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="31" column="38" selection-start-line="31" selection-start-column="38" selection-end-line="31" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CM/ServiceClientBundle/Resources/public/js/arbre.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="120" column="31" selection-start-line="120" selection-start-column="31" selection-end-line="120" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/FaultyProductBundle/EventListener/ConfigureMenuListener.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
+        <state relative-caret-position="578">
           <caret line="35" column="9" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="9" />
           <folding />
         </state>
@@ -1232,7 +1188,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ShopBundle/EventListener/CarouselPictureListener.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-105">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
@@ -1240,7 +1196,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ShopBundle/EventListener/ConfigureMenuListener.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
+        <state relative-caret-position="425">
           <caret line="26" column="63" selection-start-line="26" selection-start-column="63" selection-end-line="26" selection-end-column="63" />
           <folding />
         </state>
@@ -1248,7 +1204,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MarketingBundle/EventListener/ProductUploadListener.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-122">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
@@ -1264,7 +1220,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ModerateReviewBundle/EventListener/ConfigureMenuListener.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
+        <state relative-caret-position="442">
           <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
           <folding />
         </state>
@@ -1272,8 +1228,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/CM/ServiceClientBundle/EventListener/ConfigureMenuListener.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
+        <state relative-caret-position="360">
           <caret line="52" column="63" selection-start-line="52" selection-start-column="63" selection-end-line="52" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CM/ServiceClientBundle/Resources/views/service/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="18" column="10" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CM/ServiceClientBundle/Resources/public/js/arbre.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="209" column="40" selection-start-line="209" selection-start-column="40" selection-end-line="209" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CM/ServiceClientBundle/Controller/BranchController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="87" column="62" selection-start-line="87" selection-start-column="62" selection-end-line="87" selection-end-column="62" />
           <folding />
         </state>
       </provider>

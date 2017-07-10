@@ -83,7 +83,7 @@ class BranchController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $solutions=$this->get('sc.repository.branch')->FindSolution($branch);
-            if($solutions == ""){              
+            if(empty($solutions)){
                 $this->get('sc.repository.branch')->save($branch);
                 return $this->redirectToRoute('branch_index');
             }

@@ -19,11 +19,11 @@ function callBranch(id) {
 
         if (data == ""){ //si la branche n'a pas d'enfant alors on cherche ses solutions et ses mails
             compt++; //incremente le compteur
-            callSolution(id);
+            callSolution(id); //si la branche n'a pas d'enfants, on va chercher ses solutions
         }
         else {
             compt++; //incremente le compteur
-            displayBranche(data);
+            displayBranche(data); //si la branche a des enfants, on les affiche
         }
     });
 }
@@ -36,6 +36,7 @@ function callSolution(id) {
     });
 }
 
+//affiche les solutions et les mails
 function displaySolution(data){
     var arrayIdMail = [];
     var nb = getRandomArbitrary(0,100000);
@@ -199,13 +200,14 @@ $(function(){
 function recherche(){
     var inputText = $('input:text').val();     // récupération du contenu du champ de texte
     $('input:text').val(''); // modification du contenu du champ de text
-    var reg = /[0-9.:,h]/g ;
+    var reg = /[0-9.:,h€]/g ;
     inputText = inputText.replace(reg,"");
     $.getJSON(url + "branche_nom/" + inputText, function (data) { //recherche de la branche par son nom
         compt++; //incremente le compteur
         $("#arbre").html("");
         if(data != "") {
             displayBranche(data);
+            callSolution(data[0]['id']);
         }
     });
 }
@@ -216,6 +218,10 @@ function rafraichissement(){
     location.reload();
 }
 
+function OngletOdoo(){
+    url_odoo = "http://cadeaumaestro.eggs-solutions.fr:8069/web#page=0&limit=80&view_type=list&model=crm.helpdesk&menu_id=428&action=538";
+    window.open(url_odoo);
+}
 
 
 
