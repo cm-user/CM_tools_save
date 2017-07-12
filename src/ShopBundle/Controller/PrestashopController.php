@@ -22,7 +22,7 @@ class PrestashopController extends Controller
         $result = $persta->get(array(
             "resource" => "search",
             "language" => 5,
-            "query" => $search."%",
+            "query" => "%".$search."%",
         ));
 
         if(sizeof($result->products->product) > 0){

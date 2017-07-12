@@ -128,7 +128,7 @@ function displayBranche(data){
     if (compt != 1) { //n'affichera pas le bouton masquer pour les branches parentes
         $elem += "<div class=\"col-sm-2\"> <button id=\"iddi" + nb + "\" type=\"button\" class=\"btn btn-info\">Masquer </button> </div>";
     }
-    $elem += "</div> <br> </div> ";
+    $elem += "</div> <hr> </div> ";
     $( "#arbre" ).append($elem);
 
 
@@ -186,8 +186,7 @@ $(function(){
                 },
                 success: function (donnee) {
                     reponse($.map(donnee, function (objet) {
-                        return objet.nom; // on retourne cette forme de suggestion
-
+                        return  objet.id+"   " + objet.nom; // on retourne cette forme de suggestion
                     }));
 
                 }
@@ -200,11 +199,12 @@ $(function(){
 function recherche(){
     var inputText = $('input:text').val();     // récupération du contenu du champ de texte
     $('input:text').val(''); // modification du contenu du champ de text
-    var reg = /[0-9.:,h€]/g ;
-    inputText = inputText.replace(reg,"");
-    $.getJSON(url + "branche_nom/" + inputText, function (data) { //recherche de la branche par son nom
+    // var reg = /[0-9.:,h€]/g ;
+    // inputText = inputText.replace(reg,"");
+    inputText = inputText.substring(0,4).trim(); // recupère uniquement l'id
+    $.getJSON(url + "branche_id/" + inputText, function (data) { //recherche de la branche par son nom
         compt++; //incremente le compteur
-        $("#arbre").html("");
+        $("#arbre").html(""); //efface la div
         if(data != "") {
             displayBranche(data);
             callSolution(data[0]['id']);

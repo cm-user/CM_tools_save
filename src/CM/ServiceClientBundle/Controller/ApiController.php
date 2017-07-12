@@ -116,13 +116,13 @@ class ApiController extends Controller
     }
 
     /**
-     * @Get("/branche_nom/{name}")
+     * @Get("/branche_id/{id}")
      */
-    public function getBrancheByNomAction($name, Request $request) //Liste tous les mails d'une branche
+    public function getBrancheByIdAction($id, Request $request) //Liste tous les mails d'une branche
     {
         $query = $this->getDoctrine()->getManager()
-            ->createQuery("SELECT b FROM CM\ServiceClientBundle\Entity\Branch b WHERE b.nom LIKE :name ");
-        $query->setParameter('name', $name);
+            ->createQuery("SELECT b FROM CM\ServiceClientBundle\Entity\Branch b WHERE b.id LIKE :id ");
+        $query->setParameter('id', $id);
         $branches=$query->getResult();
 
         $array_solution = [];

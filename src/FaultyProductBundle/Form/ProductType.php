@@ -37,7 +37,7 @@ class ProductType extends AbstractType
                     'class' => 'product-search',
                 ),
                 'required' => false,
-                'label' => 'Rechercher un produit',
+                'label' => 'Rechercher un produit (nom/ref Presta)',
                 'word' => 'Rechercher'
             ])
             ->add('name', TextType::class, [

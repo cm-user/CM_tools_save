@@ -79,19 +79,18 @@ class BranchController extends Controller
         $deleteForm = $this->createDeleteForm($branch);
         $editForm = $this->createForm('CM\ServiceClientBundle\Form\BranchType', $branch);
         $editForm->handleRequest($request);
-        $message = "";
+        $message = "Cette branche contient des solutions vous ne pouvez pas la déplacer ni la renommer !
+        (Détachez d'abord les solutions liées) ";
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $solutions=$this->get('sc.repository.branch')->FindSolution($branch);
-            if(empty($solutions)){
+//            $solutions=$this->get('sc.repository.branch')->FindSolution($branch);
+//            if(empty($solutions)){
                 $this->get('sc.repository.branch')->save($branch);
                 return $this->redirectToRoute('branch_index');
-            }
-            else {
-               $message = "
-        Cette branche contient des solutions vous ne pouvez pas la déplacer !
-        (Détachez d'abord les solutions liées) ";
-            }
+//            }
+//            else {
+//
+//            }
         }
 
         return $this->render('ServiceClientBundle:branch:edit.html.twig', array(
