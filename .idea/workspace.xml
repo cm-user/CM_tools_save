@@ -2,18 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0613f4fc-9ffa-402d-9ce0-ab5c77af2e35" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PictureCrawlerBundle/Controller/CadeauMaestroController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PictureCrawlerBundle/Controller/SearchAvantGardisteController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PictureCrawlerBundle/Controller/SearchCadeauMaestroController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PictureCrawlerBundle/Crawler/CrawlerCadeauMaestro.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PictureCrawlerBundle/Resources/views/Search/search-avant-gardiste.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PictureCrawlerBundle/Resources/views/Search/search-cadeau-maestro.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FaultyProductBundle/Resources/views/supplier/index.html.twig" afterPath="$PROJECT_DIR$/src/FaultyProductBundle/Resources/views/supplier/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PictureCrawlerBundle/Controller/SearchController.php" afterPath="$PROJECT_DIR$/src/PictureCrawlerBundle/Controller/SearchController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PictureCrawlerBundle/EventListener/ConfigureMenuListener.php" afterPath="$PROJECT_DIR$/src/PictureCrawlerBundle/EventListener/ConfigureMenuListener.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/logs/dev.log" afterPath="$PROJECT_DIR$/var/logs/dev.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/app.php" afterPath="$PROJECT_DIR$/web/app.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PictureCrawlerBundle/Crawler/CrawlerPHP.php" afterPath="$PROJECT_DIR$/src/PictureCrawlerBundle/Crawler/CrawlerPHP.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PictureCrawlerBundle/Resources/views/Search/search-cadeau-maestro.html.twig" afterPath="$PROJECT_DIR$/src/PictureCrawlerBundle/Resources/views/Search/search-cadeau-maestro.html.twig" />
     </list>
     <ignored path="CM_tools_save.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -48,8 +39,8 @@
       <file leaf-file-name="CrawlerPHP.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PictureCrawlerBundle/Crawler/CrawlerPHP.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="22" column="33" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
+            <state relative-caret-position="340">
+              <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -58,8 +49,18 @@
       <file leaf-file-name="CrawlerCadeauMaestro.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PictureCrawlerBundle/Crawler/CrawlerCadeauMaestro.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="423">
+            <state relative-caret-position="595">
               <caret line="35" column="72" selection-start-line="35" selection-start-column="72" selection-end-line="35" selection-end-column="72" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="arbre.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/CM/ServiceClientBundle/Resources/public/js/arbre.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="432">
+              <caret line="119" column="18" selection-start-line="119" selection-start-column="18" selection-end-line="119" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -99,21 +100,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SearchCadeauMaestroController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SearchCadeauMaestroController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PictureCrawlerBundle/Controller/SearchCadeauMaestroController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="735">
+            <state relative-caret-position="683">
               <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="search-cadeau-maestro.html.twig" pinned="false" current-in-tab="false">
+      <file leaf-file-name="search-cadeau-maestro.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/PictureCrawlerBundle/Resources/views/Search/search-cadeau-maestro.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
+            <state relative-caret-position="234">
+              <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -124,16 +125,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="610">
               <caret line="40" column="38" selection-start-line="40" selection-start-column="38" selection-end-line="40" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AppKernel.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-257">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -181,8 +172,9 @@
         <option value="$PROJECT_DIR$/src/PictureCrawlerBundle/Crawler/CrawlerCadeauMaestro.php" />
         <option value="$PROJECT_DIR$/web/app.php" />
         <option value="$PROJECT_DIR$/src/PictureCrawlerBundle/Controller/CadeauMaestroController.php" />
-        <option value="$PROJECT_DIR$/src/PictureCrawlerBundle/Resources/views/Search/search-cadeau-maestro.html.twig" />
         <option value="$PROJECT_DIR$/src/PictureCrawlerBundle/Controller/SearchCadeauMaestroController.php" />
+        <option value="$PROJECT_DIR$/src/PictureCrawlerBundle/Crawler/CrawlerPHP.php" />
+        <option value="$PROJECT_DIR$/src/PictureCrawlerBundle/Resources/views/Search/search-cadeau-maestro.html.twig" />
       </list>
     </option>
   </component>
@@ -962,16 +954,16 @@
       <workItem from="1499843595676" duration="7701000" />
       <workItem from="1499933182493" duration="1476000" />
       <workItem from="1500460591398" duration="1572000" />
-      <workItem from="1500540029686" duration="10456000" />
+      <workItem from="1500540029686" duration="12979000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46925000" />
+    <option name="totallyTimeSpent" value="49448000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2185501" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1159,14 +1151,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/CM/ServiceClientBundle/Resources/public/js/arbre.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3196">
-          <caret line="188" column="100" selection-start-line="188" selection-start-column="100" selection-end-line="188" selection-end-column="100" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ShopBundle/Resources/public/js/ephemeride.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
@@ -1334,14 +1318,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PictureCrawlerBundle/Crawler/CrawlerPHP.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="22" column="33" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/PictureCrawlerBundle/Crawler/CrawlerAvantGardiste.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
@@ -1358,36 +1334,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PictureCrawlerBundle/Crawler/CrawlerCadeauMaestro.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="35" column="72" selection-start-line="35" selection-start-column="72" selection-end-line="35" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/PictureCrawlerBundle/Controller/AvantGardisteController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
           <caret line="18" column="48" selection-start-line="0" selection-start-column="0" selection-end-line="32" selection-end-column="1" />
-          <folding>
-            <element signature="e#57#111#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PictureCrawlerBundle/Resources/views/Search/search-cadeau-maestro.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PictureCrawlerBundle/Controller/CadeauMaestroController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding>
             <element signature="e#57#111#0#PHP" expanded="true" />
           </folding>
@@ -1404,8 +1354,50 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/PictureCrawlerBundle/Controller/SearchCadeauMaestroController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
+        <state relative-caret-position="683">
           <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PictureCrawlerBundle/Controller/CadeauMaestroController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding>
+            <element signature="e#57#111#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PictureCrawlerBundle/Crawler/CrawlerCadeauMaestro.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="35" column="72" selection-start-line="35" selection-start-column="72" selection-end-line="35" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PictureCrawlerBundle/Crawler/CrawlerPHP.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CM/ServiceClientBundle/Resources/public/js/arbre.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="119" column="18" selection-start-line="119" selection-start-column="18" selection-end-line="119" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PictureCrawlerBundle/Resources/views/Search/search-cadeau-maestro.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
           <folding />
         </state>
       </provider>

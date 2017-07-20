@@ -18,6 +18,8 @@ class CrawlerPHP
         $response = $client->get($url);
         $this->content = $response->getBody()->getContents();
     }
+    
+    
 
     protected function parse(){
         $crawler = new Crawler();

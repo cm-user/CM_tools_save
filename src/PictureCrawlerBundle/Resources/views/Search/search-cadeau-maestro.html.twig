@@ -7,7 +7,7 @@
 
     <div id="result">
         <div id="alert" class="alert alert-danger" role="alert" style="display: none"></div>
-        <div id="url" class="alert alert-success" role="alert" style="display: none"></div>
+        <div id="url"  role="alert" style="display: none"></div>
     </div>
 
 {% endblock %}
@@ -32,6 +32,7 @@
                     if (typeof data.error != "undefined") {
                         $("#alert").html("<p>"+data.error+"</p>").show();
                     }else if (typeof data.data != "undefined") {
+                        console.log(data);
                         var links = '';
                         $(data.data).each(function(index, value){
                             links += toUrl(value);
@@ -43,7 +44,7 @@
         });
 
         function toUrl(a){
-            return '<p><a href="'+a+'" target="_blank">'+a+'</a></p>';
+            return '<div class=\"col-sm-4\"><a href="'+a+'" target="_blank"><img src="'+a+'" width=300></a></div>';
         }
     </script>
 {% endblock %}
