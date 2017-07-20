@@ -7,7 +7,11 @@
         <td>{{ product.supplierReference }}</td>
         <td>{{ product.costPrice|number_format(2) }} €</td>
         <td>{{ product.formattedLocation }}</td>
-        <td>{{ product.faulty.user.name }}</td>
+        {% if product.faulty.user != null %}
+            <td>{{ product.faulty.user.name }}</td>
+        {% else %}
+            <td>Pas de nom</td>
+        {% endif %}
         <td>{{ product.faulty.reason }}</td>
         <td>
             {% for productImages in product.productImages %}

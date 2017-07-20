@@ -22,8 +22,6 @@ class ConfigureMenuListener
     {
         $menu = $event->getMenu();
 
-//        $menu->addChild('Récupérer les images', ['route' => 'picture_crawler_index']);
-
         $menu->addChild('PictureCrawler', ['label' => 'Récupérer les images'])
             ->setAttribute('dropdown', true);
 
@@ -32,5 +30,5 @@ class ConfigureMenuListener
 
     }
 
-    }
+    
 }
