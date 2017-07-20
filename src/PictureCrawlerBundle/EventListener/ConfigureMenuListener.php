@@ -22,6 +22,15 @@ class ConfigureMenuListener
     {
         $menu = $event->getMenu();
 
-        $menu->addChild('Récupérer les images', ['route' => 'picture_crawler_index']);
+//        $menu->addChild('Récupérer les images', ['route' => 'picture_crawler_index']);
+
+        $menu->addChild('PictureCrawler', ['label' => 'Récupérer les images'])
+            ->setAttribute('dropdown', true);
+
+        $menu['PictureCrawler']->addChild('L\'Avant Gardiste', ['route' => 'picture_crawler_index']);
+        $menu['PictureCrawler']->addChild('Cadeau Maestro', ['route' => 'picture_crawler_cm_index']);
+
+    }
+
     }
 }

@@ -57,4 +57,24 @@ class SearchController extends Controller
             default: return new JsonResponse(array('error' => 'le site web n\'est pas supporté'));
         }
     }
+
+
+    /**
+     * Affichage du formulaire de téléchargement des images depuis les sites concurrents
+     * @Route("/", name="picture_crawler_cm_index")
+     * @Template("PictureCrawlerBundle:Search:search.html.twig")
+     * @param Request $request
+     * @return array
+     */
+    public function indexAction(Request $request)
+    {
+        $searchUrl = new SearchUrl();
+
+        $form = $this->createForm(SearchUrlType::class, $searchUrl);
+        $form->handleRequest($request);
+
+        return array(
+            'form' => $form->createView(),
+        );
+    }
 }
