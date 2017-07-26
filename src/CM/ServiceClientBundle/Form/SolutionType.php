@@ -8,6 +8,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Ivory\CKEditorBundle\Form\Type\CKEditorType;
 
 class SolutionType extends AbstractType
 {
@@ -18,10 +19,10 @@ class SolutionType extends AbstractType
     {
         $builder
             ->add('nom',     TextType::class)
-            ->add('textSolution',   TextareaType::class, array(
-                'attr' => array(
-                'rows' => '20',
-                'cols' => '200'
+            ->add('textSolution',   CKEditorType::class, array(
+                'label'             => 'Description de la solution',
+                'config' => array(
+                    'language'    => 'fr'
                 ),
             ))
             ->add('branche', EntityType::class, array(

@@ -119,7 +119,7 @@ class ViewHandler implements ConfigurableViewHandlerInterface
     public function __construct(
         UrlGeneratorInterface $urlGenerator,
         Serializer $serializer,
-        EngineInterface $templating,
+        EngineInterface $templating = null,
         RequestStack $requestStack,
         array $formats = null,
         $failedValidationCode = Response::HTTP_BAD_REQUEST,
@@ -341,6 +341,10 @@ class ViewHandler implements ConfigurableViewHandlerInterface
      */
     public function renderTemplate(View $view, $format)
     {
+        if (null === $this->templating) {
+            throw new \LogicException(sprintf('An instance of %s must be injected in %s to render templates.', EngineInterface::class, __CLASS__));
+        }
+
         $data = $this->prepareTemplateParameters($view);
 
         $template = $view->getTemplate();
@@ -411,7 +415,12 @@ class ViewHandler implements ConfigurableViewHandlerInterface
         $response = $this->initResponse($view, $format);
 
         if (!$response->headers->has('Content-Type')) {
-            $response->headers->set('Content-Type', $request->getMimeType($format));
+            $mimeType = $request->attributes->get('media_type');
+            if (null === $mimeType) {
+                $mimeType = $request->getMimeType($format);
+            }
+
+            $response->headers->set('Content-Type', $mimeType);
         }
 
         return $response;

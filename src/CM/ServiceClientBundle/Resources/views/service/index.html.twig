@@ -1,26 +1,46 @@
 {% extends 'base.html.twig' %}
 
 {% block body%}
-<div class="row">
-    <div class="col-sm-3">
-        <h1>Service Client</h1>
+    <center> <h1>Service Client</h1></center>
+    <div class="row">
+        <div class="col-sm-2">
+            <button onclick="rafraichissement();" type="button" class="btn btn-danger">Retour au début</button>
+        </div>
+        <div class="col-sm-2">
+            <button class="btn btn-warning" data-toggle="collapse" data-target="#guide">Guide</button>
+            <div id="guide" class="collapse">
+                <br>
+                <ul>
+                    <li>A</li>
+                    <li>B</li>
+                    <li>C</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <button class="btn btn-warning" data-toggle="collapse" data-target="#phone">Numéro Téléphone</button>
+            <div id="phone" class="collapse">
+                <br>
+                <ul>
+                    <li>LA POSTE 0825 87 88 88 # puis * puis "conseiller" puis 827359 puis * puis attendre</li>
+                    <li>TNT 0825 033 033 puis non puis "suivre un colis" et taper numéro de colis (au besoin "faire une autre demande" si toutes les infos n'ont pas été fournies et avoir un conseiller)</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <input type="text" id="recherche" />
+            <button onclick="recherche();" type="button" class="btn btn-warning">Rechercher</button>
+            <div id="container"></div>
+        </div>
+        <div class="col-sm-1">
+            <button onclick="OngletOdoo();" type="button" class="btn btn-warning">Odoo</button>
+        </div>
     </div>
-    <div class="col-sm-2">
-        <br><button onclick="rafraichissement();" type="button" class="btn btn-danger">Retour au début</button>
-    </div>
-    <div class="col-sm-4">
-        <br><input type="text" id="recherche" />
-
-        <button onclick="recherche();" type="button" class="btn btn-warning">Rechercher</button>
-        <div id="container"></div>
-    </div>
-    <div class="col-sm-2">
-        <br><button onclick="OngletOdoo();" type="button" class="btn btn-warning">Odoo</button>
-    </div>
-</div>
+    <br><br>
 
     {#div dans laquelle se situe les boutons/branches#}
     <div id="arbre"></div>
+
 
 
 {% endblock %}

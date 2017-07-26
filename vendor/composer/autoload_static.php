@@ -22,6 +22,7 @@ class ComposerStaticInit9d2f4e31ba8035ded2807d083c681115
     public static $prefixLengthsPsr4 = array (
         'T' => 
         array (
+            'Twig\\' => 5,
             'Tinypng\\Bundle\\' => 15,
             'Tinify\\' => 7,
             'TijsVerkoyen\\CssToInlineStyles\\' => 31,
@@ -40,7 +41,6 @@ class ComposerStaticInit9d2f4e31ba8035ded2807d083c681115
             'Symfony\\Bundle\\MonologBundle\\' => 29,
             'Symfony\\Bundle\\' => 15,
             'Symfony\\Bridge\\Twig\\' => 20,
-            'Symfony\\Bridge\\Swiftmailer\\' => 27,
             'Symfony\\Bridge\\ProxyManager\\' => 28,
             'Symfony\\Bridge\\PhpUnit\\' => 23,
             'Symfony\\Bridge\\Monolog\\' => 23,
@@ -57,7 +57,10 @@ class ComposerStaticInit9d2f4e31ba8035ded2807d083c681115
         ),
         'P' => 
         array (
+            'Psr\\SimpleCache\\' => 16,
             'Psr\\Log\\' => 8,
+            'Psr\\Link\\' => 9,
+            'Psr\\Container\\' => 14,
             'Psr\\Cache\\' => 10,
         ),
         'N' => 
@@ -76,6 +79,8 @@ class ComposerStaticInit9d2f4e31ba8035ded2807d083c681115
         ),
         'I' => 
         array (
+            'Ivory\\JsonBuilder\\' => 18,
+            'Ivory\\CKEditorBundle\\' => 21,
             'Incenteev\\ParameterHandler\\' => 27,
         ),
         'H' => 
@@ -90,6 +95,7 @@ class ComposerStaticInit9d2f4e31ba8035ded2807d083c681115
         ),
         'F' => 
         array (
+            'Fig\\Link\\' => 9,
             'Faker\\' => 6,
             'FOS\\RestBundle\\' => 15,
             'FOS\\JsRoutingBundle\\' => 20,
@@ -103,9 +109,17 @@ class ComposerStaticInit9d2f4e31ba8035ded2807d083c681115
             'Doctrine\\Bundle\\DoctrineCacheBundle\\' => 36,
             'Doctrine\\Bundle\\DoctrineBundle\\' => 31,
         ),
+        'C' => 
+        array (
+            'Composer\\CaBundle\\' => 18,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'Twig\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/twig/twig/src',
+        ),
         'Tinypng\\Bundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/loevgaard/tinypng-bundle',
@@ -166,10 +180,6 @@ class ComposerStaticInit9d2f4e31ba8035ded2807d083c681115
         array (
             0 => __DIR__ . '/..' . '/symfony/symfony/src/Symfony/Bridge/Twig',
         ),
-        'Symfony\\Bridge\\Swiftmailer\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/symfony/src/Symfony/Bridge/Swiftmailer',
-        ),
         'Symfony\\Bridge\\ProxyManager\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/symfony/src/Symfony/Bridge/ProxyManager',
@@ -210,9 +220,21 @@ class ComposerStaticInit9d2f4e31ba8035ded2807d083c681115
         array (
             0 => __DIR__ . '/..' . '/react/promise/src',
         ),
+        'Psr\\SimpleCache\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/simple-cache/src',
+        ),
         'Psr\\Log\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
+        ),
+        'Psr\\Link\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/link/src',
+        ),
+        'Psr\\Container\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/container/src',
         ),
         'Psr\\Cache\\' => 
         array (
@@ -238,6 +260,14 @@ class ComposerStaticInit9d2f4e31ba8035ded2807d083c681115
         array (
             0 => __DIR__ . '/..' . '/knplabs/knp-menu-bundle',
         ),
+        'Ivory\\JsonBuilder\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/egeloen/json-builder/src',
+        ),
+        'Ivory\\CKEditorBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/egeloen/ckeditor-bundle',
+        ),
         'Incenteev\\ParameterHandler\\' => 
         array (
             0 => __DIR__ . '/..' . '/incenteev/composer-parameter-handler',
@@ -257,6 +287,10 @@ class ComposerStaticInit9d2f4e31ba8035ded2807d083c681115
         'GuzzleHttp\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
+        ),
+        'Fig\\Link\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/fig/link-util/src',
         ),
         'Faker\\' => 
         array (
@@ -294,9 +328,9 @@ class ComposerStaticInit9d2f4e31ba8035ded2807d083c681115
         array (
             0 => __DIR__ . '/..' . '/doctrine/doctrine-bundle',
         ),
-        'CoreSphere\\ConsoleBundle\\' => 
+        'Composer\\CaBundle\\' => 
         array (
-            0 => __DIR__ . '/..' . '/coresphere/console-bundle',
+            0 => __DIR__ . '/..' . '/composer/ca-bundle/src',
         ),
     );
 

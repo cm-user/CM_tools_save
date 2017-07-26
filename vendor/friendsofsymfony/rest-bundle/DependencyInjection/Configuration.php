@@ -14,6 +14,7 @@ namespace FOS\RestBundle\DependencyInjection;
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
+use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
@@ -59,12 +60,14 @@ final class Configuration implements ConfigurationInterface
                 ->arrayNode('access_denied_listener')
                     ->canBeEnabled()
                     ->beforeNormalization()
-                        ->ifArray()->then(function ($v) { if (!empty($v) && empty($v['formats'])) {
-     unset($v['enabled']);
-     $v = ['enabled' => true, 'formats' => $v];
- }
+                        ->ifArray()->then(function ($v) {
+                            if (!empty($v) && empty($v['formats'])) {
+                                unset($v['enabled']);
+                                $v = ['enabled' => true, 'formats' => $v];
+                            }
 
-return $v; })
+                            return $v;
+                        })
                     ->end()
                     ->fixXmlConfig('format', 'formats')
                     ->children()
@@ -79,11 +82,12 @@ return $v; })
                 ->arrayNode('param_fetcher_listener')
                     ->beforeNormalization()
                         ->ifString()
-                        ->then(function ($v) { return ['enabled' => in_array($v, ['force', 'true']), 'force' => 'force' === $v]; })
+                        ->then(function ($v) {
+                            return ['enabled' => in_array($v, ['force', 'true']), 'force' => 'force' === $v];
+                        })
                     ->end()
                     ->canBeEnabled()
                     ->children()
-                        ->booleanNode('enabled')->defaultFalse()->end()
                         ->booleanNode('force')->defaultFalse()->end()
                         ->scalarNode('service')->defaultNull()->end()
                     ->end()
@@ -103,9 +107,8 @@ return $v; })
                     ->end()
                 ->end()
                 ->arrayNode('body_converter')
-                    ->addDefaultsIfNotSet()
+                    ->canBeEnabled()
                     ->children()
-                        ->scalarNode('enabled')->defaultFalse()->end()
                         ->scalarNode('validate')->defaultFalse()->end()
                         ->scalarNode('validation_errors_argument')->defaultValue('validationErrors')->end()
                     ->end()
@@ -143,11 +146,15 @@ return $v; })
                         ->end()
                         ->scalarNode('host')->defaultNull()->end()
                         ->arrayNode('methods')
-                            ->beforeNormalization()->ifString()->then(function ($v) { return preg_split('/\s*,\s*/', $v); })->end()
+                            ->beforeNormalization()->ifString()->then(function ($v) {
+                                return preg_split('/\s*,\s*/', $v);
+                            })->end()
                             ->prototype('scalar')->end()
                         ->end()
                         ->arrayNode('ips')
-                            ->beforeNormalization()->ifString()->then(function ($v) { return array($v); })->end()
+                            ->beforeNormalization()->ifString()->then(function ($v) {
+                                return array($v);
+                            })->end()
                             ->prototype('scalar')->end()
                         ->end()
                     ->end()
@@ -198,7 +205,13 @@ return $v; })
                                 ->scalarNode('service')->defaultNull()->end()
                                 ->arrayNode('formats')
                                     ->useAttributeAsKey('name')
-                                    ->prototype('variable')->end()
+                                    ->prototype('array')
+                                        ->beforeNormalization()
+                                            ->ifString()
+                                            ->then(function ($v) { return array($v); })
+                                        ->end()
+                                        ->prototype('scalar')->end()
+                                    ->end()
                                 ->end()
                             ->end()
                         ->end()
@@ -215,11 +228,12 @@ return $v; })
                         ->arrayNode('view_response_listener')
                             ->beforeNormalization()
                                 ->ifString()
-                                ->then(function ($v) { return ['enabled' => in_array($v, ['force', 'true']), 'force' => 'force' === $v]; })
+                                ->then(function ($v) {
+                                    return ['enabled' => in_array($v, ['force', 'true']), 'force' => 'force' === $v];
+                                })
                             ->end()
                             ->canBeEnabled()
                             ->children()
-                                ->booleanNode('enabled')->defaultFalse()->end()
                                 ->booleanNode('force')->defaultFalse()->end()
                                 ->scalarNode('service')->defaultNull()->end()
                             ->end()
@@ -262,7 +276,9 @@ return $v; })
                         ->arrayNode('array_normalizer')
                             ->addDefaultsIfNotSet()
                             ->beforeNormalization()
-                                ->ifString()->then(function ($v) { return ['service' => $v]; })
+                                ->ifString()->then(function ($v) {
+                                    return ['service' => $v];
+                                })
                             ->end()
                             ->children()
                                 ->scalarNode('service')->defaultNull()->end()
@@ -315,7 +331,9 @@ return $v; })
                                     ->booleanNode('prefer_extension')->defaultTrue()->end()
                                     ->scalarNode('fallback_format')->defaultValue('html')->end()
                                     ->arrayNode('priorities')
-                                        ->beforeNormalization()->ifString()->then(function ($v) { return preg_split('/\s*,\s*/', $v); })->end()
+                                        ->beforeNormalization()->ifString()->then(function ($v) {
+                                            return preg_split('/\s*,\s*/', $v);
+                                        })->end()
                                         ->prototype('scalar')->end()
                                     ->end()
                                 ->end()
@@ -389,15 +407,52 @@ return $v; })
                         ->scalarNode('exception_controller')->defaultNull()->end()
                         ->arrayNode('codes')
                             ->useAttributeAsKey('name')
-                            ->validate()
-                                ->ifTrue(function ($v) { return 0 !== count(array_filter($v, function ($i) { return !defined('Symfony\Component\HttpFoundation\Response::'.$i) && !is_int($i); })); })
-                                ->thenInvalid('Invalid HTTP code in fos_rest.exception.codes, see Symfony\Component\HttpFoundation\Response for all valid codes.')
+                            ->beforeNormalization()
+                                ->ifArray()
+                                ->then(function (array $items) {
+                                    foreach ($items as &$item) {
+                                        if (is_int($item)) {
+                                            continue;
+                                        }
+
+                                        if (!defined('Symfony\Component\HttpFoundation\Response::'.$item)) {
+                                            throw new InvalidConfigurationException(
+                                                'Invalid HTTP code in fos_rest.exception.codes, see Symfony\Component\HttpFoundation\Response for all valid codes.'
+                                            );
+                                        }
+
+                                        $item = constant('Symfony\Component\HttpFoundation\Response::'.$item);
+                                    }
+
+                                    return $items;
+                                })
                             ->end()
-                            ->prototype('scalar')->end()
+                            ->prototype('integer')->end()
+
+                            ->validate()
+                            ->ifArray()
+                                ->then(function (array $items) {
+                                    foreach ($items as $class => $code) {
+                                        $this->testExceptionExists($class);
+                                    }
+
+                                    return $items;
+                                })
+                            ->end()
                         ->end()
                         ->arrayNode('messages')
                             ->useAttributeAsKey('name')
                             ->prototype('boolean')->end()
+                            ->validate()
+                                ->ifArray()
+                                ->then(function (array $items) {
+                                    foreach ($items as $class => $nomatter) {
+                                        $this->testExceptionExists($class);
+                                    }
+
+                                    return $items;
+                                })
+                            ->end()
                         ->end()
                         ->booleanNode('debug')
                             ->defaultValue($this->debug)
@@ -405,5 +460,19 @@ return $v; })
                     ->end()
                 ->end()
             ->end();
+    }
+
+    /**
+     * Checks if an exception is loadable.
+     *
+     * @param string $exception Class to test
+     *
+     * @throws InvalidConfigurationException if the class was not found
+     */
+    private function testExceptionExists($exception)
+    {
+        if (!is_subclass_of($exception, \Exception::class) && !is_a($exception, \Exception::class, true)) {
+            throw new InvalidConfigurationException("FOSRestBundle exception mapper: Could not load class '$exception' or the class does not extend from '\\Exception'. Most probably this is a configuration problem.");
+        }
     }
 }
