@@ -9,6 +9,8 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Ivory\CKEditorBundle\Form\Type\CKEditorType;
+
 
 class MailType extends AbstractType
 {
@@ -19,10 +21,10 @@ class MailType extends AbstractType
     {
         $builder
             ->add('nom',     TextType::class)
-            ->add('textMail',   TextareaType::class, array(
-                'attr' => array(
-                    'rows' => '20',
-                    'cols' => '200'
+            ->add('textMail',   CKEditorType::class, array(
+                'label'             => 'Contenu du mail',
+                'config' => array(
+                    'language'    => 'fr'
                 ),
             ))
             ->add('solutions', EntityType::class, array(
