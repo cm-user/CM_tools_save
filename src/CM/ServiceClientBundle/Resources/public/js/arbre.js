@@ -69,7 +69,7 @@ function displaySolution(data){
             $elem += "<a class=\"collapsed\" role=\"button\" data-toggle=\"collapse\" data-parent=\"#accordion_mail\" href=\"#collapseMail" + val['mails'][0]['id'] + nb + "\" aria-expanded=\"false\" aria-controls=\"collapseMail" + val['mails'][0]['id'] + nb + "\">";
             $elem +=  "<div class=\"col-sm-6\">" + val['mails'][0]['nom'] + "</div>";
             $elem += "</a>";
-            $elem += "<div id=\"copy_"+ val['mails'][0]['id'] + nb + "\" type=\"button\" class=\"btn btn-warning\"  >Copier </button> </div>";
+            $elem += "<div id=\"copy_"+ val['mails'][0]['id'] + nb + "\" type=\"button\" class=\"btn btn-warning\"  >Copier le mail type </button> </div>";
             $elem += "</h4> </div>";
             $elem += "<div id=\"collapseMail" + val['mails'][0]['id'] + nb + "\" class=\"panel-collapse collapse\" role=\"tabpanel\" aria-labelledby=\"headingMail" + val['mails'][0]['id'] + nb + "\" >";
             $elem += "<div class=\"panel-body\" id=\"MailText" + val['mails'][0]['id'] + nb + "\" >";
@@ -84,7 +84,7 @@ function displaySolution(data){
     });
     $elem += "</div>";
     $elem += "<div class=\"row\">";
-    $elem += "<div class=\"col-sm-2\"> <button id=\"iddi" + nb +"\" type=\"button\" class=\"btn btn-info\">Masquer </button> </div>";
+    // $elem += "<div class=\"col-sm-2\"> <button id=\"iddi" + nb +"\" type=\"button\" class=\"btn btn-info\">Masquer </button> </div>";
     $elem += "</div> </div> </div> ";
 
     $( "#arbre" ).append($elem);
@@ -118,7 +118,7 @@ function displayBranche(data){
     $elem += "<div class=\"row\" id=\"row" + nb + "\" > ";
     $.each(data, function (key, val) {
         $elem += "<div class=\"col-sm-3\">";
-        $elem += "<p><button type=\"button\" class=\"btn btn-success\" id=\"" + val['id'] + "branche" + nb + "t" + compt + "\" <span class=\"glyphicon glyphicon-tags\"></span> " + val['nom'];
+        $elem += "<p><button type=\"button\" class=\"btn btn-success btn-block\" id=\"" + val['id'] + "branche" + nb + "t" + compt + "\" <span class=\"glyphicon glyphicon-tags\"></span> " + val['nom'];
         $elem += "</button></p>";
         $elem += "</div>";
 
@@ -126,7 +126,7 @@ function displayBranche(data){
 
     });
     if (compt != 1) { //n'affichera pas le bouton masquer pour les branches parentes
-        $elem += "<div class=\"col-sm-2\"> <button id=\"iddi" + nb + "\" type=\"button\" class=\"btn btn-info\">Masquer </button> </div>";
+        // $elem += "<div class=\"col-sm-2\"> <button id=\"iddi" + nb + "\" type=\"button\" class=\"btn btn-info\">Masquer </button> </div>";
     }
     $elem += "</div> <hr> </div> ";
     $( "#arbre" ).append($elem);

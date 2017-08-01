@@ -4,16 +4,23 @@
     <h1>Modifier une branche</h1>
 
     {{ form_start(edit_form) }}
+    {#Si la branche contient des solutions on masque le champ Parent ainsi l'utilisateur ne peut pas déplacer la branche#}
+    {% if branch.solutions|length > 0 %}
+        {{ form_widget(edit_form.parent,{'attr':{'class':'hidden'}}) }}
+    {% endif %}
     {{ form_widget(edit_form) }}
     <p class="text-center"><input class="btn btn-warning" type="submit" value="Modifier" /></p>
     {{ form_end(edit_form) }}
 
     {% if branch.solutions|length != 0 %}
+        <p>
+            Cette branche contient des solutions vous ne pouvez pas la déplacer  !
+            (Détachez d'abord les solutions liées)
+        </p>
         {% endif %}
 
-    <p>
-        {{ msg }}
-    </p>
+
+
 
     <p class="text-right">
         <a class="btn btn-default" href="{{ path('branch_index') }}">
