@@ -3,10 +3,46 @@
 // $( document ).ready(function() {
 var url="http://tools.cadeau-maestro.com/";
 var compt=1; //compteur sur le nombre de click qui va permettre de savoir la profondeur des branches
+var compt_guide = 1 ; //compteur pour déterminer quand faire apparaitre le contenu
+var compt_phone = 1 ; //compteur pour déterminer quand faire apparaitre le contenu
 
 //va chercher les branch sans parents et les passe en parametre de la fonction display
 $.getJSON( url+"branche_parent",function(data){
     displayBranche(data);
+});
+
+//////////requête ajax pour le contenu du guide////////
+$elem_guide = "<br><div class=\"alert alert-warning\" role=\"alert\"><ol>";
+$.ajax({
+
+    url: Routing.generate('guide_show_json'),
+
+    success: function (result) {
+        $.each(result, function (key, val) {
+            $elem_guide += "<li>";
+            $elem_guide += val['text'];
+            $elem_guide += "</li>";
+        });
+        $elem_guide += "</ol></div>";
+        $("#guide").html($elem_guide).hide();
+    }
+});
+
+//////////requête ajax pour le contenu des numéros de téléphone////////
+$elem_phone = "<br><div class=\"alert alert-warning\" role=\"alert\"><ol>";
+$.ajax({
+
+    url: Routing.generate('phone_show_json'),
+
+    success: function (result) {
+        $.each(result, function (key, val) {
+            $elem_phone += "<li>";
+            $elem_phone += val['text'];
+            $elem_phone += "</li>";
+        });
+        $elem_phone += "</ol></div>";
+        $("#phone").html($elem_phone).hide();
+    }
 });
 
 //recupere les enfants de la branche passé en parametre par son id
@@ -223,6 +259,25 @@ function OngletOdoo(){
     window.open(url_odoo);
 }
 
+function DisplayGuide(){
+    compt_guide++;
+    if(compt_guide % 2 == 0) {
+        $("#guide").show();
+    }
+    else {
+        $("#guide").hide();
+    }
+}
+
+function DisplayPhone(){
+    compt_phone++;
+    if(compt_phone % 2 == 0) {
+        $("#phone").show();
+    }
+    else {
+        $("#phone").hide();
+    }
+}
 
 
 

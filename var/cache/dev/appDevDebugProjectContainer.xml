@@ -855,6 +855,12 @@
       <tag name="kernel.event_listener" event="unicorn.user.main_menu_logged" method="onMainMenuLoggedConfigure"/>
       <argument type="service" id="service_container"/>
     </service>
+    <service id="sc.repository.guide" class="CM\ServiceClientBundle\Repository\GuideRepository">
+      <argument type="service" id="doctrine.orm.marketing_entity_manager"/>
+    </service>
+    <service id="sc.repository.phone" class="CM\ServiceClientBundle\Repository\PhoneRepository">
+      <argument type="service" id="doctrine.orm.marketing_entity_manager"/>
+    </service>
     <service id="controller_name_converter" class="Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser" public="false">
       <tag name="monolog.logger" channel="request"/>
       <argument type="service" id="kernel"/>
@@ -1040,7 +1046,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>nti+Lr60vjAS7eImE2epKI</argument>
+      <argument>I6j4LJV0Zpu7oSeNwHagVj</argument>
       <argument>C:\Users\Okaou\Downloads\SAVE1\CM_tools_save\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -1050,7 +1056,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>nti+Lr60vjAS7eImE2epKI</argument>
+      <argument>I6j4LJV0Zpu7oSeNwHagVj</argument>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       </call>
@@ -3039,12 +3045,12 @@
     </service>
     <service id="security.authentication.listener.anonymous.user_secured_area" class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
       <argument type="service" id="security.token_storage"/>
-      <argument>59789de6dcb443.42869517</argument>
+      <argument>5981cbd3bc00d6.56527494</argument>
       <argument type="service" id="monolog.logger.security" on-invalid="null"/>
       <argument type="service" id="security.authentication.manager"/>
     </service>
     <service id="security.authentication.provider.anonymous.user_secured_area" class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-      <argument>59789de6dcb443.42869517</argument>
+      <argument>5981cbd3bc00d6.56527494</argument>
     </service>
     <service id="security.exception_listener.user_secured_area" class="Symfony\Component\Security\Http\Firewall\ExceptionListener" public="false">
       <argument type="service" id="security.token_storage"/>
@@ -5174,7 +5180,7 @@
     <service id="cache.system.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>gAB2ogJIRz</argument>
       <argument>0</argument>
-      <argument>nti+Lr60vjAS7eImE2epKI</argument>
+      <argument>I6j4LJV0Zpu7oSeNwHagVj</argument>
       <argument>C:\Users\Okaou\Downloads\SAVE1\CM_tools_save\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -5182,7 +5188,7 @@
     <service id="cache.validator.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>LjL1EW4zgF</argument>
       <argument>0</argument>
-      <argument>nti+Lr60vjAS7eImE2epKI</argument>
+      <argument>I6j4LJV0Zpu7oSeNwHagVj</argument>
       <argument>C:\Users\Okaou\Downloads\SAVE1\CM_tools_save\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -5190,7 +5196,7 @@
     <service id="cache.serializer.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>mi4J1tT7oW</argument>
       <argument>0</argument>
-      <argument>nti+Lr60vjAS7eImE2epKI</argument>
+      <argument>I6j4LJV0Zpu7oSeNwHagVj</argument>
       <argument>C:\Users\Okaou\Downloads\SAVE1\CM_tools_save\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
@@ -5198,7 +5204,7 @@
     <service id="cache.annotations.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false" lazy="true">
       <argument>QemlUWULeZ</argument>
       <argument>0</argument>
-      <argument>nti+Lr60vjAS7eImE2epKI</argument>
+      <argument>I6j4LJV0Zpu7oSeNwHagVj</argument>
       <argument>C:\Users\Okaou\Downloads\SAVE1\CM_tools_save\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>

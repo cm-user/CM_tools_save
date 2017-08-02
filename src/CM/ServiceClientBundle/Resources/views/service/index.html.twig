@@ -7,25 +7,10 @@
             <button onclick="rafraichissement();" type="button" class="btn btn-danger">Retour au début</button>
         </div>
         <div class="col-sm-1">
-            <button class="btn btn-warning" data-toggle="collapse" data-target="#guide">Guide</button>
-            <div id="guide" class="collapse">
-                <br>
-                <ul>
-                    <li>A</li>
-                    <li>B</li>
-                    <li>C</li>
-                </ul>
-            </div>
+            <button class="btn btn-warning" onclick="DisplayGuide();" type="button" >Guide</button>
         </div>
         <div class="col-sm-2">
-            <button class="btn btn-warning" data-toggle="collapse" data-target="#phone">Numéro Téléphone</button>
-            <div id="phone" class="collapse">
-                <br>
-                <ul>
-                    <li>LA POSTE 0825 87 88 88 # puis * puis "conseiller" puis 827359 puis * puis attendre</li>
-                    <li>TNT 0825 033 033 puis non puis "suivre un colis" et taper numéro de colis (au besoin "faire une autre demande" si toutes les infos n'ont pas été fournies et avoir un conseiller)</li>
-                </ul>
-            </div>
+            <button class="btn btn-warning" onclick="DisplayPhone();" type="button">Numéro Téléphone</button>
         </div>
         <div class="col-sm-5">
             <input type="text" size="50" id="recherche" />
@@ -36,6 +21,10 @@
             <button onclick="OngletOdoo();" type="button" class="btn btn-warning">Odoo</button>
         </div>
     </div>
+
+    <div id="guide"></div>
+    <div id="phone"></div>
+
     <br><br>
 
     {#div dans laquelle se situe les boutons/branches#}
@@ -46,5 +35,7 @@
 {% endblock %}
 
 {% block javascripts %}
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
     <script src="{{ asset('bundles/serviceclient/js/arbre.js') }}"></script>
 {% endblock %}

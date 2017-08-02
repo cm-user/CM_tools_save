@@ -21,3 +21,10 @@ services:
                   - { name: kernel.event_listener, event: unicorn.user.main_menu_logged, method: onMainMenuLoggedConfigure }
               arguments: ["@service_container"]
 
+     sc.repository.guide:
+              class: CM\ServiceClientBundle\Repository\GuideRepository
+              arguments: ['@doctrine.orm.entity_manager']
+
+     sc.repository.phone:
+              class: CM\ServiceClientBundle\Repository\PhoneRepository
+              arguments: ['@doctrine.orm.entity_manager']
