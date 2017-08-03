@@ -1,7 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Défectueux</h1>
+    <div class="row">
+        <div class="col-lg-3"><h1>Défectueux</h1></div>
+        <div class="col-lg-3">
+           <br><p> <a class="btn btn-warning" href="{{ path('faulty_edit', { 'id': faulty.id }) }}">
+                <span class="glyphicon glyphicon-pencil"></span>
+                Modifier
+            </a></p>
+        </div>
+    </div>
 
     <table class="table table-bordered table-hover">
         <tbody>

@@ -83,21 +83,21 @@ function displaySolution(data){
 
     $.each(data, function (key, val) {
 
-        $elem += "<div class=\"col-sm-4\">";
-        $elem += "<div class=\"panel-group\" id=\"accordion" + val['id'] + nb + "\" role=\"tablist\" aria-multiselectable=\"true\">";
-        $elem += "<div class=\"panel panel-default\">";
-        $elem += "<div class=\"panel-heading\" role=\"tab\" id=\"headingOne" + val['id'] + nb + "\" >";
-        $elem += "<h4 class=\"panel-title\">";
-        $elem += "<a class=\"collapsed\" role=\"button\" data-toggle=\"collapse\" data-parent=\"#accordion" + val['id'] + nb + "\" href=\"#collapseOne" + val['id'] + nb + "\" aria-expanded=\"true\" aria-controls=\"collapseOne" + val['id'] + nb + "\">";
-        $elem += val['nom'];
-        $elem += "</a>            </h4>            </div>";
-        $elem += "<div id=\"collapseOne" + val['id'] + nb + "\" class=\"panel-collapse collapse in\" role=\"tabpanel\" aria-labelledby=\"headingOne" + val['id'] + nb + "\" >";
-        $elem += "<div class=\"panel-body\">";
-        $elem += val['text'] + "<br>";
-
         //Ajoute le mail s'il existe
         if(val['mails'][0] != undefined)
         {
+            $elem += "<div class=\"col-sm-4\">";
+            $elem += "<div class=\"panel-group\" id=\"accordion" + val['id'] + nb + "\" role=\"tablist\" aria-multiselectable=\"true\">";
+            $elem += "<div class=\"panel panel-default\">";
+            $elem += "<div class=\"panel-heading\" role=\"tab\" id=\"headingOne" + val['id'] + nb + "\" >";
+            $elem += "<h4 class=\"panel-title\">";
+            $elem += "<a class=\"collapsed\" role=\"button\" data-toggle=\"collapse\" data-parent=\"#accordion" + val['id'] + nb + "\" href=\"#collapseOne" + val['id'] + nb + "\" aria-expanded=\"true\" aria-controls=\"collapseOne" + val['id'] + nb + "\">";
+            $elem += val['nom'];
+            $elem += "</a>            </h4>            </div>";
+            $elem += "<div id=\"collapseOne" + val['id'] + nb + "\" class=\"panel-collapse collapse in\" role=\"tabpanel\" aria-labelledby=\"headingOne" + val['id'] + nb + "\" >";
+            $elem += "<div class=\"panel-body\">";
+            $elem += val['text'] + "<br>";
+
             $elem += "<div class=\"panel-group\" id=\"accordion_mail" + val['mails'][0]['id'] + nb + "\" role=\"tablist\" aria-multiselectable=\"true\">";
             $elem += "<div class=\"panel panel-default\">";
             $elem += "<div class=\"panel-heading\" role=\"tab\" id=\"headingMail" + val['mails'][0]['id'] + nb + "\" >";
@@ -114,6 +114,21 @@ function displaySolution(data){
 
             arrayIdMail.push(val['mails'][0]['id'] + nb.toString());
 
+        }
+        else {
+            $elem += "<div class=\"col-sm-4\">";
+            $elem += "<div class=\"panel-group\" id=\"accordion" + val['id'] + nb + "\" role=\"tablist\" aria-multiselectable=\"true\">";
+            $elem += "<div class=\"panel panel-default\">";
+            $elem += "<div class=\"panel-heading\" role=\"tab\" id=\"headingOne" + val['id'] + nb + "\" >";
+            $elem += "<h4 class=\"panel-title\">";
+            $elem += "<a class=\"collapsed\" role=\"button\" data-toggle=\"collapse\" data-parent=\"#accordion" + val['id'] + nb + "\" href=\"#collapseOne" + val['id'] + nb + "\" aria-expanded=\"true\" aria-controls=\"collapseOne" + val['id'] + nb + "\">";
+            $elem += "<span class=\"glyphicon glyphicon-eye-open\"</span>";
+            $elem += val['nom'];
+            $elem += "</a>            </h4>            </div>";
+            $elem += "<div id=\"collapseOne" + val['id'] + nb + "\" class=\"panel-collapse collapse in\" role=\"tabpanel\" aria-labelledby=\"headingOne" + val['id'] + nb + "\" >";
+            $elem += "<div class=\"panel-body\">";
+            $elem += "<div class=\"alert alert-warning\" role=\"alert\">";
+            $elem += val['text'] + "</div><br>";
         }
         $elem += "</div> </div> </div> </div> </div> ";
 

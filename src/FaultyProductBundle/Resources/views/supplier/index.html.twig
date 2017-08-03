@@ -1,7 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block product_date_send %}
-    <tr>
+    {#Si la date de l'envoi du mail a dépassé 3 mois, la ligne devient rouge#}
+    {% if product.faulty.sendMailAt|date_modify("+3 month")|date("Y-m-d") < "now"|date("Y-m-d") %}
+        <tr class="danger">
+    {% else %}
+        <tr>
+    {% endif %}
         <td>{{ product.quantity }}</td>
         <td><a href="{{ path('faulty_show', {'id': product.faulty.id}) }}">{{ product.name }}</a></td>
         <td>{{ product.supplierReference }}</td>
@@ -77,7 +82,7 @@
 {% block product %}
     <tr>
         <td>{{ product.quantity }}</td>
-        <td>{{ product.name }}</td>
+        <td><a href="{{ path('faulty_show', {'id': product.faulty.id}) }}">{{ product.name }}</a></td>
         <td>{{ product.supplierReference }}</td>
         <td>{{ product.costPrice|number_format(2) }} €</td>
         <td>{{ product.formattedLocation }}</td>
