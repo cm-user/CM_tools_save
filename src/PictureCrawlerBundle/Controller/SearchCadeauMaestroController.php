@@ -17,6 +17,10 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use PictureCrawlerBundle\Entity\SearchCsv;
+use PictureCrawlerBundle\Form\SearchCsvType;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+
 
 /**
  * Search controller.
@@ -56,4 +60,5 @@ class SearchCadeauMaestroController extends Controller
 
         return CadeauMaestroController::indexAction($url);
     }
+
 }

@@ -26,8 +26,8 @@ class CadeauMaestroController extends Controller
 
 
 
-        return new JsonResponse(array('data' => $crawlerAvantGardiste));
-
+//        return new JsonResponse(array('data' => $crawlerAvantGardiste));
+            return $crawlerAvantGardiste;
     }
 
 }

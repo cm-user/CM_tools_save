@@ -122,7 +122,7 @@ function displaySolution(data){
             $elem += "<div class=\"panel-heading\" role=\"tab\" id=\"headingOne" + val['id'] + nb + "\" >";
             $elem += "<h4 class=\"panel-title\">";
             $elem += "<a class=\"collapsed\" role=\"button\" data-toggle=\"collapse\" data-parent=\"#accordion" + val['id'] + nb + "\" href=\"#collapseOne" + val['id'] + nb + "\" aria-expanded=\"true\" aria-controls=\"collapseOne" + val['id'] + nb + "\">";
-            $elem += "<span class=\"glyphicon glyphicon-eye-open\"</span>";
+            $elem += "<span class=\"glyphicon glyphicon-eye-open\"></span>&nbsp;";
             $elem += val['nom'];
             $elem += "</a>            </h4>            </div>";
             $elem += "<div id=\"collapseOne" + val['id'] + nb + "\" class=\"panel-collapse collapse in\" role=\"tabpanel\" aria-labelledby=\"headingOne" + val['id'] + nb + "\" >";
@@ -154,11 +154,11 @@ function displaySolution(data){
         });
     }
 
-    $(".btn-info").click(function(){ //fonction pour cacher toute la div depuis le bouton masquer
-        var id = $(this).attr("id"); //recupere l'id
-        id = id.replace("iddi","row"); //remplace l'id du bouton par l'id de la div englobant la row
-        $("#"+id).remove(); // ensuite on supprime
-    });
+    // $(".btn-info").click(function(){ //fonction pour cacher toute la div depuis le bouton masquer
+    //     var id = $(this).attr("id"); //recupere l'id
+    //     id = id.replace("iddi","row"); //remplace l'id du bouton par l'id de la div englobant la row
+    //     $("#"+id).remove(); // ensuite on supprime
+    // });
 }
 
 
@@ -176,9 +176,9 @@ function displayBranche(data){
         arrayId.push(val['id']+"branche"+nb.toString()+"t"+compt.toString()); //on ajoute les id dans un tableau
 
     });
-    if (compt != 1) { //n'affichera pas le bouton masquer pour les branches parentes
-        // $elem += "<div class=\"col-sm-2\"> <button id=\"iddi" + nb + "\" type=\"button\" class=\"btn btn-info\">Masquer </button> </div>";
-    }
+    // if (compt != 1) { //n'affichera pas le bouton masquer pour les branches parentes
+    //     $elem += "<div class=\"col-sm-2\"> <button id=\"iddi" + nb + "\" type=\"button\" class=\"btn btn-info\">Masquer </button> </div>";
+    // }
     $elem += "</div> <hr> </div> ";
     $( "#arbre" ).append($elem);
 
@@ -197,19 +197,25 @@ function displayBranche(data){
                     $("#"+div_sup).remove(); //on supprime la div
                 }
             }
+            idRow = $(this).parent().parent().parent().attr('id'); //recupère l'id de la row depuis le bouton
+
+            $("#"+idRow).find(".btn-primary").each(function() {   //cherche chaque bouton de classe primary dans la row
+                $(this).addClass("btn-success").removeClass("btn-primary");   // change le bouton primary en success
+            });
 
             id = id.substring(0,id.indexOf('b')); //recupere l'id de la branche uniquement
             callBranch(id); //appel de la fonction callBranch
+            $(this).addClass("btn-primary").removeClass("btn-success"); //transforme le bouton cliqué en bouton primary
             $(this).prop('disabled', false); //active le bouton
             return false;
         });
     }
 
-    $(".btn-info").click(function () {  //fonction pour cacher toute la div depuis le bouton masquer
-        var id = $(this).attr("id"); //recupere l'id
-        id = id.replace("iddi", "row");
-        $("#" + id).remove(); //on supprime la div
-    });
+    // $(".btn-info").click(function () {  //fonction pour cacher toute la div depuis le bouton masquer
+    //     var id = $(this).attr("id"); //recupere l'id
+    //     id = id.replace("iddi", "row");
+    //     $("#" + id).remove(); //on supprime la div
+    // });
 
 }
 
@@ -253,7 +259,7 @@ function recherche(){
     // var reg = /[0-9.:,h€]/g ;
     // inputText = inputText.replace(reg,"");
     inputText = inputText.substring(0,4).trim(); // recupère uniquement l'id
-    $.getJSON(url + "branche_id/" + inputText, function (data) { //recherche de la branche par son nom
+    $.getJSON(url + "branche_id/" + inputText, function (data) { //recherche de la branche par son id
         compt++; //incremente le compteur
         $("#arbre").html(""); //efface la div
         if(data != "") {

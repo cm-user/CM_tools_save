@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Téléchargement des images de Cadeau-Maestro depuis un CSV</h1>
+
+    {{ form(form) }}
+
+
+    <a href="{{ path('download_image')}}"><button type="button" class="btn btn-warning" >Télécharger</button></a>
+
+
+
+    <br>     <br>    <br>    <br>    <br>
+    <p>Note: Le fichier CSV doit être délimité par une ","</p>
+    <ul>Le fichier CSV est découpé de cette manière :
+    <li>Numéro/Nom de page (ex:page1)</li>
+    <li>URL de Cadeau-Maestro</li>
+    </ul>
+
+
+{% endblock %}
+
+
+{%  block javascripts %}
+    <script type="application/javascript">
+        $(document).ready(function () {
+
+
+        });
+    </script>
+{% endblock %}

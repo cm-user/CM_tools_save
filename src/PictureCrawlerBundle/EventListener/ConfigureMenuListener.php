@@ -26,8 +26,8 @@ class ConfigureMenuListener
             ->setAttribute('dropdown', true);
 
         $menu['PictureCrawler']->addChild('L\'Avant Gardiste', ['route' => 'picture_crawler_index']);
-        $menu['PictureCrawler']->addChild('Cadeau Maestro', ['route' => 'picture_crawler_cm_index']);
-
+//        $menu['PictureCrawler']->addChild('URL Cadeau Maestro', ['route' => 'picture_crawler_cm_index']);
+        $menu['PictureCrawler']->addChild('CSV Cadeau Maestro', ['route' => 'picture_crawler_cm_zip_index']);
     }
 
     

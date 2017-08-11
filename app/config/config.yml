@@ -16,6 +16,7 @@ imports:
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: fr
+    picturecrawler: '%kernel.root_dir%/../web/picturecrawler'
 
 framework:
     #esi:             ~
