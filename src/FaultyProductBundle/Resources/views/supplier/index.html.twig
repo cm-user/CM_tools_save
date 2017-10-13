@@ -71,12 +71,7 @@
 
 {# Contenu du tableau pour les pertes #}
 {% block product_piece %}
-    {#Si la date de l'envoi du mail a dépassé 3 mois, la ligne devient rouge#}
-    {% if product.faulty.sendMailAt|date_modify("+3 month")|date("Y-m-d") < "now"|date("Y-m-d") %}
-        <tr class="danger">
-    {% else %}
-        <tr>
-    {% endif %}
+    <tr>
     <td>{{ product.quantity }}</td>
     <td><a href="{{ path('faulty_show', {'id': product.faulty.id}) }}">{{ product.name }}</a></td>
     <td>{{ product.supplierReference }}</td>

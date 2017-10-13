@@ -2,29 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0613f4fc-9ffa-402d-9ce0-ab5c77af2e35" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/FaultyProductBundle/Controller/FaultyConfigurationController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/FaultyProductBundle/Resources/public/js/piece.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/FaultyProductBundle/Resources/views/config/index.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/FaultyProductBundle/Resources/views/supplier/loss.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CM/ServiceClientBundle/Resources/public/js/arbre.js" afterPath="$PROJECT_DIR$/src/CM/ServiceClientBundle/Resources/public/js/arbre.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FaultyProductBundle/Controller/FaultyController.php" afterPath="$PROJECT_DIR$/src/FaultyProductBundle/Controller/FaultyController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FaultyProductBundle/Controller/FaultyMailController.php" afterPath="$PROJECT_DIR$/src/FaultyProductBundle/Controller/FaultyMailController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FaultyProductBundle/Controller/SupplierController.php" afterPath="$PROJECT_DIR$/src/FaultyProductBundle/Controller/SupplierController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FaultyProductBundle/Entity/Faulty.php" afterPath="$PROJECT_DIR$/src/FaultyProductBundle/Entity/Faulty.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FaultyProductBundle/EventListener/ConfigureMenuListener.php" afterPath="$PROJECT_DIR$/src/FaultyProductBundle/EventListener/ConfigureMenuListener.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FaultyProductBundle/Repository/FaultyRepository.php" afterPath="$PROJECT_DIR$/src/FaultyProductBundle/Repository/FaultyRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FaultyProductBundle/Repository/SupplierRepository.php" afterPath="$PROJECT_DIR$/src/FaultyProductBundle/Repository/SupplierRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FaultyProductBundle/Resources/views/faulty/index.html.twig" afterPath="$PROJECT_DIR$/src/FaultyProductBundle/Resources/views/faulty/index.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FaultyProductBundle/Resources/views/supplier/index.html.twig" afterPath="$PROJECT_DIR$/src/FaultyProductBundle/Resources/views/supplier/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ShopBundle/Resources/public/js/ephemeride.js" afterPath="$PROJECT_DIR$/src/ShopBundle/Resources/public/js/ephemeride.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/dev/annotations.map" afterPath="$PROJECT_DIR$/var/cache/dev/annotations.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/dev/appDevDebugProjectContainer.php" afterPath="$PROJECT_DIR$/var/cache/dev/appDevDebugProjectContainer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/dev/appDevDebugProjectContainer.php.meta" afterPath="$PROJECT_DIR$/var/cache/dev/appDevDebugProjectContainer.php.meta" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/dev/appDevDebugProjectContainer.xml" afterPath="$PROJECT_DIR$/var/cache/dev/appDevDebugProjectContainer.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/dev/appDevDebugProjectContainer.xml.meta" afterPath="$PROJECT_DIR$/var/cache/dev/appDevDebugProjectContainer.xml.meta" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/dev/appDevDebugProjectContainerCompiler.log" afterPath="$PROJECT_DIR$/var/cache/dev/appDevDebugProjectContainerCompiler.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/logs/dev.log" afterPath="$PROJECT_DIR$/var/logs/dev.log" />
     </list>
     <ignored path="CM_tools_save.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -49,21 +29,29 @@
       <file leaf-file-name="FaultyController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/FaultyProductBundle/Controller/FaultyController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-493">
+            <state relative-caret-position="17">
               <caret line="391" column="54" selection-start-line="391" selection-start-column="54" selection-end-line="391" selection-end-column="54" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SupplierController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/FaultyProductBundle/Controller/SupplierController.php">
+      <file leaf-file-name="FaultyMailController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/FaultyProductBundle/Controller/FaultyMailController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="679">
-              <caret line="239" column="0" selection-start-line="239" selection-start-column="0" selection-end-line="239" selection-end-column="0" />
-              <folding>
-                <element signature="e#56#94#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="289">
+              <caret line="21" column="21" selection-start-line="0" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PrestashopController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/FaultyProductBundle/Controller/PrestashopController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="382">
+              <caret line="43" column="35" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="35" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -71,8 +59,8 @@
       <file leaf-file-name="FaultyConfigurationController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/FaultyProductBundle/Controller/FaultyConfigurationController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="23" column="7" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
+            <state relative-caret-position="593">
+              <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
               <folding>
                 <element signature="e#132#174#0#PHP" expanded="true" />
               </folding>
@@ -80,21 +68,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="loss.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/FaultyProductBundle/Resources/views/supplier/loss.html.twig">
+      <file leaf-file-name="FaultyAction.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/FaultyProductBundle/Entity/FaultyAction.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
-              <caret line="72" column="54" selection-start-line="72" selection-start-column="54" selection-end-line="72" selection-end-column="54" />
+            <state relative-caret-position="595">
+              <caret line="41" column="25" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/app.php">
+      <file leaf-file-name="loss.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/FaultyProductBundle/Resources/views/supplier/loss.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="454">
-              <caret line="40" column="37" selection-start-line="40" selection-start-column="37" selection-end-line="40" selection-end-column="37" />
+            <state relative-caret-position="969">
+              <caret line="72" column="54" selection-start-line="72" selection-start-column="54" selection-end-line="72" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -103,50 +91,38 @@
       <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/FaultyProductBundle/Resources/views/supplier/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="62" column="40" selection-start-line="62" selection-start-column="40" selection-end-line="62" selection-end-column="40" />
+            <state relative-caret-position="763">
+              <caret line="72" column="25" selection-start-line="72" selection-start-column="25" selection-end-line="72" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="arbre.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/CM/ServiceClientBundle/Resources/public/js/arbre.js">
+      <file leaf-file-name="FaultyMailType.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/FaultyProductBundle/Form/FaultyMailType.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="206" column="119" selection-start-line="206" selection-start-column="11" selection-end-line="206" selection-end-column="119" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SupplierRepository.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/FaultyProductBundle/Repository/SupplierRepository.php">
+      <file leaf-file-name="FaultyActionType.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/FaultyProductBundle/Form/FaultyActionType.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="56" column="25" selection-start-line="56" selection-start-column="25" selection-end-line="56" selection-end-column="25" />
-              <folding>
-                <element signature="e#56#87#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="piece.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/FaultyProductBundle/Resources/public/js/piece.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ConfigureMenuListener.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/FaultyProductBundle/EventListener/ConfigureMenuListener.php">
+      <file leaf-file-name="FaultyType.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/FaultyProductBundle/Form/FaultyType.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="713">
-              <caret line="81" column="102" selection-start-line="81" selection-start-column="102" selection-end-line="81" selection-end-column="102" />
+            <state relative-caret-position="-51">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -214,10 +190,10 @@
         <option value="$PROJECT_DIR$/src/FaultyProductBundle/Controller/FaultyConfigurationController.php" />
         <option value="$PROJECT_DIR$/src/FaultyProductBundle/EventListener/ConfigureMenuListener.php" />
         <option value="$PROJECT_DIR$/src/FaultyProductBundle/Resources/views/supplier/loss.html.twig" />
-        <option value="$PROJECT_DIR$/web/app.php" />
         <option value="$PROJECT_DIR$/src/FaultyProductBundle/Resources/public/js/piece.js" />
-        <option value="$PROJECT_DIR$/src/FaultyProductBundle/Resources/views/supplier/index.html.twig" />
         <option value="$PROJECT_DIR$/src/FaultyProductBundle/Controller/SupplierController.php" />
+        <option value="$PROJECT_DIR$/web/app.php" />
+        <option value="$PROJECT_DIR$/src/FaultyProductBundle/Resources/views/supplier/index.html.twig" />
       </list>
     </option>
   </component>
@@ -554,6 +530,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Repository" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CM_tools_save" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CM_tools_save" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FaultyProductBundle" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Form" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -917,12 +915,12 @@
       <workItem from="1507619364995" duration="17010000" />
       <workItem from="1507708292900" duration="20101000" />
       <workItem from="1507792680744" duration="17886000" />
-      <workItem from="1507878404670" duration="4746000" />
+      <workItem from="1507878404670" duration="9536000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="220936000" />
+    <option name="totallyTimeSpent" value="225726000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -988,13 +986,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/analytics.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/base_admin.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1101,27 +1092,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FaultyProductBundle/Form/FaultyType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FaultyProductBundle/Form/FaultyActionType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FaultyProductBundle/Form/FaultyMailType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/FaultyProductBundle/Form/SupplierType.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-103">
@@ -1168,13 +1138,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="21" column="19" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FaultyProductBundle/Controller/PrestashopController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="43" column="35" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -1266,16 +1229,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FaultyProductBundle/Controller/FaultyMailController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="21" column="21" selection-start-line="0" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
-          <folding>
-            <element signature="e#50#92#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/FaultyProductBundle/Resources/views/config/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1288,14 +1241,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FaultyProductBundle/Controller/FaultyController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-493">
-          <caret line="391" column="54" selection-start-line="391" selection-start-column="54" selection-end-line="391" selection-end-column="54" />
           <folding />
         </state>
       </provider>
@@ -1318,24 +1263,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FaultyProductBundle/Controller/FaultyConfigurationController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="23" column="7" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
-          <folding>
-            <element signature="e#132#174#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/app.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="40" column="37" selection-start-line="40" selection-start-column="37" selection-end-line="40" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/CM/ServiceClientBundle/Resources/public/js/arbre.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
@@ -1354,14 +1281,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FaultyProductBundle/Resources/views/supplier/loss.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="72" column="54" selection-start-line="72" selection-start-column="54" selection-end-line="72" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/FaultyProductBundle/Resources/public/js/piece.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -1370,10 +1289,92 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/app.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="42" column="26" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FaultyProductBundle/Resources/views/supplier/loss.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="969">
+          <caret line="72" column="54" selection-start-line="72" selection-start-column="54" selection-end-line="72" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FaultyProductBundle/Form/FaultyMailType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FaultyProductBundle/Form/FaultyActionType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FaultyProductBundle/Form/FaultyType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-51">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FaultyProductBundle/Controller/FaultyController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="391" column="54" selection-start-line="391" selection-start-column="54" selection-end-line="391" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FaultyProductBundle/Controller/FaultyMailController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="21" column="21" selection-start-line="0" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FaultyProductBundle/Controller/PrestashopController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="43" column="35" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FaultyProductBundle/Controller/FaultyConfigurationController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="593">
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding>
+            <element signature="e#132#174#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FaultyProductBundle/Entity/FaultyAction.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="41" column="25" selection-start-line="41" selection-start-column="25" selection-end-line="41" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/FaultyProductBundle/Resources/views/supplier/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="62" column="40" selection-start-line="62" selection-start-column="40" selection-end-line="62" selection-end-column="40" />
+        <state relative-caret-position="763">
+          <caret line="72" column="25" selection-start-line="72" selection-start-column="25" selection-end-line="72" selection-end-column="25" />
           <folding />
         </state>
       </provider>
