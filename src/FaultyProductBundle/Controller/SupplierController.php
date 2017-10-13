@@ -1,99 +1,1 @@
-<?php
-
-namespace FaultyProductBundle\Controller;
-
-
-use FaultyProductBundle\Entity\Faulty;
-use FaultyProductBundle\Entity\Supplier;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Routing\Annotation\Route;
-
-/**
- * Supplier controller.
- *
- * @Route("supplier")
- */
-class SupplierController extends Controller
-{
-    /**
-     * Lists all supplier entities.
-     *
-     * @Route("/declare/{status}", name="faulty_supplier_declare")
-     * @Template("@FaultyProduct/supplier/index.html.twig")
-     * @Method("GET")
-     */
-    public function newAction($status){
-        $suppliers = $this->get('faulty.repository.supplier')->findAllbyASC();
-
-        return array(
-            'suppliers' => $suppliers,
-            'status' => $status
-        );
-    }
-
-    /**
-     * Lists all supplier entities.
-     *
-     * @Route("/camalo", name="faulty_supplier_camalo")
-     * @Template("@FaultyProduct/supplier/camalo.html.twig")
-     * @Method("GET")
-     */
-    public function showCamaloAction(){
-        $suppliers = $this->get('faulty.repository.supplier')->findCamalo();
-
-        return array(
-            'suppliers' => $suppliers
-        );
-    }
-
-    /**
-     * Change le status de plusieurs faulty
-     *
-     * @Route("/{supplier}/from/{from}/to/{to}/return/{return}", name="faulty_status_supplier")
-     * @Template("@FaultyProduct/supplier/index.html.twig")
-     * @Method("GET")
-     */
-    public function changeFaultyStatusBySupplierAction(Supplier $supplier, $from, $to, $return){
-        $faultys = $this->get('faulty.repository.faulty')->findBySupplierStatus($supplier, $from);
-
-        $faultyRepository = $this->get('faulty.repository.faulty');
-        foreach ($faultys as $faulty) {
-            /* @var $faulty Faulty */
-            $faulty->setStatus($to);
-            if($to == 'mail_send'){
-                $date = new \DateTime('NOW');
-                $faulty->setSendMailAt($date);
-            }
-            $faultyRepository->save($faulty);
-        }
-
-        return $this->redirectToRoute('faulty_supplier_declare', [
-            'status' => $return
-        ]);
-    }
-
-    /**
-     * Change le status d'un faulty
-     *
-     * @Route("/id/{faulty}/to/{to}/return/{return}/supplier/{supplier}", name="faulty_status_faulty")
-     * @Template("@FaultyProduct/supplier/index.html.twig")
-     * @Method("GET")
-     */
-    public function changeOneFaultyStatusBySupplierAction(Faulty $faulty, $to, $return, Supplier $supplier){
-
-        $faultyRepository = $this->get('faulty.repository.faulty');
-        $faulty->setStatus($to);
-        if($to == 'mail_send'){
-            $date = new \DateTime('NOW');
-            $faulty->setSendMailAt($date);
-        }
-        $faultyRepository->save($faulty);
-
-        return $this->redirectToRoute('faulty_supplier_declare', [
-            'status' => $return,
-            '_fragment' => $supplier->getIdPrestashopSupplier()
-        ]);
-    }
-}
+<?phpnamespace FaultyProductBundle\Controller;use FaultyProductBundle\Entity\Faulty;use FaultyProductBundle\Entity\Supplier;use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;use Symfony\Bundle\FrameworkBundle\Controller\Controller;use Symfony\Component\Routing\Annotation\Route;use Symfony\Component\HttpFoundation\JsonResponse;use Symfony\Component\HttpFoundation\Response;/** * Supplier controller. * * @Route("supplier") */class SupplierController extends Controller{    /**     * Lists all faulty     *     * @Route("/declare/loss", name="faulty_supplier_loss")     * @Template("@FaultyProduct/supplier/loss.html.twig")     * @Method("GET")     */    public function showLossAction(){        $suppliers = $this->get('faulty.repository.supplier')->findAllbyDate();        $status="loss";               return array(            'suppliers' => $suppliers,            'status' => $status        );    }    /**     * Lists all supplier entities.     *     * @Route("/declare/{status}", name="faulty_supplier_declare")     * @Template("@FaultyProduct/supplier/index.html.twig")     * @Method("GET")     */    public function newAction($status){        $suppliers = $this->get('faulty.repository.supplier')->findAllbyASC();        return array(            'suppliers' => $suppliers,            'status' => $status        );    }    /**     * Lists all supplier entities.     *     * @Route("/camalo", name="faulty_supplier_camalo")     * @Template("@FaultyProduct/supplier/camalo.html.twig")     * @Method("GET")     */    public function showCamaloAction(){        $suppliers = $this->get('faulty.repository.supplier')->findCamalo();        return array(            'suppliers' => $suppliers        );    }    /**     * Change le status de plusieurs faulty     *     * @Route("/{supplier}/from/{from}/to/{to}/return/{return}", name="faulty_status_supplier")     * @Template("@FaultyProduct/supplier/index.html.twig")     * @Method("GET")     */    public function changeFaultyStatusBySupplierAction(Supplier $supplier, $from, $to, $return){        $faultys = $this->get('faulty.repository.faulty')->findBySupplierStatus($supplier, $from);        $faultyRepository = $this->get('faulty.repository.faulty');        foreach ($faultys as $faulty) {            /* @var $faulty Faulty */            $faulty->setStatus($to);            $date = new \DateTime('NOW');            $faulty->setUpdatedAt($date);            if($to == 'mail_send'){                $date = new \DateTime('NOW');                              $faulty->setSendMailAt($date);            }            $faultyRepository->save($faulty);        }        return $this->redirectToRoute('faulty_supplier_declare', [            'status' => $return        ]);    }    /**     * Change le status d'un faulty     *     * @Route("/id/{faulty}/to/{to}/return/{return}/supplier/{supplier}", name="faulty_status_faulty")     * @Template("@FaultyProduct/supplier/index.html.twig")     * @Method("GET")     */    public function changeOneFaultyStatusBySupplierAction(Faulty $faulty, $to, $return, Supplier $supplier){        $faultyRepository = $this->get('faulty.repository.faulty');        $faulty->setStatus($to);        $date = new \DateTime('NOW');        $faulty->setUpdatedAt($date);        if($to == 'mail_send'){            $date = new \DateTime('NOW');            $faulty->setSendMailAt($date);        }        $faultyRepository->save($faulty);        return $this->redirectToRoute('faulty_supplier_declare', [            'status' => $return,            '_fragment' => $supplier->getIdPrestashopSupplier()        ]);    }    /**     * Change le status d'un defectueux en piece detachee     *     * @Route("/product/piece/{id}/{new_reason}", name="faulty_supplier_status_piece", options={"expose"=true})     * @return JsonResponse     */    public function changeFaultyStatusByPieceAction($id,$new_reason){        // récupère les informations sur l'utilisateur courant        $user_local = $this->get('security.token_storage')->getToken()->getUser();        $username = $user_local->getUsername();        $faulty = $this->get('faulty.repository.faulty')->findOneById($id); //le defectueux trouve par son id                $faulty->setStatus("piece");        $faulty->setReason("détails : " . $new_reason);        $date = new \DateTime('NOW');        $faulty->setUpdatedAt($date);        $User = $this->get('faulty.repository.faulty')->findORMUserByName($username); //trouve l'id de l'utilisateur par son nom        $faulty->setUser($User);        $this->get('faulty.repository.faulty')->save($faulty);        return new Response($id ."  ". $new_reason ."  ".$username);    }}

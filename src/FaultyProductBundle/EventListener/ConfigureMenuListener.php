@@ -27,7 +27,7 @@ class ConfigureMenuListener
             $menu->addChild('defectueux', ['label' => 'Défectueux'])
                 ->setAttribute('dropdown', true);
             $menu['defectueux']->addChild('Ajouter', ['route' => 'faulty_index']);
-            $menu['defectueux']->addChild('Vérification Entrepot', ['route' => 'faulty_supplier_camalo']);
+
 
         }else{
             $menu = $event->getMenu();
@@ -55,6 +55,16 @@ class ConfigureMenuListener
                     'status' => 'balance'
                 ]
             ]);
+
+            $menu['defectueux']->addChild('Perte', ['route' => 'faulty_supplier_loss']);
+
+            $menu['defectueux']->addChild('Pièces détachées', [
+                'route' => 'faulty_supplier_declare',
+                'routeParameters' => [
+                    'status' => 'piece'
+                ]
+            ]);
+
             $menu['defectueux']->addChild('Terminé / Remboursé', [
                 'route' => 'faulty_supplier_declare',
                 'routeParameters' => [
@@ -63,12 +73,12 @@ class ConfigureMenuListener
             ]);
 
             $menu['defectueux']
-                ->addChild('Liste des mails', [
-                    'route' => 'faultymail_index'
+                ->addChild('Configuration', [
+                    'route' => 'faultyconfig_index'
                 ])
                 ->setAttribute('divider_prepend', true)
             ;
         }
-
+        $menu['defectueux']->addChild('Vérification Entrepot', ['route' => 'faulty_supplier_camalo']);
     }
 }

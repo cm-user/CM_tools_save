@@ -24,6 +24,10 @@
                 {% set class = 'success' %}
             {% elseif faulty.status == 'balance' %}
                 {% set class = 'danger' %}
+            {% elseif faulty.status == 'loss' %}
+                {% set class = 'success' %}
+            {% elseif faulty.status == 'piece' %}
+                {% set class = 'success' %}
             {% else %}
                 {% set class = '' %}
             {% endif %}

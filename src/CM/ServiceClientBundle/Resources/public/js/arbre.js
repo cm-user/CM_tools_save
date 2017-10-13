@@ -1,6 +1,7 @@
 
 
 // $( document ).ready(function() {
+
 var url="http://tools.cadeau-maestro.com/";
 var compt=1; //compteur sur le nombre de click qui va permettre de savoir la profondeur des branches
 var compt_guide = 1 ; //compteur pour déterminer quand faire apparaitre le contenu
@@ -47,12 +48,10 @@ $.ajax({
 
 //recupere les enfants de la branche passé en parametre par son id
 function callBranch(id) {
-
     $.ajax({
         url: url + "branche/" + id,
         dataType: "json",
     }).done(function ( data ) {
-
         if (data == ""){ //si la branche n'a pas d'enfant alors on cherche ses solutions et ses mails
             compt++; //incremente le compteur
             callSolution(id); //si la branche n'a pas d'enfants, on va chercher ses solutions
@@ -256,8 +255,6 @@ $(function(){
 function recherche(){
     var inputText = $('input:text').val();     // récupération du contenu du champ de texte
     $('input:text').val(''); // modification du contenu du champ de text
-    // var reg = /[0-9.:,h€]/g ;
-    // inputText = inputText.replace(reg,"");
     inputText = inputText.substring(0,4).trim(); // recupère uniquement l'id
     $.getJSON(url + "branche_id/" + inputText, function (data) { //recherche de la branche par son id
         compt++; //incremente le compteur

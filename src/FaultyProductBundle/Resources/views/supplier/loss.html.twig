@@ -1,0 +1,93 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Liste des pertes</h1>
+    <br>
+
+    <table class="table table-bordered table-hover">
+    <thead>
+    <tr>
+        <th>Date</th>
+        <th>Quantité</th>
+        <th>Prix</th>
+        <th>Nom du produit</th>
+        <th>Référence fournisseur</th>
+        <th>Raison</th>
+        <th>Déclarant</th>
+        <th>Image</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    {% for supplier in suppliers %}
+
+        {% for product in supplier.products %}
+            {% if  product.faulty.status == "loss" %}
+
+                <tr>
+                    <td>{{ product.faulty.updatedAt|date("Y-m-d") }}</td>
+                    <td>{{ product.quantity }}</td>
+                    <td>{{ product.costPrice|number_format(2) }} €</td>
+                    <td><a href="{{ url('faulty_show', {'id': product.faulty.id}) }}" >{{ product.name }}</a></td>
+                    <td>{{ product.supplierReference }}</td>
+                    <td>{{ product.faulty.reason }}</td>
+                    <td>{{ product.faulty.user.name }}</td>
+                    <td>
+                        {% for productImages in product.productImages %}
+                            <a href="{{ productImages.picture }}">image {{ loop.index }}</a><br/>
+                        {% endfor %}
+                    </td>
+                    <td>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Modifier le statut <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ path('faulty_status_faulty', {'faulty':product.faulty.id, 'to':'new', 'return':status, 'supplier':supplier.id}) }}">A déclarer</a></li>
+                                <li><a href="{{ path('faulty_status_faulty', {'faulty':product.faulty.id, 'to':'mail_send', 'return':status, 'supplier':supplier.id}) }}">Mail envoyé</a></li>
+                                <li><a href="{{ path('faulty_status_faulty', {'faulty':product.faulty.id, 'to':'balance', 'return':status, 'supplier':supplier.id}) }}">Renvoi du fournisseur</a></li>
+                                <li><a href="{{ path('faulty_status_faulty', {'faulty':product.faulty.id, 'to':'refunded', 'return':status, 'supplier':supplier.id}) }}">Terminé / Remboursé</a></li>
+                                <li><a href="#" data-toggle="modal" data-target="#MyModal_{{ product.faulty.id }}">Pièces détachées</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- Modal -->
+                <div class="modal fade" id="MyModal_{{ product.faulty.id }}" tabindex="-1" role="dialog" aria-labelledby="MyModalTitle_{{ product.faulty.id }}" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="MyModalTitle_{{ product.faulty.id }}">Pièces détachées</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="detail">Détails</label>
+                                    <textarea class="form-control" rows="3" id="detail_{{ product.faulty.id }}"></textarea>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <div id="msg"></div>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                                <button type="submit" class="btn btn-primary" onclick="goPiece(this.id);" id="{{ product.faulty.id }}" >Valider</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+
+    {% endfor %}
+    </tbody>
+    </table>
+{% endblock %}
+
+  {% block javascripts %}
+      <script src="{{ asset('bundles/faultyproduct/js/piece.js') }}"></script>
+      <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+      <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+  {% endblock %}
