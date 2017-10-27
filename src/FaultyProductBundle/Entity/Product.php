@@ -71,6 +71,13 @@ class Product
      */
     protected $supplierReference;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="shipping", type="string", length=255, nullable=true, options={"default":0})
+     */
+    protected $shipping;
+
     // Mapping
     /**
      * @var Faulty
@@ -302,6 +309,22 @@ class Product
     public function setSupplierReference($supplierReference)
     {
         $this->supplierReference = $supplierReference;
+    }
+
+    /**
+     * @return string
+     */
+    public function getShipping()
+    {
+        return $this->shipping;
+    }
+
+    /**
+     * @param string $shipping
+     */
+    public function setShipping($shipping)
+    {
+        $this->shipping = $shipping;
     }
 
     /**

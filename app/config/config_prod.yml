@@ -16,6 +16,9 @@ parameters:
     folder_upload: '%kernel.root_dir%/../web/upload/'
     folder_img_base: '%kernel.root_dir%/../../www/img/'
     folder_cm_base: '%kernel.root_dir%/../../www/'
+    attachment_directory: '%kernel.root_dir%/../web/attachment'
+    url_upload_attachment: 'http://tools.cadeau-maestro.com/attachment/'
+
 
 
 #framework:

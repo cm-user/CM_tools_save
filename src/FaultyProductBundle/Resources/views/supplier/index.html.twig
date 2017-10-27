@@ -36,57 +36,16 @@
                 <li><a href="{{ path('faulty_status_faulty', {'faulty':product.faulty.id, 'to':'mail_send', 'return':status, 'supplier':supplier.id}) }}">Mail envoyé</a></li>
                 <li><a href="{{ path('faulty_status_faulty', {'faulty':product.faulty.id, 'to':'balance', 'return':status, 'supplier':supplier.id}) }}">Renvoi du fournisseur</a></li>
                 <li><a href="{{ path('faulty_status_faulty', {'faulty':product.faulty.id, 'to':'refunded', 'return':status, 'supplier':supplier.id}) }}">Terminé / Remboursé</a></li>
-                <li><a href="{{ path('faulty_status_faulty', {'faulty':product.faulty.id, 'to':'loss', 'return':status, 'supplier':supplier.id}) }}">Perte</a></li>
-                <li><a href="#" data-toggle="modal" data-target="#MyModal_{{ product.faulty.id }}">Pièces détachées</a></li>
+                {#<li><a href="{{ path('faulty_status_faulty', {'faulty':product.faulty.id, 'to':'loss', 'return':status, 'supplier':supplier.id}) }}">Perte</a></li>#}
+                <li><a href="#" data-toggle="modal" data-target="#Modal_loss_{{ product.faulty.id }}">Perte</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#Modal_piece_{{ product.faulty.id }}">Pièces détachées</a></li>
             </ul>
         </div>
     </td>
     </tr>
 
-    <!-- Modal -->
-    <div class="modal fade" id="MyModal_{{ product.faulty.id }}" tabindex="-1" role="dialog" aria-labelledby="MyModalTitle_{{ product.faulty.id }}" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="MyModalTitle_{{ product.faulty.id }}">Pièces détachées</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="detail">Détails</label>
-                        <textarea class="form-control" rows="3" id="detail_{{ product.faulty.id }}"></textarea>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <div id="msg"></div>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                    <button type="submit" class="btn btn-primary" onclick="goPiece(this.id);" id="{{ product.faulty.id }}" >Valider</button>
-                </div>
-            </div>
-        </div>
-    </div>
-{% endblock %}
+    {{ block('modal') }}
 
-{# Contenu du tableau pour les pertes #}
-{% block product_piece %}
-    <tr>
-    <td>{{ product.quantity }}</td>
-    <td><a href="{{ path('faulty_show', {'id': product.faulty.id}) }}">{{ product.name }}</a></td>
-    <td>{{ product.supplierReference }}</td>
-    {% if product.faulty.user != null %}
-        <td>{{ product.faulty.user.name }}</td>
-    {% else %}
-        <td>Pas de nom</td>
-    {% endif %}
-    <td>{{ product.faulty.reason }}</td>
-    <td>
-        <a href="{{ path('faulty_status_faulty', {'faulty':product.faulty.id, 'to':'refunded', 'return':status, 'supplier':supplier.id}) }}">
-            <button type="button" class="btn btn-success">Utiliser</button>
-        </a>
-    </td>
-    </tr>
 {% endblock %}
 
 {#Block concernant les renvois fournisseurs#}
@@ -121,37 +80,17 @@
                 <li><a href="{{ path('faulty_status_faulty', {'faulty':product.faulty.id, 'to':'mail_send', 'return':status, 'supplier':supplier.id}) }}">Mail envoyé</a></li>
                 <li><a href="{{ path('faulty_status_faulty', {'faulty':product.faulty.id, 'to':'balance', 'return':status, 'supplier':supplier.id}) }}">Renvoi du fournisseur</a></li>
                 <li><a href="{{ path('faulty_status_faulty', {'faulty':product.faulty.id, 'to':'refunded', 'return':status, 'supplier':supplier.id}) }}">Terminé / Remboursé</a></li>
-                <li><a href="{{ path('faulty_status_faulty', {'faulty':product.faulty.id, 'to':'loss', 'return':status, 'supplier':supplier.id}) }}">Perte</a></li>
-                <li><a href="#" data-toggle="modal" data-target="#MyModal_{{ product.faulty.id }}">Pièces détachées</a></li>
+                {#<li><a href="{{ path('faulty_status_faulty', {'faulty':product.faulty.id, 'to':'loss', 'return':status, 'supplier':supplier.id}) }}">Perte</a></li>#}
+                <li><a href="#" data-toggle="modal" data-target="#Modal_loss_{{ product.faulty.id }}">Perte</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#Modal_piece_{{ product.faulty.id }}">Pièces détachées</a></li>
             </ul>
         </div>
     </td>
     </tr>
 
-    <!-- Modal -->
-    <div class="modal fade" id="MyModal_{{ product.faulty.id }}" tabindex="-1" role="dialog" aria-labelledby="MyModalTitle_{{ product.faulty.id }}" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="MyModalTitle_{{ product.faulty.id }}">Pièces détachées</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="detail">Détails</label>
-                        <textarea class="form-control" rows="3" id="detail_{{ product.faulty.id }}"></textarea>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <div id="msg"></div>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                    <button type="submit" class="btn btn-primary" onclick="goPiece(this.id);" id="{{ product.faulty.id }}" >Valider</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    {{ block('modal') }}
+
+
 {% endblock %}
 
 {% block product %}
@@ -179,19 +118,100 @@
                     <li><a href="{{ path('faulty_status_faulty', {'faulty':product.faulty.id, 'to':'mail_send', 'return':status, 'supplier':supplier.id}) }}">Mail envoyé</a></li>
                     <li><a href="{{ path('faulty_status_faulty', {'faulty':product.faulty.id, 'to':'balance', 'return':status, 'supplier':supplier.id}) }}">Renvoi du fournisseur</a></li>
                     <li><a href="{{ path('faulty_status_faulty', {'faulty':product.faulty.id, 'to':'refunded', 'return':status, 'supplier':supplier.id}) }}">Terminé / Remboursé</a></li>
-                    <li><a href="{{ path('faulty_status_faulty', {'faulty':product.faulty.id, 'to':'loss', 'return':status, 'supplier':supplier.id}) }}">Perte</a></li>
-                    <li><a href="#" data-toggle="modal" data-target="#MyModal_{{ product.faulty.id }}">Pièces détachées</a></li>
+                    {#<li><a href="{{ path('faulty_status_faulty', {'faulty':product.faulty.id, 'to':'loss', 'return':status, 'supplier':supplier.id}) }}">Perte</a></li>#}
+                    <li><a href="#" data-toggle="modal" data-target="#Modal_loss_{{ product.faulty.id }}">Perte</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#Modal_piece_{{ product.faulty.id }}">Pièces détachées</a></li>
                 </ul>
             </div>
         </td>
     </tr>
 
-    <!-- Modal -->
-    <div class="modal fade" id="MyModal_{{ product.faulty.id }}" tabindex="-1" role="dialog" aria-labelledby="MyModalTitle_{{ product.faulty.id }}" aria-hidden="true">
+    {{ block('modal') }}
+
+{% endblock %}
+
+{# Contenu du tableau pour les pièces détachées #}
+{% block product_piece %}
+    <tr>
+        <td>{{ product.quantity }}</td>
+        <td><a href="{{ path('faulty_show', {'id': product.faulty.id}) }}">{{ product.name }}</a></td>
+        <td>{{ product.supplierReference }}</td>
+        {% if product.faulty.user != null %}
+            <td>{{ product.faulty.user.name }}</td>
+        {% else %}
+            <td>Pas de nom</td>
+        {% endif %}
+        <td>{{ product.faulty.reason }}</td>
+        <td>
+            <a href="{{ path('faulty_status_faulty', {'faulty':product.faulty.id, 'to':'refunded', 'return':status, 'supplier':supplier.id}) }}">
+                <button type="button" class="btn btn-success">Utiliser</button>
+            </a>
+            <a href="#" data-toggle="modal" data-target="#Modal_piece_{{ product.faulty.id }}">
+                <button type="button" class="btn btn-warning">Utiliser en partie</button>
+            </a>
+
+        </td>
+    </tr>
+
+    <!-- Modal pièces détachées -->
+    <div class="modal fade" id="Modal_piece_{{ product.faulty.id }}" tabindex="-1" role="dialog" aria-labelledby="Modal_piece_title_{{ product.faulty.id }}" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="MyModalTitle_{{ product.faulty.id }}">Pièces détachées</h5>
+                    <h5 class="modal-title" id="Modal_piece_title_{{ product.faulty.id }}">Pièces détachées</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="detail">Merci d'indiquer ce qui reste</label>
+                        <textarea class="form-control" rows="3" id="detail_piece_{{ product.faulty.id }}"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div id="msg_piece_{{ product.faulty.id }}"></div>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                    <button type="submit" class="btn btn-primary" onclick="goPiece(this.id);" id="btg_piece_{{ product.faulty.id }}" >Valider</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block modal %}
+    <!-- Modal perte -->
+    <div class="modal fade" id="Modal_loss_{{ product.faulty.id }}" tabindex="-1" role="dialog" aria-labelledby="Modal_loss_title_{{ product.faulty.id }}" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="Modal_loss_title_{{ product.faulty.id }}">Perte</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="detail">Montant du frais de port</label>
+                        <textarea class="form-control" placeholder="si zéro, laisser vide" rows="3" id="detail_loss_{{ product.faulty.id }}"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div id="msg_loss_{{ product.faulty.id }}"></div>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                    <button type="submit" class="btn btn-primary" onclick="goLoss(this.id);" id="btg_loss_{{ product.faulty.id }}" >Valider</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal pièces détachées -->
+    <div class="modal fade" id="Modal_piece_{{ product.faulty.id }}" tabindex="-1" role="dialog" aria-labelledby="Modal_piece_title_{{ product.faulty.id }}" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="Modal_piece_title_{{ product.faulty.id }}">Pièces détachées</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -199,18 +219,19 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="detail">Détails</label>
-                        <textarea class="form-control" rows="3" id="detail_{{ product.faulty.id }}"></textarea>
+                        <textarea class="form-control" rows="3" id="detail_piece_{{ product.faulty.id }}"></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <div id="msg"></div>
+                    <div id="msg_piece_{{ product.faulty.id }}"></div>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                    <button type="submit" class="btn btn-primary" onclick="goPiece(this.id);" id="{{ product.faulty.id }}" >Valider</button>
+                    <button type="submit" class="btn btn-primary" onclick="goPiece(this.id);" id="btg_piece_{{ product.faulty.id }}" >Valider</button>
                 </div>
             </div>
         </div>
     </div>
 {% endblock %}
+
 
 {% block table_head %}
 <table class="table table-bordered table-hover">
@@ -273,6 +294,14 @@
 
         {% block body %}
         <h1>Liste des produits par fournisseurs  </h1>
+            {% if status  == 'piece'  %}
+        {#Ajout d'un bouton pour ajouter directement un nouveau en piece detachees#}
+        <a class="btn btn-success" href="{{ path('faulty_new_piece') }}">
+            <span class="glyphicon glyphicon-plus"></span>
+            Ajouter un nouveau défectueux en pièces détachées
+        </a>
+        <br>  <br>
+        {% endif %}
 
 
         {% for supplier in suppliers %}

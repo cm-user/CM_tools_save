@@ -14,6 +14,10 @@ class ProductRepository
         $this->entityManager = $entityManager;
     }
 
+    public function findOneByFaultyId($id){
+        return $this->entityManager->getRepository('FaultyProductBundle:Product')->findOneBy(['faulty' => $id]);
+    }
+        
     public function findAll(){
         return $this->entityManager->getRepository('FaultyProductBundle:Product')->findAll();
     }

@@ -28,3 +28,7 @@ services:
      sc.repository.phone:
               class: CM\ServiceClientBundle\Repository\PhoneRepository
               arguments: ['@doctrine.orm.entity_manager']
+
+     sc.repository.attachment:
+          class: CM\ServiceClientBundle\Repository\AttachmentRepository
+          arguments: ['@doctrine.orm.entity_manager']

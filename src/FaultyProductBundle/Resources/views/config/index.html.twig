@@ -1,0 +1,22 @@
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <br><br>
+<div class="row">
+    <div class="col-lg-6">
+        <a href="{{ path("faulty_view_refunded", { 'intervalle': 3 }) }}">
+            <button class="btn btn-success">Suppression des images des défectueux</button>
+        </a>
+    </div>
+    <div class="col-lg-6">
+        <a href="{{ path("faultymail_index") }}">
+            <button class="btn btn-success">Configuration des mails</button>
+        </a>
+    </div>
+</div>
+
+{% endblock %}
+
+
+

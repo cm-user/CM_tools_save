@@ -1,0 +1,83 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Liste des produits défectueux terminés</h1>
+
+    <button class="btn btn-info" id="btn_display">Afficher les défectueux vieux de plus de</button>
+    <input id="input_intervalle" type="number" value="{{ intervalle }}">
+    <button class="btn btn-danger">Supprimer ces défectueux</button>
+
+    <br><br>
+
+    <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nom du produit</th>
+            <th>Statut</th>
+            <th>Déclarant</th>
+            <th>Date de création</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for faulty in faulties %}
+            {% if faulty.status == "new" %}
+                {% set class = 'info' %}
+            {% elseif faulty.status == 'mail_send' %}
+                {% set class = 'warning' %}
+            {% elseif faulty.status == 'refunded' %}
+                {% set class = 'success' %}
+            {% elseif faulty.status == 'balance' %}
+                {% set class = 'danger' %}
+            {% elseif faulty.status == 'loss' %}
+                {% set class = 'success' %}
+            {% elseif faulty.status == 'piece' %}
+                {% set class = 'success' %}
+            {% else %}
+                {% set class = '' %}
+            {% endif %}
+            <tr class="{{ class }}">
+                <td><a href="{{ path('faulty_show', { 'id': faulty.id }) }}">{{ faulty.id }}</a></td>
+                <td>{{ faulty.product.name }}</td>
+                <td>{{ faulty.formattedStatus }}</td>
+                {% if faulty.user.name is not defined %}
+                   <td></td>
+                {% else %}
+                    <td>{{ faulty.user.name }}</td>
+                {% endif %}
+                <td>{{ faulty.createdAt|date("Y-m-d H:i:s") }}</td>
+                <td>
+                    <a class="btn btn-info" href="{{ path('faulty_show', { 'id': faulty.id }) }}">
+                        <span class="glyphicon glyphicon-search"></span>
+                        Voir
+                    </a>
+                    -
+                    <a class="btn btn-warning" href="{{ path('faulty_edit', { 'id': faulty.id }) }}">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                        Modifier
+                    </a>
+                    - <a class="btn btn-danger" href="{{ path('faulty_delete_bybutton', { 'id': faulty.id }) }}">
+                        <span class="glyphicon glyphicon-remove"></span>
+                        Supprimer
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+
+    <a class="btn btn-danger" href="{{ path('faultyconfig_index') }}">
+        <span class="glyphicon glyphicon-arrow-left"></span>
+        Retour
+    </a>
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('bundles/faultyproduct/js/faulty_delete.js') }}"></script>
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+{% endblock %}

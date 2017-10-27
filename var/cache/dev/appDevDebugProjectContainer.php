@@ -262,6 +262,7 @@ class appDevDebugProjectContainer extends Container
             'router_listener' => 'getRouterListenerService',
             'routing.loader' => 'getRouting_LoaderService',
             'sc.configure_menu_listener' => 'getSc_ConfigureMenuListenerService',
+            'sc.repository.attachment' => 'getSc_Repository_AttachmentService',
             'sc.repository.branch' => 'getSc_Repository_BranchService',
             'sc.repository.guide' => 'getSc_Repository_GuideService',
             'sc.repository.mail' => 'getSc_Repository_MailService',
@@ -269,11 +270,10 @@ class appDevDebugProjectContainer extends Container
             'sc.repository.solution' => 'getSc_Repository_SolutionService',
             'security.access.authenticated_voter' => 'getSecurity_Access_AuthenticatedVoterService',
             'security.access.expression_voter' => 'getSecurity_Access_ExpressionVoterService',
-            'security.access.role_hierarchy_voter' => 'getSecurity_Access_RoleHierarchyVoterService',
+            'security.access.simple_role_voter' => 'getSecurity_Access_SimpleRoleVoterService',
             'security.authentication.guard_handler' => 'getSecurity_Authentication_GuardHandlerService',
             'security.authentication.manager' => 'getSecurity_Authentication_ManagerService',
-            'security.authentication.provider.anonymous.user_secured_area' => 'getSecurity_Authentication_Provider_Anonymous_UserSecuredAreaService',
-            'security.authentication.provider.dao.user_secured_area' => 'getSecurity_Authentication_Provider_Dao_UserSecuredAreaService',
+            'security.authentication.provider.anonymous.main' => 'getSecurity_Authentication_Provider_Anonymous_MainService',
             'security.authentication.trust_resolver' => 'getSecurity_Authentication_TrustResolverService',
             'security.authentication_utils' => 'getSecurity_AuthenticationUtilsService',
             'security.authorization_checker' => 'getSecurity_AuthorizationCheckerService',
@@ -281,11 +281,12 @@ class appDevDebugProjectContainer extends Container
             'security.encoder_factory' => 'getSecurity_EncoderFactoryService',
             'security.firewall' => 'getSecurity_FirewallService',
             'security.firewall.map' => 'getSecurity_Firewall_MapService',
-            'security.firewall.map.context.user_secured_area' => 'getSecurity_Firewall_Map_Context_UserSecuredAreaService',
+            'security.firewall.map.context.dev' => 'getSecurity_Firewall_Map_Context_DevService',
+            'security.firewall.map.context.main' => 'getSecurity_Firewall_Map_Context_MainService',
             'security.logout_url_generator' => 'getSecurity_LogoutUrlGeneratorService',
             'security.password_encoder' => 'getSecurity_PasswordEncoderService',
             'security.rememberme.response_listener' => 'getSecurity_Rememberme_ResponseListenerService',
-            'security.request_matcher.a64d671f18e5575531d76c1d1154fdc4476cb8a79c02ed7a3469178c6d7b96b5ed4e60db' => 'getSecurity_RequestMatcher_A64d671f18e5575531d76c1d1154fdc4476cb8a79c02ed7a3469178c6d7b96b5ed4e60dbService',
+            'security.request_matcher.5314eeb91110adf24b9b678372bb11bbe00e8858c519c088bfb65f525181ad3bf573fd1d' => 'getSecurity_RequestMatcher_5314eeb91110adf24b9b678372bb11bbe00e8858c519c088bfb65f525181ad3bf573fd1dService',
             'security.role_hierarchy' => 'getSecurity_RoleHierarchyService',
             'security.token_storage' => 'getSecurity_TokenStorageService',
             'security.user_value_resolver' => 'getSecurity_UserValueResolverService',
@@ -413,14 +414,13 @@ class appDevDebugProjectContainer extends Container
             'router.request_context' => true,
             'security.access.authenticated_voter' => true,
             'security.access.expression_voter' => true,
-            'security.access.role_hierarchy_voter' => true,
+            'security.access.simple_role_voter' => true,
             'security.authentication.manager' => true,
-            'security.authentication.provider.anonymous.user_secured_area' => true,
-            'security.authentication.provider.dao.user_secured_area' => true,
+            'security.authentication.provider.anonymous.main' => true,
             'security.authentication.trust_resolver' => true,
             'security.firewall.map' => true,
             'security.logout_url_generator' => true,
-            'security.request_matcher.a64d671f18e5575531d76c1d1154fdc4476cb8a79c02ed7a3469178c6d7b96b5ed4e60db' => true,
+            'security.request_matcher.5314eeb91110adf24b9b678372bb11bbe00e8858c519c088bfb65f525181ad3bf573fd1d' => true,
             'security.role_hierarchy' => true,
             'security.user_value_resolver' => true,
             'service_locator.e64d23c3bf770e2cf44b71643280668d' => true,
@@ -628,7 +628,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getConsole_Command_SymfonyBundleSecuritybundleCommandUserpasswordencodercommandService()
     {
-        return $this->services['console.command.symfony_bundle_securitybundle_command_userpasswordencodercommand'] = new \Symfony\Bundle\SecurityBundle\Command\UserPasswordEncoderCommand(${($_ = isset($this->services['security.encoder_factory']) ? $this->services['security.encoder_factory'] : $this->get('security.encoder_factory')) && false ?: '_'}, array(0 => 'FaultyProductBundle\\Entity\\User'));
+        return $this->services['console.command.symfony_bundle_securitybundle_command_userpasswordencodercommand'] = new \Symfony\Bundle\SecurityBundle\Command\UserPasswordEncoderCommand(${($_ = isset($this->services['security.encoder_factory']) ? $this->services['security.encoder_factory'] : $this->get('security.encoder_factory')) && false ?: '_'}, array());
     }
 
     /**
@@ -3566,6 +3566,19 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
+     * Gets the 'sc.repository.attachment' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \CM\ServiceClientBundle\Repository\AttachmentRepository A CM\ServiceClientBundle\Repository\AttachmentRepository instance
+     */
+    protected function getSc_Repository_AttachmentService()
+    {
+        return $this->services['sc.repository.attachment'] = new \CM\ServiceClientBundle\Repository\AttachmentRepository(${($_ = isset($this->services['doctrine.orm.marketing_entity_manager']) ? $this->services['doctrine.orm.marketing_entity_manager'] : $this->get('doctrine.orm.marketing_entity_manager')) && false ?: '_'});
+    }
+
+    /**
      * Gets the 'sc.repository.branch' service.
      *
      * This service is shared.
@@ -3692,7 +3705,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSecurity_EncoderFactoryService()
     {
-        return $this->services['security.encoder_factory'] = new \Symfony\Component\Security\Core\Encoder\EncoderFactory(array('FaultyProductBundle\\Entity\\User' => array('algorithm' => 'sha512', 'hash_algorithm' => 'sha512', 'key_length' => 40, 'ignore_case' => false, 'encode_as_base64' => true, 'iterations' => 5000, 'cost' => 13)));
+        return $this->services['security.encoder_factory'] = new \Symfony\Component\Security\Core\Encoder\EncoderFactory(array());
     }
 
     /**
@@ -3709,72 +3722,37 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
-     * Gets the 'security.firewall.map.context.user_secured_area' service.
+     * Gets the 'security.firewall.map.context.dev' service.
      *
      * This service is shared.
      * This method always returns the same instance of the service.
      *
      * @return \Symfony\Bundle\SecurityBundle\Security\FirewallContext A Symfony\Bundle\SecurityBundle\Security\FirewallContext instance
      */
-    protected function getSecurity_Firewall_Map_Context_UserSecuredAreaService()
+    protected function getSecurity_Firewall_Map_Context_DevService()
+    {
+        return $this->services['security.firewall.map.context.dev'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(), NULL, new \Symfony\Bundle\SecurityBundle\Security\FirewallConfig('dev', 'security.user_checker', 'security.request_matcher.5314eeb91110adf24b9b678372bb11bbe00e8858c519c088bfb65f525181ad3bf573fd1d', false, '', '', '', '', '', '', array()));
+    }
+
+    /**
+     * Gets the 'security.firewall.map.context.main' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \Symfony\Bundle\SecurityBundle\Security\FirewallContext A Symfony\Bundle\SecurityBundle\Security\FirewallContext instance
+     */
+    protected function getSecurity_Firewall_Map_Context_MainService()
     {
         $a = ${($_ = isset($this->services['monolog.logger.security']) ? $this->services['monolog.logger.security'] : $this->get('monolog.logger.security', ContainerInterface::NULL_ON_INVALID_REFERENCE)) && false ?: '_'};
-        $b = ${($_ = isset($this->services['faulty.repository.user']) ? $this->services['faulty.repository.user'] : $this->get('faulty.repository.user')) && false ?: '_'};
-        $c = ${($_ = isset($this->services['security.token_storage']) ? $this->services['security.token_storage'] : $this->get('security.token_storage')) && false ?: '_'};
-        $d = ${($_ = isset($this->services['debug.event_dispatcher']) ? $this->services['debug.event_dispatcher'] : $this->get('debug.event_dispatcher', ContainerInterface::NULL_ON_INVALID_REFERENCE)) && false ?: '_'};
-        $e = ${($_ = isset($this->services['security.authentication.trust_resolver']) ? $this->services['security.authentication.trust_resolver'] : $this->getSecurity_Authentication_TrustResolverService()) && false ?: '_'};
-        $f = ${($_ = isset($this->services['router']) ? $this->services['router'] : $this->get('router', ContainerInterface::NULL_ON_INVALID_REFERENCE)) && false ?: '_'};
-        $g = ${($_ = isset($this->services['http_kernel']) ? $this->services['http_kernel'] : $this->get('http_kernel')) && false ?: '_'};
-        $h = ${($_ = isset($this->services['security.authentication.manager']) ? $this->services['security.authentication.manager'] : $this->getSecurity_Authentication_ManagerService()) && false ?: '_'};
+        $b = ${($_ = isset($this->services['security.token_storage']) ? $this->services['security.token_storage'] : $this->get('security.token_storage')) && false ?: '_'};
+        $c = ${($_ = isset($this->services['security.authentication.trust_resolver']) ? $this->services['security.authentication.trust_resolver'] : $this->getSecurity_Authentication_TrustResolverService()) && false ?: '_'};
+        $d = ${($_ = isset($this->services['security.authentication.manager']) ? $this->services['security.authentication.manager'] : $this->getSecurity_Authentication_ManagerService()) && false ?: '_'};
+        $e = ${($_ = isset($this->services['router']) ? $this->services['router'] : $this->get('router', ContainerInterface::NULL_ON_INVALID_REFERENCE)) && false ?: '_'};
 
-        $i = new \Symfony\Component\HttpFoundation\RequestMatcher('^/user/login', NULL, array(), array(0 => '176.145.237.59', 1 => '37.58.179.194', 2 => '127.0.0.1', 3 => '192.168.1.7', 4 => '31.36.170.230'));
+        $f = new \Symfony\Component\Security\Http\AccessMap();
 
-        $j = new \Symfony\Component\HttpFoundation\RequestMatcher('^/user/register', NULL, array(), array(0 => '176.145.237.59', 1 => '37.58.179.194', 2 => '127.0.0.1', 3 => '192.168.1.7', 4 => '31.36.170.230'));
-
-        $k = new \Symfony\Component\HttpFoundation\RequestMatcher('^/user');
-
-        $l = new \Symfony\Component\HttpFoundation\RequestMatcher('^/marketing');
-
-        $m = new \Symfony\Component\HttpFoundation\RequestMatcher('^/moderate_review');
-
-        $n = new \Symfony\Component\HttpFoundation\RequestMatcher('^/picture_crawler');
-
-        $o = new \Symfony\Component\HttpFoundation\RequestMatcher('^/faulty');
-
-        $p = new \Symfony\Component\HttpFoundation\RequestMatcher('^/shop');
-
-        $q = new \Symfony\Component\HttpFoundation\RequestMatcher('^/mail_signature');
-
-        $r = new \Symfony\Component\HttpFoundation\RequestMatcher('^/', NULL, array(), array(0 => '176.145.237.59', 1 => '37.58.179.194', 2 => '127.0.0.1', 3 => '192.168.1.7', 4 => '31.36.170.230'));
-
-        $s = new \Symfony\Component\HttpFoundation\RequestMatcher('^/');
-
-        $t = new \Symfony\Component\Security\Http\AccessMap();
-        $t->add($i, array(0 => 'IS_AUTHENTICATED_ANONYMOUSLY'), NULL);
-        $t->add($j, array(0 => 'IS_AUTHENTICATED_ANONYMOUSLY'), NULL);
-        $t->add($k, array(0 => 'ROLE_USER'), NULL);
-        $t->add($l, array(0 => 'ROLE_USER'), NULL);
-        $t->add($m, array(0 => 'ROLE_USER'), NULL);
-        $t->add($n, array(0 => 'ROLE_USER'), NULL);
-        $t->add($o, array(0 => 'ROLE_USER'), NULL);
-        $t->add($p, array(0 => 'ROLE_USER'), NULL);
-        $t->add($q, array(0 => 'ROLE_USER'), NULL);
-        $t->add($r, array(0 => 'IS_AUTHENTICATED_ANONYMOUSLY'), NULL);
-        $t->add($s, array(0 => 'ROLE_NO_ACCESS'), NULL);
-
-        $u = new \Symfony\Component\Security\Http\HttpUtils($f, $f);
-
-        $v = new \Symfony\Component\Security\Http\Firewall\LogoutListener($c, $u, new \Symfony\Component\Security\Http\Logout\DefaultLogoutSuccessHandler($u, '/'), array('csrf_parameter' => '_csrf_token', 'csrf_token_id' => 'logout', 'logout_path' => '/user/logout'));
-        $v->addHandler(new \Symfony\Component\Security\Http\Logout\SessionLogoutHandler());
-
-        $w = new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationSuccessHandler($u, array());
-        $w->setOptions(array('login_path' => '/user/login', 'always_use_default_target_path' => false, 'default_target_path' => '/', 'target_path_parameter' => '_target_path', 'use_referer' => false));
-        $w->setProviderKey('user_secured_area');
-
-        $x = new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationFailureHandler($g, $u, array(), $a);
-        $x->setOptions(array('login_path' => '/user/login', 'failure_path' => NULL, 'failure_forward' => false, 'failure_path_parameter' => '_failure_path'));
-
-        return $this->services['security.firewall.map.context.user_secured_area'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($t, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($c, array(0 => new \Symfony\Component\Security\Core\User\ChainUserProvider(array(0 => $b)), 1 => $b), 'user', $a, $d, $e), 2 => $v, 3 => new \Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener($c, $h, new \Symfony\Component\Security\Http\Session\SessionAuthenticationStrategy('migrate'), $u, 'user_secured_area', $w, $x, array('check_path' => '/user/login', 'use_forward' => false, 'require_previous_session' => true, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'csrf_token_id' => 'authenticate', 'post_only' => true), $a, $d, NULL), 4 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($c, '59e08497e557d2.94029525', $a, $h), 5 => new \Symfony\Component\Security\Http\Firewall\AccessListener($c, ${($_ = isset($this->services['debug.security.access.decision_manager']) ? $this->services['debug.security.access.decision_manager'] : $this->getDebug_Security_Access_DecisionManagerService()) && false ?: '_'}, $t, $h)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($c, $e, $u, 'user_secured_area', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($g, $u, '/user/login', false), NULL, NULL, $a, false), new \Symfony\Bundle\SecurityBundle\Security\FirewallConfig('user_secured_area', 'security.user_checker', 'security.request_matcher.a64d671f18e5575531d76c1d1154fdc4476cb8a79c02ed7a3469178c6d7b96b5ed4e60db', true, false, 'security.user.provider.concrete.chain_provider', 'user', 'security.authentication.form_entry_point.user_secured_area', NULL, NULL, array(0 => 'logout', 1 => 'form_login', 2 => 'anonymous')));
+        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($f, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => new \Symfony\Component\Security\Core\User\InMemoryUserProvider()), 'main', $a, ${($_ = isset($this->services['debug.event_dispatcher']) ? $this->services['debug.event_dispatcher'] : $this->get('debug.event_dispatcher', ContainerInterface::NULL_ON_INVALID_REFERENCE)) && false ?: '_'}, $c), 2 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '59f30158de3df5.71193655', $a, $d), 3 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, ${($_ = isset($this->services['debug.security.access.decision_manager']) ? $this->services['debug.security.access.decision_manager'] : $this->getDebug_Security_Access_DecisionManagerService()) && false ?: '_'}, $f, $d)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $c, new \Symfony\Component\Security\Http\HttpUtils($e, $e), 'main', NULL, NULL, NULL, $a, false), new \Symfony\Bundle\SecurityBundle\Security\FirewallConfig('main', 'security.user_checker', NULL, true, false, 'security.user.provider.concrete.in_memory', 'main', NULL, NULL, NULL, array(0 => 'anonymous')));
     }
 
     /**
@@ -4659,7 +4637,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getUnicornUser_Entity_RolesService()
     {
-        return $this->services['unicorn_user.entity.roles'] = new \Unicorn\Bundle\UserBundle\Entity\RolesHelper(array('ROLE_NEWSLETTER' => array(0 => 'ROLE_USER'), 'ROLE_MODERATE_REVIEW' => array(0 => 'ROLE_USER'), 'ROLE_FAULTY' => array(0 => 'ROLE_USER'), 'ROLE_MAIL_SIGNATURE' => array(0 => 'ROLE_USER'), 'ROLE_SHOP' => array(0 => 'ROLE_USER'), 'ROLE_ADMIN' => array(0 => 'ROLE_NEWSLETTER', 1 => 'ROLE_MODERATE_REVIEW', 2 => 'ROLE_FAULTY', 3 => 'ROLE_MAIL_SIGNATURE', 4 => 'ROLE_SHOP'), 'ROLE_SUPER_ADMIN' => array(0 => 'ROLE_ADMIN', 1 => 'ROLE_ALLOWED_TO_SWITCH')));
+        return $this->services['unicorn_user.entity.roles'] = new \Unicorn\Bundle\UserBundle\Entity\RolesHelper(array());
     }
 
     /**
@@ -5105,7 +5083,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getCache_Annotations_RecorderInnerService($lazyLoad = true)
     {
-        return $this->services['cache.annotations.recorder_inner'] = \Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('QemlUWULeZ', 0, 'O-zBRgzEbiriPvbMuj267s', (__DIR__.'/pools'), ${($_ = isset($this->services['monolog.logger.cache']) ? $this->services['monolog.logger.cache'] : $this->get('monolog.logger.cache', ContainerInterface::NULL_ON_INVALID_REFERENCE)) && false ?: '_'});
+        return $this->services['cache.annotations.recorder_inner'] = \Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('QemlUWULeZ', 0, 'LqA8tambSjisu4eX9Gfonj', (__DIR__.'/pools'), ${($_ = isset($this->services['monolog.logger.cache']) ? $this->services['monolog.logger.cache'] : $this->get('monolog.logger.cache', ContainerInterface::NULL_ON_INVALID_REFERENCE)) && false ?: '_'});
     }
 
     /**
@@ -5166,7 +5144,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getCache_Serializer_RecorderInnerService($lazyLoad = true)
     {
-        return $this->services['cache.serializer.recorder_inner'] = \Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('mi4J1tT7oW', 0, 'O-zBRgzEbiriPvbMuj267s', (__DIR__.'/pools'), ${($_ = isset($this->services['monolog.logger.cache']) ? $this->services['monolog.logger.cache'] : $this->get('monolog.logger.cache', ContainerInterface::NULL_ON_INVALID_REFERENCE)) && false ?: '_'});
+        return $this->services['cache.serializer.recorder_inner'] = \Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('mi4J1tT7oW', 0, 'LqA8tambSjisu4eX9Gfonj', (__DIR__.'/pools'), ${($_ = isset($this->services['monolog.logger.cache']) ? $this->services['monolog.logger.cache'] : $this->get('monolog.logger.cache', ContainerInterface::NULL_ON_INVALID_REFERENCE)) && false ?: '_'});
     }
 
     /**
@@ -5185,7 +5163,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getCache_System_RecorderInnerService($lazyLoad = true)
     {
-        return $this->services['cache.system.recorder_inner'] = \Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('gAB2ogJIRz', 0, 'O-zBRgzEbiriPvbMuj267s', (__DIR__.'/pools'), ${($_ = isset($this->services['monolog.logger.cache']) ? $this->services['monolog.logger.cache'] : $this->get('monolog.logger.cache', ContainerInterface::NULL_ON_INVALID_REFERENCE)) && false ?: '_'});
+        return $this->services['cache.system.recorder_inner'] = \Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('gAB2ogJIRz', 0, 'LqA8tambSjisu4eX9Gfonj', (__DIR__.'/pools'), ${($_ = isset($this->services['monolog.logger.cache']) ? $this->services['monolog.logger.cache'] : $this->get('monolog.logger.cache', ContainerInterface::NULL_ON_INVALID_REFERENCE)) && false ?: '_'});
     }
 
     /**
@@ -5221,7 +5199,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getCache_Validator_RecorderInnerService($lazyLoad = true)
     {
-        return $this->services['cache.validator.recorder_inner'] = \Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('LjL1EW4zgF', 0, 'O-zBRgzEbiriPvbMuj267s', (__DIR__.'/pools'), ${($_ = isset($this->services['monolog.logger.cache']) ? $this->services['monolog.logger.cache'] : $this->get('monolog.logger.cache', ContainerInterface::NULL_ON_INVALID_REFERENCE)) && false ?: '_'});
+        return $this->services['cache.validator.recorder_inner'] = \Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('LjL1EW4zgF', 0, 'LqA8tambSjisu4eX9Gfonj', (__DIR__.'/pools'), ${($_ = isset($this->services['monolog.logger.cache']) ? $this->services['monolog.logger.cache'] : $this->get('monolog.logger.cache', ContainerInterface::NULL_ON_INVALID_REFERENCE)) && false ?: '_'});
     }
 
     /**
@@ -5308,7 +5286,7 @@ class appDevDebugProjectContainer extends Container
     {
         return $this->services['debug.security.access.decision_manager'] = new \Symfony\Component\Security\Core\Authorization\TraceableAccessDecisionManager(new \Symfony\Component\Security\Core\Authorization\AccessDecisionManager(new RewindableGenerator(function () {
             yield 0 => ${($_ = isset($this->services['security.access.authenticated_voter']) ? $this->services['security.access.authenticated_voter'] : $this->getSecurity_Access_AuthenticatedVoterService()) && false ?: '_'};
-            yield 1 => ${($_ = isset($this->services['security.access.role_hierarchy_voter']) ? $this->services['security.access.role_hierarchy_voter'] : $this->getSecurity_Access_RoleHierarchyVoterService()) && false ?: '_'};
+            yield 1 => ${($_ = isset($this->services['security.access.simple_role_voter']) ? $this->services['security.access.simple_role_voter'] : $this->getSecurity_Access_SimpleRoleVoterService()) && false ?: '_'};
             yield 2 => ${($_ = isset($this->services['security.access.expression_voter']) ? $this->services['security.access.expression_voter'] : $this->getSecurity_Access_ExpressionVoterService()) && false ?: '_'};
         }, 3), 'affirmative', false, true));
     }
@@ -5688,7 +5666,7 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
-     * Gets the 'security.access.role_hierarchy_voter' service.
+     * Gets the 'security.access.simple_role_voter' service.
      *
      * This service is shared.
      * This method always returns the same instance of the service.
@@ -5697,11 +5675,11 @@ class appDevDebugProjectContainer extends Container
      * If you want to be able to request this service from the container directly,
      * make it public, otherwise you might end up with broken code.
      *
-     * @return \Symfony\Component\Security\Core\Authorization\Voter\RoleHierarchyVoter A Symfony\Component\Security\Core\Authorization\Voter\RoleHierarchyVoter instance
+     * @return \Symfony\Component\Security\Core\Authorization\Voter\RoleVoter A Symfony\Component\Security\Core\Authorization\Voter\RoleVoter instance
      */
-    protected function getSecurity_Access_RoleHierarchyVoterService()
+    protected function getSecurity_Access_SimpleRoleVoterService()
     {
-        return $this->services['security.access.role_hierarchy_voter'] = new \Symfony\Component\Security\Core\Authorization\Voter\RoleHierarchyVoter(${($_ = isset($this->services['security.role_hierarchy']) ? $this->services['security.role_hierarchy'] : $this->getSecurity_RoleHierarchyService()) && false ?: '_'});
+        return $this->services['security.access.simple_role_voter'] = new \Symfony\Component\Security\Core\Authorization\Voter\RoleVoter();
     }
 
     /**
@@ -5719,9 +5697,8 @@ class appDevDebugProjectContainer extends Container
     protected function getSecurity_Authentication_ManagerService()
     {
         $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(new RewindableGenerator(function () {
-            yield 0 => ${($_ = isset($this->services['security.authentication.provider.dao.user_secured_area']) ? $this->services['security.authentication.provider.dao.user_secured_area'] : $this->getSecurity_Authentication_Provider_Dao_UserSecuredAreaService()) && false ?: '_'};
-            yield 1 => ${($_ = isset($this->services['security.authentication.provider.anonymous.user_secured_area']) ? $this->services['security.authentication.provider.anonymous.user_secured_area'] : $this->getSecurity_Authentication_Provider_Anonymous_UserSecuredAreaService()) && false ?: '_'};
-        }, 2), true);
+            yield 0 => ${($_ = isset($this->services['security.authentication.provider.anonymous.main']) ? $this->services['security.authentication.provider.anonymous.main'] : $this->getSecurity_Authentication_Provider_Anonymous_MainService()) && false ?: '_'};
+        }, 1), true);
 
         $instance->setEventDispatcher(${($_ = isset($this->services['debug.event_dispatcher']) ? $this->services['debug.event_dispatcher'] : $this->get('debug.event_dispatcher')) && false ?: '_'});
 
@@ -5729,7 +5706,7 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
-     * Gets the 'security.authentication.provider.anonymous.user_secured_area' service.
+     * Gets the 'security.authentication.provider.anonymous.main' service.
      *
      * This service is shared.
      * This method always returns the same instance of the service.
@@ -5740,26 +5717,9 @@ class appDevDebugProjectContainer extends Container
      *
      * @return \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider A Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider instance
      */
-    protected function getSecurity_Authentication_Provider_Anonymous_UserSecuredAreaService()
+    protected function getSecurity_Authentication_Provider_Anonymous_MainService()
     {
-        return $this->services['security.authentication.provider.anonymous.user_secured_area'] = new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('59e08497e557d2.94029525');
-    }
-
-    /**
-     * Gets the 'security.authentication.provider.dao.user_secured_area' service.
-     *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * This service is private.
-     * If you want to be able to request this service from the container directly,
-     * make it public, otherwise you might end up with broken code.
-     *
-     * @return \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider A Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider instance
-     */
-    protected function getSecurity_Authentication_Provider_Dao_UserSecuredAreaService()
-    {
-        return $this->services['security.authentication.provider.dao.user_secured_area'] = new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider(${($_ = isset($this->services['faulty.repository.user']) ? $this->services['faulty.repository.user'] : $this->get('faulty.repository.user')) && false ?: '_'}, new \Symfony\Component\Security\Core\User\UserChecker(), 'user_secured_area', ${($_ = isset($this->services['security.encoder_factory']) ? $this->services['security.encoder_factory'] : $this->get('security.encoder_factory')) && false ?: '_'}, true);
+        return $this->services['security.authentication.provider.anonymous.main'] = new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('59f30158de3df5.71193655');
     }
 
     /**
@@ -5793,11 +5753,14 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSecurity_Firewall_MapService()
     {
-        return $this->services['security.firewall.map'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallMap(new \Symfony\Component\DependencyInjection\ServiceLocator(array('security.firewall.map.context.user_secured_area' => function () {
-            return ${($_ = isset($this->services['security.firewall.map.context.user_secured_area']) ? $this->services['security.firewall.map.context.user_secured_area'] : $this->get('security.firewall.map.context.user_secured_area')) && false ?: '_'};
+        return $this->services['security.firewall.map'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallMap(new \Symfony\Component\DependencyInjection\ServiceLocator(array('security.firewall.map.context.dev' => function () {
+            return ${($_ = isset($this->services['security.firewall.map.context.dev']) ? $this->services['security.firewall.map.context.dev'] : $this->get('security.firewall.map.context.dev')) && false ?: '_'};
+        }, 'security.firewall.map.context.main' => function () {
+            return ${($_ = isset($this->services['security.firewall.map.context.main']) ? $this->services['security.firewall.map.context.main'] : $this->get('security.firewall.map.context.main')) && false ?: '_'};
         })), new RewindableGenerator(function () {
-            yield 'security.firewall.map.context.user_secured_area' => ${($_ = isset($this->services['security.request_matcher.a64d671f18e5575531d76c1d1154fdc4476cb8a79c02ed7a3469178c6d7b96b5ed4e60db']) ? $this->services['security.request_matcher.a64d671f18e5575531d76c1d1154fdc4476cb8a79c02ed7a3469178c6d7b96b5ed4e60db'] : $this->getSecurity_RequestMatcher_A64d671f18e5575531d76c1d1154fdc4476cb8a79c02ed7a3469178c6d7b96b5ed4e60dbService()) && false ?: '_'};
-        }, 1));
+            yield 'security.firewall.map.context.dev' => ${($_ = isset($this->services['security.request_matcher.5314eeb91110adf24b9b678372bb11bbe00e8858c519c088bfb65f525181ad3bf573fd1d']) ? $this->services['security.request_matcher.5314eeb91110adf24b9b678372bb11bbe00e8858c519c088bfb65f525181ad3bf573fd1d'] : $this->getSecurity_RequestMatcher_5314eeb91110adf24b9b678372bb11bbe00e8858c519c088bfb65f525181ad3bf573fd1dService()) && false ?: '_'};
+            yield 'security.firewall.map.context.main' => NULL;
+        }, 2));
     }
 
     /**
@@ -5814,15 +5777,11 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSecurity_LogoutUrlGeneratorService()
     {
-        $this->services['security.logout_url_generator'] = $instance = new \Symfony\Component\Security\Http\Logout\LogoutUrlGenerator(${($_ = isset($this->services['request_stack']) ? $this->services['request_stack'] : $this->get('request_stack', ContainerInterface::NULL_ON_INVALID_REFERENCE)) && false ?: '_'}, ${($_ = isset($this->services['router']) ? $this->services['router'] : $this->get('router', ContainerInterface::NULL_ON_INVALID_REFERENCE)) && false ?: '_'}, ${($_ = isset($this->services['security.token_storage']) ? $this->services['security.token_storage'] : $this->get('security.token_storage', ContainerInterface::NULL_ON_INVALID_REFERENCE)) && false ?: '_'});
-
-        $instance->registerListener('user_secured_area', '/user/logout', 'logout', '_csrf_token', NULL, 'user');
-
-        return $instance;
+        return $this->services['security.logout_url_generator'] = new \Symfony\Component\Security\Http\Logout\LogoutUrlGenerator(${($_ = isset($this->services['request_stack']) ? $this->services['request_stack'] : $this->get('request_stack', ContainerInterface::NULL_ON_INVALID_REFERENCE)) && false ?: '_'}, ${($_ = isset($this->services['router']) ? $this->services['router'] : $this->get('router', ContainerInterface::NULL_ON_INVALID_REFERENCE)) && false ?: '_'}, ${($_ = isset($this->services['security.token_storage']) ? $this->services['security.token_storage'] : $this->get('security.token_storage', ContainerInterface::NULL_ON_INVALID_REFERENCE)) && false ?: '_'});
     }
 
     /**
-     * Gets the 'security.request_matcher.a64d671f18e5575531d76c1d1154fdc4476cb8a79c02ed7a3469178c6d7b96b5ed4e60db' service.
+     * Gets the 'security.request_matcher.5314eeb91110adf24b9b678372bb11bbe00e8858c519c088bfb65f525181ad3bf573fd1d' service.
      *
      * This service is shared.
      * This method always returns the same instance of the service.
@@ -5833,9 +5792,9 @@ class appDevDebugProjectContainer extends Container
      *
      * @return \Symfony\Component\HttpFoundation\RequestMatcher A Symfony\Component\HttpFoundation\RequestMatcher instance
      */
-    protected function getSecurity_RequestMatcher_A64d671f18e5575531d76c1d1154fdc4476cb8a79c02ed7a3469178c6d7b96b5ed4e60dbService()
+    protected function getSecurity_RequestMatcher_5314eeb91110adf24b9b678372bb11bbe00e8858c519c088bfb65f525181ad3bf573fd1dService()
     {
-        return $this->services['security.request_matcher.a64d671f18e5575531d76c1d1154fdc4476cb8a79c02ed7a3469178c6d7b96b5ed4e60db'] = new \Symfony\Component\HttpFoundation\RequestMatcher('^/');
+        return $this->services['security.request_matcher.5314eeb91110adf24b9b678372bb11bbe00e8858c519c088bfb65f525181ad3bf573fd1d'] = new \Symfony\Component\HttpFoundation\RequestMatcher('^/(_(profiler|wdt)|css|images|js)/');
     }
 
     /**
@@ -5852,7 +5811,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSecurity_RoleHierarchyService()
     {
-        return $this->services['security.role_hierarchy'] = new \Symfony\Component\Security\Core\Role\RoleHierarchy(array('ROLE_NEWSLETTER' => array(0 => 'ROLE_USER'), 'ROLE_MODERATE_REVIEW' => array(0 => 'ROLE_USER'), 'ROLE_FAULTY' => array(0 => 'ROLE_USER'), 'ROLE_MAIL_SIGNATURE' => array(0 => 'ROLE_USER'), 'ROLE_SHOP' => array(0 => 'ROLE_USER'), 'ROLE_ADMIN' => array(0 => 'ROLE_NEWSLETTER', 1 => 'ROLE_MODERATE_REVIEW', 2 => 'ROLE_FAULTY', 3 => 'ROLE_MAIL_SIGNATURE', 4 => 'ROLE_SHOP'), 'ROLE_SUPER_ADMIN' => array(0 => 'ROLE_ADMIN', 1 => 'ROLE_ALLOWED_TO_SWITCH')));
+        return $this->services['security.role_hierarchy'] = new \Symfony\Component\Security\Core\Role\RoleHierarchy(array());
     }
 
     /**
@@ -6022,6 +5981,7 @@ class appDevDebugProjectContainer extends Container
         'kernel.logs_dir' => false,
         'kernel.bundles_metadata' => false,
         'picturecrawler' => false,
+        'attachment_directory' => false,
         'banner_directory' => false,
         'carousel_directory' => false,
         'product_directory' => false,
@@ -6209,6 +6169,7 @@ class appDevDebugProjectContainer extends Container
                 ),
             ); break;
             case 'picturecrawler': $value = ($this->targetDirs[3].'\\app/../web/picturecrawler'); break;
+            case 'attachment_directory': $value = ($this->targetDirs[3].'/web/attachment/'); break;
             case 'banner_directory': $value = ($this->targetDirs[3].'\\app/../web/upload'); break;
             case 'carousel_directory': $value = ($this->targetDirs[3].'\\app/../web/carousel'); break;
             case 'product_directory': $value = ($this->targetDirs[3].'\\app/../web/upload'); break;
@@ -6348,32 +6309,7 @@ class appDevDebugProjectContainer extends Container
             'security.authentication.trust_resolver.anonymous_class' => 'Symfony\\Component\\Security\\Core\\Authentication\\Token\\AnonymousToken',
             'security.authentication.trust_resolver.rememberme_class' => 'Symfony\\Component\\Security\\Core\\Authentication\\Token\\RememberMeToken',
             'security.role_hierarchy.roles' => array(
-                'ROLE_NEWSLETTER' => array(
-                    0 => 'ROLE_USER',
-                ),
-                'ROLE_MODERATE_REVIEW' => array(
-                    0 => 'ROLE_USER',
-                ),
-                'ROLE_FAULTY' => array(
-                    0 => 'ROLE_USER',
-                ),
-                'ROLE_MAIL_SIGNATURE' => array(
-                    0 => 'ROLE_USER',
-                ),
-                'ROLE_SHOP' => array(
-                    0 => 'ROLE_USER',
-                ),
-                'ROLE_ADMIN' => array(
-                    0 => 'ROLE_NEWSLETTER',
-                    1 => 'ROLE_MODERATE_REVIEW',
-                    2 => 'ROLE_FAULTY',
-                    3 => 'ROLE_MAIL_SIGNATURE',
-                    4 => 'ROLE_SHOP',
-                ),
-                'ROLE_SUPER_ADMIN' => array(
-                    0 => 'ROLE_ADMIN',
-                    1 => 'ROLE_ALLOWED_TO_SWITCH',
-                ),
+
             ),
             'security.access.denied_url' => NULL,
             'security.authentication.manager.erase_credentials' => true,

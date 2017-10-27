@@ -6,6 +6,8 @@ var url="http://tools.cadeau-maestro.com/";
 var compt=1; //compteur sur le nombre de click qui va permettre de savoir la profondeur des branches
 var compt_guide = 1 ; //compteur pour déterminer quand faire apparaitre le contenu
 var compt_phone = 1 ; //compteur pour déterminer quand faire apparaitre le contenu
+var compt_attachment = 1 ; //compteur pour déterminer quand faire apparaitre le contenu
+
 
 //va chercher les branch sans parents et les passe en parametre de la fonction display
 $.getJSON( url+"branche_parent",function(data){
@@ -43,6 +45,23 @@ $.ajax({
         });
         $elem_phone += "</ol></div>";
         $("#phone").html($elem_phone).hide();
+    }
+});
+
+//////////requête ajax pour le contenu des pièces jointes////////
+$elem_attachment = "<br><div class=\"alert alert-warning\" role=\"alert\"><ol>";
+$.ajax({
+
+    url: Routing.generate('attachment_show_json'),
+
+    success: function (result) {
+        $.each(result, function (key, val) {
+            $elem_attachment += "<li>";
+            $elem_attachment += "<a href=\" " + val['path'] + "\">" +  val['name'] + "</a>";
+            $elem_attachment += "</li>";
+        });
+        $elem_attachment += "</ol></div>";
+        $("#attachment").html($elem_attachment).hide();
     }
 });
 
@@ -297,5 +316,13 @@ function DisplayPhone(){
     }
 }
 
-
+function DisplayAttachment(){
+    compt_attachment++;
+    if(compt_attachment % 2 == 0) {
+        $("#attachment").show();
+    }
+    else {
+        $("#attachment").hide();
+    }
+}
 

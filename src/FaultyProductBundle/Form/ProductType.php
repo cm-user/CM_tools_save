@@ -55,6 +55,13 @@ class ProductType extends AbstractType
             ->add('costPrice', TextType::class, [
                 'label' => 'Prix d\'achat',
             ])
+            ->add('shipping', TextType::class, [
+                'attr' => array(                  
+                    'value' => '0',
+                ),
+                'label' => 'Frais de port',
+                'required'   => false,
+            ])
             ->add('supplier', SupplierType::class, [
                 'label' => 'Fournisseur'
             ])
