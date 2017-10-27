@@ -2,41 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0613f4fc-9ffa-402d-9ce0-ab5c77af2e35" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/config/security.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/CM/ServiceClientBundle/Controller/AttachmentController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/CM/ServiceClientBundle/Entity/Attachment.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/CM/ServiceClientBundle/Form/AttachmentType.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/CM/ServiceClientBundle/Repository/AttachmentRepository.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/CM/ServiceClientBundle/Resources/views/attachment/edit.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/CM/ServiceClientBundle/Resources/views/attachment/index.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/CM/ServiceClientBundle/Resources/views/attachment/new.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/CM/ServiceClientBundle/Resources/views/attachment/show.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/FaultyProductBundle/Resources/public/js/faulty_delete.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/FaultyProductBundle/Resources/views/config/delete.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/config_prod.yml" afterPath="$PROJECT_DIR$/app/config/config_prod.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CM/ServiceClientBundle/EventListener/ConfigureMenuListener.php" afterPath="$PROJECT_DIR$/src/CM/ServiceClientBundle/EventListener/ConfigureMenuListener.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CM/ServiceClientBundle/Resources/config/services.yml" afterPath="$PROJECT_DIR$/src/CM/ServiceClientBundle/Resources/config/services.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CM/ServiceClientBundle/Resources/public/js/arbre.js" afterPath="$PROJECT_DIR$/src/CM/ServiceClientBundle/Resources/public/js/arbre.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CM/ServiceClientBundle/Resources/views/service/index.html.twig" afterPath="$PROJECT_DIR$/src/CM/ServiceClientBundle/Resources/views/service/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FaultyProductBundle/Controller/FaultyConfigurationController.php" afterPath="$PROJECT_DIR$/src/FaultyProductBundle/Controller/FaultyConfigurationController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FaultyProductBundle/Controller/FaultyController.php" afterPath="$PROJECT_DIR$/src/FaultyProductBundle/Controller/FaultyController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FaultyProductBundle/Controller/SupplierController.php" afterPath="$PROJECT_DIR$/src/FaultyProductBundle/Controller/SupplierController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FaultyProductBundle/Entity/Product.php" afterPath="$PROJECT_DIR$/src/FaultyProductBundle/Entity/Product.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FaultyProductBundle/Form/ProductType.php" afterPath="$PROJECT_DIR$/src/FaultyProductBundle/Form/ProductType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FaultyProductBundle/Repository/FaultyRepository.php" afterPath="$PROJECT_DIR$/src/FaultyProductBundle/Repository/FaultyRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FaultyProductBundle/Repository/ProductRepository.php" afterPath="$PROJECT_DIR$/src/FaultyProductBundle/Repository/ProductRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FaultyProductBundle/Repository/SupplierRepository.php" afterPath="$PROJECT_DIR$/src/FaultyProductBundle/Repository/SupplierRepository.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FaultyProductBundle/Resources/public/js/piece.js" afterPath="$PROJECT_DIR$/src/FaultyProductBundle/Resources/public/js/piece.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FaultyProductBundle/Resources/views/config/index.html.twig" afterPath="$PROJECT_DIR$/src/FaultyProductBundle/Resources/views/config/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FaultyProductBundle/Resources/views/faulty/show.html.twig" afterPath="$PROJECT_DIR$/src/FaultyProductBundle/Resources/views/faulty/show.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FaultyProductBundle/Resources/views/faultymail/index.html.twig" afterPath="$PROJECT_DIR$/src/FaultyProductBundle/Resources/views/faultymail/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FaultyProductBundle/Resources/views/supplier/index.html.twig" afterPath="$PROJECT_DIR$/src/FaultyProductBundle/Resources/views/supplier/index.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FaultyProductBundle/Resources/views/supplier/loss.html.twig" afterPath="$PROJECT_DIR$/src/FaultyProductBundle/Resources/views/supplier/loss.html.twig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/dev/appDevDebugProjectContainer.php" afterPath="$PROJECT_DIR$/var/cache/dev/appDevDebugProjectContainer.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/dev/appDevDebugProjectContainer.xml" afterPath="$PROJECT_DIR$/var/cache/dev/appDevDebugProjectContainer.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/dev/appDevDebugProjectContainerCompiler.log" afterPath="$PROJECT_DIR$/var/cache/dev/appDevDebugProjectContainerCompiler.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/logs/dev.log" afterPath="$PROJECT_DIR$/var/logs/dev.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/app.php" afterPath="$PROJECT_DIR$/web/app.php" />
     </list>
     <ignored path="CM_tools_save.iws" />
@@ -101,11 +67,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IQ2iPrestaShopWebService.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vendor/iq2i/prestashop-webservice-bundle/IQ2i/PrestaShopWebServiceBundle/Services/IQ2iPrestaShopWebService.php">
+      <file leaf-file-name="app.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/app.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="527">
+              <caret line="40" column="37" selection-start-line="40" selection-start-column="37" selection-end-line="40" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -134,7 +100,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config_prod.yml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="config_prod.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/config/config_prod.yml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="323">
@@ -227,9 +193,9 @@
         <option value="$PROJECT_DIR$/src/CM/ServiceClientBundle/Resources/views/attachment/new.html.twig" />
         <option value="$PROJECT_DIR$/src/CM/ServiceClientBundle/EventListener/ConfigureMenuListener.php" />
         <option value="$PROJECT_DIR$/src/CM/ServiceClientBundle/Resources/config/services.yml" />
-        <option value="$PROJECT_DIR$/web/app.php" />
         <option value="$PROJECT_DIR$/app/config/config_prod.yml" />
         <option value="$PROJECT_DIR$/src/CM/ServiceClientBundle/Controller/AttachmentController.php" />
+        <option value="$PROJECT_DIR$/web/app.php" />
       </list>
     </option>
   </component>
@@ -984,16 +950,16 @@
       <workItem from="1508829258663" duration="27019000" />
       <workItem from="1508916722358" duration="20674000" />
       <workItem from="1509005457721" duration="9824000" />
-      <workItem from="1509089906695" duration="9495000" />
+      <workItem from="1509089906695" duration="10671000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="304377000" />
+    <option name="totallyTimeSpent" value="305553000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19296375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1308,14 +1274,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/app.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="40" column="38" selection-start-line="40" selection-start-column="38" selection-end-line="40" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/CM/ServiceClientBundle/Resources/views/attachment/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1465,6 +1423,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="72" selection-start-line="19" selection-start-column="72" selection-end-line="19" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/app.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="40" column="37" selection-start-line="40" selection-start-column="37" selection-end-line="40" selection-end-column="37" />
           <folding />
         </state>
       </provider>
